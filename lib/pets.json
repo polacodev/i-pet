@@ -1,0 +1,57 @@
+[
+  {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "petName": "Bella",
+      "petType": "Dog",
+      "petAge": 3,
+      "petBreed": "Golden Retriever",
+      "petGender": "Female",
+      "petMedicalCondition": "Hip Dysplasia",
+      "ownerName": "John Smith",
+      "ownerPhone": "60717546"
+  },
+  {
+      "id": "550e8400-e29b-41d4-a716-446655440001",
+      "petName": "Max",
+      "petType": "Dog",
+      "petAge": 2,
+      "petBreed": "Bulldog",
+      "petGender": "Male",
+      "petMedicalCondition": "Allergies",
+      "ownerName": "Emily Johnson",
+      "ownerPhone": "098-765-4321"
+  },
+  {
+      "id": "550e8400-e29b-41d4-a716-446655440002",
+      "petName": "Luna",
+      "petType": "Cat",
+      "petAge": 1,
+      "petBreed": "Siamese",
+      "petGender": "Female",
+      "petMedicalCondition": "Asthma",
+      "ownerName": "Michael Brown",
+      "ownerPhone": "234-567-8901"
+  },
+  {
+      "id": "550e8400-e29b-41d4-a716-446655440003",
+      "petName": "Charlie",
+      "petType": "Dog",
+      "petAge": 5,
+      "petBreed": "Labrador",
+      "petGender": "Male",
+      "petMedicalCondition": "Arthritis",
+      "ownerName": "Jessica Davis",
+      "ownerPhone": "345-678-9012"
+  },
+  {
+      "id": "550e8400-e29b-41d4-a716-446655440004",
+      "petName": "Daisy",
+      "petType": "Dog",
+      "petAge": 4,
+      "petBreed": "Beagle",
+      "petGender": "Female",
+      "petMedicalCondition": "Diabetes",
+      "ownerName": "David Wilson",
+      "ownerPhone": "456-789-0123"
+  }
+]

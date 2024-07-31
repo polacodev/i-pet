@@ -1,5 +1,4 @@
 import { Text, type TextProps, StyleSheet } from 'react-native';
-
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 export type PetTextProps = TextProps & {
@@ -8,13 +7,13 @@ export type PetTextProps = TextProps & {
   type?: 'default' | 'smallText';
 };
 
-export function PetText({
+export const PetText = ({
   style,
   lightColor,
   darkColor,
   type = 'default',
   ...rest
-}: PetTextProps) {
+}: PetTextProps) => {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
 
   return (

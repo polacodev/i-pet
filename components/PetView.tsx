@@ -7,7 +7,7 @@ export type PetViewProps = ViewProps & {
   darkColor?: string;
 };
 
-export function PetView({ style, lightColor, darkColor, ...otherProps }: PetViewProps) {
+export const PetView = ({ style, lightColor, darkColor, ...otherProps }: PetViewProps) => {
   const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
 
   return <View style={[{ backgroundColor }, style]} {...otherProps} />;

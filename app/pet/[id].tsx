@@ -1,6 +1,5 @@
-import { View, Text } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { Link, useLocalSearchParams } from 'expo-router'
+import { useLocalSearchParams } from 'expo-router'
 import PetCard from './petCard'
 import { getPets } from '@/lib/api'
 

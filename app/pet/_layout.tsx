@@ -1,7 +1,6 @@
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { PetView } from '@/components/PetView';
 import { Slot } from 'expo-router';
-import { Text } from 'react-native';
 
 export default function Page() {
   const insets = useSafeAreaInsets();

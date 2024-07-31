@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import { CameraView, Camera } from 'expo-camera';
-import { SimpleLineIcons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { PetTitle } from '@/components/PetTitle'
+import { extractPetIdFromUrl } from '@/utilities/utilities';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 const petQr = () => {
   const [hasPermission, setHasPermission] = useState(null);
@@ -21,7 +22,10 @@ const petQr = () => {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    const petIdPath = extractPetIdFromUrl(data)
+    console.log("type=>", type)
+    console.log("data=>", data)
+    router.push(`${petIdPath}`)
   };
 
   if (hasPermission === null) {
@@ -52,9 +56,7 @@ const petQr = () => {
       >
       </View>
       <View style={{ paddingTop: 80 }}>
-        {/* <TouchableOpacity onPress={closeIPetCamera} style={{backgroundColor: '#292524', borderRadius: 9999 }}> */}
-          <SimpleLineIcons name="close" size={50} color="#fff" backgroundColor='#292524' borderRadius={10}  onPress={closeIPetCamera} />
-        {/* </TouchableOpacity> */}
+        <FontAwesome name="close" size={30} color="#ffffff" onPress={closeIPetCamera} />
       </View>
     </View>
   )

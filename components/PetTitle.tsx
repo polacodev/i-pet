@@ -1,20 +1,19 @@
 import { Text, type TextProps, StyleSheet } from 'react-native';
-
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 export type PetTitleProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: 'default' | 'subtitle';
+  type?: 'default' | 'subtitle' | 'link';
 };
 
-export function PetTitle({
+export const PetTitle = ({
   style,
   lightColor,
   darkColor,
   type = 'default',
   ...rest
-}: PetTitleProps) {
+}: PetTitleProps) => {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'title');
 
   return (
@@ -23,6 +22,7 @@ export function PetTitle({
         { color },
         type === 'default' ? styles.default : undefined,
         type === 'subtitle' ? styles.subtitle : undefined,
+        type === 'link' ? styles.link : undefined,
         style,
       ]}
       {...rest}
@@ -39,5 +39,10 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 20,
     fontWeight: 'bold',
+  },
+  link: {
+    lineHeight: 30,
+    fontSize: 16,
+    color: '#0a7ea4',
   },
 });

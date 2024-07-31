@@ -1,20 +1,21 @@
 import React from 'react'
-import { View, Text, Image, TouchableOpacity, Linking, useColorScheme } from 'react-native'
+import { View, Image, Linking, useColorScheme } from 'react-native'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { FontAwesome } from '@expo/vector-icons';
 import { PetTitle } from '@/components/PetTitle'
 import { PetText } from '@/components/PetText';
 import { Colors } from '@/constants/Colors';
 import { router } from 'expo-router';
+// import QRCode from 'react-native-qrcode-svg';
 
 import { Pet } from './[id]';
+import { PetButton } from '@/components/PetButton';
 
 type PetDetailsProps = {
   pet: Pet | undefined;
 };
 
 const PetCard: React.FC<PetDetailsProps> = ({ pet }) => {
-  const theme = useColorScheme() ?? 'light';
+  // const petUrl = `exp://192.168.100.19:8081/pet/${pet?.id}`
 
   const callWhatsappOwner = () => {
     Linking.openURL(`http://api.whatsapp.com/send?phone=591${pet?.ownerPhone}`)
@@ -24,10 +25,14 @@ const PetCard: React.FC<PetDetailsProps> = ({ pet }) => {
     router.push("/pet/petQr")
   }
 
+  const goToHome = () => {
+    router.push("/")
+  }
+
   return (
     <View style={{ alignItems: 'center', justifyContent: 'center', paddingTop: 16 }}>
       {/* HEADER */}
-      <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+      {/* <View style={{ alignItems: 'center', justifyContent: 'center' }}>
         <View style={{ flexDirection: 'row', gap: 8 }}>
           <View>
             <PetTitle type='default'>iPet</PetTitle>
@@ -36,7 +41,7 @@ const PetCard: React.FC<PetDetailsProps> = ({ pet }) => {
             <MaterialIcons name="pets" size={24} color={theme === 'light' ? Colors.light.icon : Colors.dark.icon} />
           </View>
         </View>
-      </View>
+      </View> */}
       {/* BODY */}
       <View style={{ flex: 1 }}>
         <View style={{ paddingTop: 16, gap: 8, width: 400 }}>
@@ -52,8 +57,10 @@ const PetCard: React.FC<PetDetailsProps> = ({ pet }) => {
           <View style={{ alignItems: 'center', paddingTop: 8 }}>
             <PetTitle type='subtitle'>Pet Details</PetTitle>
           </View>
-          <View style={{ alignItems: 'center', paddingTop: 8 }}>
+          <View style={{ alignItems: 'center' }}>
             <PetText type='default'>Name: {pet?.petName}</PetText>
+            <PetText type='default'>Type: {pet?.petType}</PetText>
+            <PetText type='default'>Gender: {pet?.petGender}</PetText>
             <PetText type='default'>Breed: {pet?.petBreed}</PetText>
             <PetText type='default'>Age: {pet?.petAge} years</PetText>
             <PetText type='default'>Medical Conditions: {pet?.petMedicalCondition}</PetText>
@@ -71,26 +78,17 @@ const PetCard: React.FC<PetDetailsProps> = ({ pet }) => {
             <PetText type='default'>Phone: {pet?.ownerPhone}</PetText>
           </View>
         </View>
-        <View style={{ alignItems: 'center', margin: 8 }}>
-          <TouchableOpacity onPress={callWhatsappOwner}
-            style={{ padding: 8, backgroundColor: '#075E54', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, width: '60%', borderRadius: 8 }}
-          >
-            <FontAwesome name="whatsapp" size={30} color="#ffffff" />
-            <Text style={{ color: "#ffffff" }}>Chat Owner</Text>
-          </TouchableOpacity>
+        <View style={{ alignItems: 'center' }}>
+          <PetButton goToQrPet={callWhatsappOwner} iconName='whatsapp' color='#075E54' buttonName="Chat Owner" />
         </View>
-        <View style={{ alignItems: 'center', margin: 8 }} >
-          <TouchableOpacity onPress={goToQRPet}
-            style={{ padding: 8, backgroundColor: '#0e7490', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, width: '60%', borderRadius: 8 }}
-          >
-            <FontAwesome name="camera" size={30} color="#ffffff" />
-            <Text style={{ color: "#ffffff" }}>Scan New QR</Text>
-          </TouchableOpacity>
+        <View style={{ alignItems: 'center' }} >
+          <PetButton goToQrPet={goToQRPet} iconName='camera' buttonName="Scan New QR Code" />
         </View>
+
         {/* FOOTER */}
         <View style={{ alignItems: 'center', paddingTop: 15 }}>
-          <PetText type='smallText' style={{ color: theme === 'light' ? Colors.light.smallText : Colors.dark.smallText }}>Your Pet is part of your family.</PetText>
-          <PetText type='smallText' style={{ color: theme === 'light' ? Colors.light.smallText : Colors.dark.smallText }}>😻Take care of them!🐾</PetText>
+          <PetTitle onPress={goToHome} type='link' >Go Home</PetTitle>
+          {/* <QRCode value={petUrl} /> */}
         </View>
       </View>
     </View>

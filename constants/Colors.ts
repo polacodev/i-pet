@@ -7,14 +7,14 @@ export const Colors = {
   light: {
     title: '#155e75',
     text: '#11181C',
-    background: '#ecfeff',
+    background: '#f6f6f6',
     icon: '#164e63',
     smallText: '#6b7280',
   },
   dark: {
     title: '#67e8f9',
-    text: '#ECEDEE',
-    background: '#083344',
+    text: '#ecedee',
+    background: '#121212',
     icon: '#67e8f9',
     smallText: '#9ca3af',
   },

@@ -3,9 +3,10 @@ import { FontAwesome } from '@expo/vector-icons';
 import { type ImageProps } from 'react-native';
 
 type PetIconProps = ImageProps & {
-  name?: "question" | "heart" | "star" | "camera" | "whatsapp",
+  name?: "question" | "heart" | "star" | "camera" | "whatsapp" | "close",
   color?: string
   size?: number
+  onPress?: () => void
 }
 
 export const PetIcon: React.FC<PetIconProps> = ({
@@ -13,9 +14,10 @@ export const PetIcon: React.FC<PetIconProps> = ({
   name = "question",
   color = "#ffffff",
   size = 30,
+  onPress,
   ...rest
 }) => {
   return (
-    <FontAwesome name={name} size={size} color={color} style={[style]} {...rest} />
+    <FontAwesome name={name} size={size} color={color} style={[style]} onPress={onPress} {...rest} />
   )
 }

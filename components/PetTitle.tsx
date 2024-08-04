@@ -4,7 +4,7 @@ import { useThemeColor } from '@/hooks/useThemeColor';
 export type PetTitleProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: 'default' | 'subtitle' | 'link';
+  type?: 'default' | 'title' | 'subtitle' | 'link';
 };
 
 export const PetTitle = ({
@@ -21,6 +21,7 @@ export const PetTitle = ({
       style={[
         { color },
         type === 'default' ? styles.default : undefined,
+        type === 'title' ? styles.title : undefined,
         type === 'subtitle' ? styles.subtitle : undefined,
         type === 'link' ? styles.link : undefined,
         style,
@@ -32,13 +33,19 @@ export const PetTitle = ({
 
 const styles = StyleSheet.create({
   default: {
-    fontSize: 32,
+    fontSize: 24, //text-2xl
+    fontWeight: '700',
+    lineHeight: 26,
+  },
+  title: {
+    fontSize: 20, //text-xl
     fontWeight: 'bold',
-    lineHeight: 32,
+    lineHeight: 28,
   },
   subtitle: {
-    fontSize: 20,
+    fontSize: 18, //text-lg
     fontWeight: 'bold',
+    lineHeight: 28
   },
   link: {
     lineHeight: 30,

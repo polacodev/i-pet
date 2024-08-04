@@ -1,44 +1,36 @@
-import React from 'react'
-import { useState, useEffect } from "react";
-import { Text, View, StyleSheet } from "react-native";
-import { CameraView, Camera } from 'expo-camera';
+import React, { useState } from 'react'
+import { View, StyleSheet, Alert } from "react-native";
+import { CameraView, BarcodeScanningResult } from 'expo-camera';
 import { router } from 'expo-router';
+import { PetIcon } from '@/components/PetIcon';
 import { PetTitle } from '@/components/PetTitle'
-import { extractPetIdFromUrl } from '@/utilities/utilities';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { extractPathFromUrl, isValidPath } from '@/utilities/utilities';
 
 const petQr = () => {
-  const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
-  useEffect(() => {
-    const getCameraPermissions = async () => {
-      const { status } = await Camera.requestCameraPermissionsAsync();
-      setHasPermission(status === "granted");
-    };
-
-    getCameraPermissions();
-  }, []);
-
-  const handleBarCodeScanned = ({ type, data }) => {
+  const handleBarCodeScanned = (scanningResult: BarcodeScanningResult) => {
     setScanned(true);
-    const petIdPath = extractPetIdFromUrl(data)
-    console.log("type=>", type)
-    console.log("data=>", data)
-    router.push(`${petIdPath}`)
+
+    const path = extractPathFromUrl(scanningResult.data);
+
+    if (path && isValidPath(path)) {
+      router.navigate(path);
+    } else {
+      Alert.alert('Invalid QR Code', 'please try again', [
+        {
+          text: 'Dismiss',
+          onPress: () => { setScanned(false) },
+          style: 'cancel',
+        }]);
+      router.back();
+    }
   };
-
-  if (hasPermission === null) {
-    return <View><Text>Requesting for camera permission</Text></View>;
-  }
-
-  if (hasPermission === false) {
-    return <View><Text>No access to camera</Text></View>;
-  }
 
   const closeIPetCamera = () => {
     router.back()
   }
+
   return (
     <View
       style={{ flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%' }}
@@ -56,7 +48,7 @@ const petQr = () => {
       >
       </View>
       <View style={{ paddingTop: 80 }}>
-        <FontAwesome name="close" size={30} color="#ffffff" onPress={closeIPetCamera} />
+        <PetIcon name='close' onPress={closeIPetCamera} />
       </View>
     </View>
   )

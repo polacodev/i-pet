@@ -14,7 +14,7 @@ type PetDetailsProps = {
 };
 
 const PetCard: React.FC<PetDetailsProps> = ({ pet }) => {
-  // const petUrl = `exp://192.168.100.19:8081/pet/${pet?.id}`
+  const iPetUrl = `${process.env.EXPO_PUBLIC_API_URL}/pet/${pet?.id}`
 
   const callWhatsappOwner = () => {
     Linking.openURL(`http://api.whatsapp.com/send?phone=591${pet?.ownerPhone}`)

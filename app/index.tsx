@@ -10,6 +10,8 @@ import { PetIcon } from '@/components/PetIcon';
 import { PetTitle } from '@/components/PetTitle';
 import { PetButton } from '@/components/PetButton';
 
+import { localization } from '@/localizations/localization';
+
 export default function Page() {
 
   const insets = useSafeAreaInsets();
@@ -37,17 +39,17 @@ export default function Page() {
         <PetView style={{ backgroundColor: '#0891b2', borderTopEndRadius: 50, borderBottomStartRadius: 50 }}>
           <PetHome />
         </PetView>
-        <PetTitle type='default' style={{ marginTop: 8 }}>Scan a
-          <PetTitle style={{ color: theme === 'light' ? 'rgb(34 211 238)' : '#fff' }}> QR Code </PetTitle>to</PetTitle>
-        <PetTitle type='default' style={{ marginBottom: 8 }}>learn about your pet!</PetTitle>
-        <PetButton goToQrPet={requestCameraPermission} iconName='camera' buttonName="Scan QR Code" />
-        <PetText type='smallText' style={{ color: colorText }}>Your Pet is part of your family.</PetText>
+        <PetTitle type='default' style={{ marginTop: 8 }}>{localization.t("welcome_line1")}
+          <PetTitle style={{ color: theme === 'light' ? 'rgb(34 211 238)' : '#fff' }}> {localization.t("welcome_line2")} </PetTitle>{localization.t("welcome_line3")}</PetTitle>
+        <PetTitle type='default' style={{ marginBottom: 8 }}>{localization.t('welcome_line4')}</PetTitle>
+        <PetButton goToQrPet={requestCameraPermission} iconName='camera' buttonName={localization.t("welcome_button")} />
+        <PetText type='smallText' style={{ color: colorText }}>{localization.t("welcome_advice_line1")}</PetText>
         <PetText type='smallText' style={{ color: colorText }}>
           <PetIcon name='star' size={15} color='#eab308' />
-          Take care of them!
+          {localization.t("welcome_advice_line2")}
           <PetIcon name='heart' size={15} color='#ef4444' />
         </PetText>
-        <PetTitle type='link' style={{ textDecorationLine: 'underline' }}>Register Pet</PetTitle>
+        <PetTitle type='link' style={{ textDecorationLine: 'underline' }}>{localization.t("welcome_register_pet")}</PetTitle>
         {/* <Link href="/pet/550e8400-e29b-41d4-a716-446655440000">Go to pet 446655440000</Link>
         <Link href="/pet/550e8400-e29b-41d4-a716-446655440001">Go to pet 446655440001</Link>
         <Link href="/pet/550e8400-e29b-41d4-a716-446655440002">Go to pet 446655440002</Link>

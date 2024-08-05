@@ -1,0 +1,24 @@
+{
+  "welcome_line1": "Scan a",
+  "welcome_line2": "QR Code",
+  "welcome_line3": "to",
+  "welcome_line4": "learn about your pet!",
+  "welcome_button": "Scan QR Code",
+  "welcome_advice_line1": "Your Pet is part of your family",
+  "welcome_advice_line2": "Take care of it!",
+  "welcome_register_pet": "Register Pet",
+
+  "info_pet_details": "Pet Details",
+  "info_pet_name": "Name",
+  "info_pet_type": "Type",
+  "info_pet_gender": "Gender",
+  "info_pet_breed": "Breed",
+  "info_pet_age": "Age",
+  "info_pet_medical_condition": "Medical Condition",
+  "info_owner_contact": "Owner's Contact Info",
+  "info_owner_name": "Name",
+  "info_owner_phone": "Cell Phone",
+  "info_button_owner_whatsapp": "Chat Owner",
+  "info_button_new_qr": "Scan New QR Code",
+  "info_back_to_home": "Back to Home"
+}

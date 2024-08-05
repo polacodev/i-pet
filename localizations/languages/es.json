@@ -1,0 +1,24 @@
+{
+  "welcome_line1": "Scanea un",
+  "welcome_line2": "Codigo QR",
+  "welcome_line3": "para",
+  "welcome_line4": "saber mas sobre tu mascota!",
+  "welcome_button": "Scanear Codigo QR",
+  "welcome_advice_line1": "Tu Mascota es parte de tu familia",
+  "welcome_advice_line2": "Cuidalo!",
+  "welcome_register_pet": "Registrar Mascota",
+
+  "info_pet_details": "Detalles Mascota",
+  "info_pet_name": "Nombre",
+  "info_pet_type": "Tipo",
+  "info_pet_gender": "Genero",
+  "info_pet_breed": "Raza",
+  "info_pet_age": "Edad",
+  "info_pet_medical_condition": "Condicion Medica",
+  "info_owner_contact": "Contacto del Propetario",
+  "info_owner_name": "Nombre",
+  "info_owner_phone": "Telefono Celular",
+  "info_button_owner_whatsapp": "Chatear al Propietario",
+  "info_button_new_qr": "Scanear Nuevo Codigo QR",
+  "info_back_to_home": "Volver a Inicio"
+}

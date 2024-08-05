@@ -9,6 +9,8 @@ import { Pet } from './[id]';
 import { PetButton } from '@/components/PetButton';
 import { PetView } from '@/components/PetView';
 
+import { localization } from '@/localizations/localization';
+
 type PetDetailsProps = {
   pet: Pet | undefined;
 };
@@ -43,25 +45,25 @@ const PetCard: React.FC<PetDetailsProps> = ({ pet }) => {
         </PetView>
 
         {/** PET DETAIL */}
-        <PetTitle type='subtitle' style={{ paddingTop: 8 }}>Pet Details</PetTitle>
-        <PetText type='default'>Name: {pet?.petName}</PetText>
-        <PetText type='default'>Type: {pet?.petType}</PetText>
-        <PetText type='default'>Gender: {pet?.petGender}</PetText>
-        <PetText type='default'>Breed: {pet?.petBreed}</PetText>
-        <PetText type='default'>Age: {pet?.petAge} years</PetText>
-        <PetText type='default'>Medical Conditions: {pet?.petMedicalCondition}</PetText>
+        <PetTitle type='subtitle' style={{ paddingTop: 8 }}>{localization.t("info_pet_details")}</PetTitle>
+        <PetText type='default'>{localization.t("info_pet_name")}: {pet?.petName}</PetText>
+        <PetText type='default'>{localization.t("info_pet_type")} {pet?.petType}</PetText>
+        <PetText type='default'>{localization.t("info_pet_gender")}: {pet?.petGender}</PetText>
+        <PetText type='default'>{localization.t("info_pet_breed")}: {pet?.petBreed}</PetText>
+        <PetText type='default'>{localization.t("info_pet_age")}: {pet?.petAge} years</PetText>
+        <PetText type='default'>{localization.t("info_pet_medical_condition")}: {pet?.petMedicalCondition}</PetText>
 
         {/** OWNER INFO */}
-        <PetTitle type='subtitle' style={{ paddingTop: 8 }}>Owner's Contact Info</PetTitle>
-        <PetText type='default'>Name: {pet?.ownerName}</PetText>
-        <PetText type='default'>Phone: {pet?.ownerPhone}</PetText>
+        <PetTitle type='subtitle' style={{ paddingTop: 8 }}>{localization.t("info_owner_contact")}</PetTitle>
+        <PetText type='default'>{localization.t("info_owner_name")}: {pet?.ownerName}</PetText>
+        <PetText type='default'>{localization.t("info_owner_phone")}: {pet?.ownerPhone}</PetText>
 
         {/** BUTTONS */}
-        <PetButton goToQrPet={callWhatsappOwner} iconName='whatsapp' color='#075E54' buttonName="Chat Owner" />
-        <PetButton goToQrPet={goToQRPet} iconName='camera' buttonName="Scan New QR Code" />
+        <PetButton goToQrPet={callWhatsappOwner} iconName='whatsapp' color='#075E54' buttonName={localization.t("info_button_owner_whatsapp")} />
+        <PetButton goToQrPet={goToQRPet} iconName='camera' buttonName={localization.t("info_button_new_qr")} />
 
         {/** FOOTER */}
-        <PetTitle type='link' onPress={goToHome} style={{ textDecorationLine: 'underline' }}>Back to Home</PetTitle>
+        <PetTitle type='link' onPress={goToHome} style={{ textDecorationLine: 'underline' }}>{localization.t("info_back_to_home")}</PetTitle>
         {/* <QRCode value={petUrl} /> */}
       </PetView>
     </PetView>

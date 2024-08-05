@@ -62,8 +62,8 @@ const PetCard: React.FC<PetDetailsProps> = ({ pet }) => {
         <PetText type='default'>{localization.t("info_owner_phone")}: {pet?.ownerPhone}</PetText>
 
         {/** BUTTONS */}
-        <PetButton goToQrPet={callWhatsappOwner} iconName='whatsapp' color='#075E54' buttonName={localization.t("info_button_owner_whatsapp")} />
-        <PetButton goToQrPet={goToQRPet} iconName='camera' buttonName={localization.t("info_button_new_qr")} />
+        <PetButton onPress={callWhatsappOwner} iconName='whatsapp' color='#075E54' buttonName={localization.t("info_button_owner_whatsapp")} />
+        <PetButton onPress={goToQRPet} iconName='camera' buttonName={localization.t("info_button_new_qr")} />
 
         {/** FOOTER */}
         <PetTitle type='link' onPress={goToHome} style={{ textDecorationLine: 'underline' }}>{localization.t("info_back_to_home")}</PetTitle>

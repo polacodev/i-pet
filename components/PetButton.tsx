@@ -4,20 +4,20 @@ import { PetText } from './PetText';
 import { PetIcon } from './PetIcon';
 
 type PetButtonProps = {
-  goToQrPet: () => void
-  iconName: "heart" | "star" | "camera" | "whatsapp",
+  onPress: () => void
+  iconName: "heart" | "star" | "camera" | "whatsapp" | "save",
   buttonName: string,
   color?: '#0e7490' | '#075E54'
 };
 
 export const PetButton: React.FC<PetButtonProps> = ({
-  goToQrPet,
+  onPress,
   iconName,
   buttonName,
   color = '#0e7490',
 }) => {
   return (
-    <TouchableOpacity onPress={goToQrPet} style={{
+    <TouchableOpacity onPress={onPress} style={{
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',

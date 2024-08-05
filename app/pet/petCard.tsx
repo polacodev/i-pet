@@ -11,15 +11,18 @@ import { PetView } from '@/components/PetView';
 
 import { localization } from '@/localizations/localization';
 
+const expoApiUrl = process.env.EXPO_PUBLIC_API_URL;
+const whatsappApiUrl = process.env.EXPO_PUBLIC_WHATSAPP_API_URL;
+
 type PetDetailsProps = {
   pet: Pet | undefined;
 };
 
 const PetCard: React.FC<PetDetailsProps> = ({ pet }) => {
-  const iPetUrl = `${process.env.EXPO_PUBLIC_API_URL}/pet/${pet?.id}`
+  const iPetUrl = `${expoApiUrl}/pet/${pet?.id}`
 
   const callWhatsappOwner = () => {
-    Linking.openURL(`http://api.whatsapp.com/send?phone=591${pet?.ownerPhone}`)
+    Linking.openURL(`${whatsappApiUrl}/591${pet?.ownerPhone}`)
   }
 
   const goToQRPet = () => {

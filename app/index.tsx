@@ -33,6 +33,10 @@ export default function Page() {
     }
   }
 
+  const gotToPetRegister = () => {
+    router.navigate("/pet/register")
+  }
+
   return (
     <PetView style={{ paddingTop: insets.top, paddingBottom: insets.bottom, flex: 1 }}>
       <PetView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} >
@@ -42,14 +46,14 @@ export default function Page() {
         <PetTitle type='default' style={{ marginTop: 8 }}>{localization.t("welcome_line1")}
           <PetTitle style={{ color: theme === 'light' ? 'rgb(34 211 238)' : '#fff' }}> {localization.t("welcome_line2")} </PetTitle>{localization.t("welcome_line3")}</PetTitle>
         <PetTitle type='default' style={{ marginBottom: 8 }}>{localization.t('welcome_line4')}</PetTitle>
-        <PetButton goToQrPet={requestCameraPermission} iconName='camera' buttonName={localization.t("welcome_button")} />
+        <PetButton onPress={requestCameraPermission} iconName='camera' buttonName={localization.t("welcome_button")} />
         <PetText type='smallText' style={{ color: colorText }}>{localization.t("welcome_advice_line1")}</PetText>
         <PetText type='smallText' style={{ color: colorText }}>
           <PetIcon name='star' size={15} color='#eab308' />
           {localization.t("welcome_advice_line2")}
           <PetIcon name='heart' size={15} color='#ef4444' />
         </PetText>
-        <PetTitle type='link' style={{ textDecorationLine: 'underline' }}>{localization.t("welcome_register_pet")}</PetTitle>
+        <PetTitle type='link' onPress={gotToPetRegister} style={{ textDecorationLine: 'underline' }}>{localization.t("welcome_register_pet")}</PetTitle>
         {/* <Link href="/pet/550e8400-e29b-41d4-a716-446655440000">Go to pet 446655440000</Link>
         <Link href="/pet/550e8400-e29b-41d4-a716-446655440001">Go to pet 446655440001</Link>
         <Link href="/pet/550e8400-e29b-41d4-a716-446655440002">Go to pet 446655440002</Link>

@@ -8,6 +8,7 @@ import { PetText } from '@/components/PetText'
 import { PetTitle } from '@/components/PetTitle'
 import { PetButton } from '@/components/PetButton'
 import { PetTextInput } from '@/components/PetTextInput'
+import { localization } from '@/localizations/localization';
 
 type PetFormData = {
   petName: string,
@@ -53,6 +54,7 @@ const PetRegister = () => {
       scrollEnabled={true}
     >
       <PetView style={{ alignItems: 'center', justifyContent: 'center', gap: 5 }}>
+        <PetTitle type='subtitle'>{localization.t("pet_register_title")}</PetTitle>
         <PetTitle type='subtitle' >Pet Details</PetTitle>
         <Controller
           control={control}
@@ -60,7 +62,7 @@ const PetRegister = () => {
           name="petName"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
-              placeholder='Pet name, e.g. coco'
+              placeholder={localization.t("pet_register_pet_name")}
               onChangeText={onChange}
               onBlur={onBlur}
               value={value}
@@ -74,7 +76,7 @@ const PetRegister = () => {
           name="petType"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
-              placeholder='Pet type, e.g. dog'
+              placeholder={localization.t("pet_register_pet_type")}
               onChangeText={onChange}
               onBlur={onBlur}
               value={value}
@@ -88,7 +90,7 @@ const PetRegister = () => {
           name="petGender"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
-              placeholder='Pet gender, e.g. male'
+              placeholder={localization.t("pet_register_pet_gender")}
               onChangeText={onChange}
               onBlur={onBlur}
               value={value}
@@ -102,7 +104,7 @@ const PetRegister = () => {
           name="petBreed"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
-              placeholder='Pet breed, e.g. bulldog'
+              placeholder={localization.t("pet_register_pet_breed")}
               onChangeText={onChange}
               onBlur={onBlur}
               value={value}
@@ -116,7 +118,7 @@ const PetRegister = () => {
           name="petAge"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
-              placeholder='Pet age, e.g. 3 years'
+              placeholder={localization.t("pet_register_pet_age")}
               onChangeText={onChange}
               onBlur={onBlur}
               value={value}
@@ -130,21 +132,21 @@ const PetRegister = () => {
           name="petMedicalCondition"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
-              placeholder='Medical Condition, e.g. Allergy'
+              placeholder={localization.t("pet_register_pet_medical_condition")}
               onChangeText={onChange}
               onBlur={onBlur}
               value={value}
             />
           )}
         />
-        <PetTitle type='subtitle'>Owner's Details</PetTitle>
+        <PetTitle type='subtitle'>{localization.t("pet_register_owner_detail")}</PetTitle>
         <Controller
           control={control}
           rules={{ required: true }}
           name="ownerName"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
-              placeholder="Owner's name"
+              placeholder={localization.t("pet_register_owner_name")}
               onChangeText={onChange}
               onBlur={onBlur}
               value={value}
@@ -158,7 +160,7 @@ const PetRegister = () => {
           name="ownerCellPhone"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
-              placeholder="Owner's cell phone"
+              placeholder={localization.t("pet_register_owner_cell_phone")}
               onChangeText={onChange}
               onBlur={onBlur}
               value={value}
@@ -172,7 +174,7 @@ const PetRegister = () => {
           name="ownerEmail"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
-              placeholder="Owner's email"
+              placeholder={localization.t("pet_register_owner_email")}
               onChangeText={onChange}
               onBlur={onBlur}
               value={value}
@@ -181,8 +183,8 @@ const PetRegister = () => {
         />
         {errors.ownerEmail && <PetText type='smallText' style={{ color: 'red' }}>Owner's Email is required</PetText>}
 
-        <PetButton onPress={handleSubmit(onSubmit)} iconName='save' buttonName='Save' />
-        <PetTitle type='link' onPress={goToHome} style={{ textDecorationLine: 'underline' }}>Back to Home</PetTitle>
+        <PetButton onPress={handleSubmit(onSubmit)} iconName='save' buttonName={localization.t("pet_register_save_button")} />
+        <PetTitle type='link' onPress={goToHome} style={{ textDecorationLine: 'underline' }}>{localization.t("pet_register_back_to_home")}</PetTitle>
 
       </PetView>
     </KeyboardAwareScrollView>

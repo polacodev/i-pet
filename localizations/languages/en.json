@@ -27,5 +27,19 @@
 
   "pet_qr_alert_title": "Invalid QR Code",
   "pet_qr_alert_message": "Please try again!",
-  "pet_qr_alert_dismiss": "Dismiss"
+  "pet_qr_alert_dismiss": "Dismiss",
+
+  "pet_register_title": "Pet Details",
+  "pet_register_pet_name": "Pet name e.g. coquito",
+  "pet_register_pet_type": "Pet type e.g. dog",
+  "pet_register_pet_gender": "Pet type e.g. male",
+  "pet_register_pet_breed": "Pet type e.g. bulldog",
+  "pet_register_pet_age": "Pet type e.g. 3 years",
+  "pet_register_pet_medical_condition": "Medical condition e.g. Allergy",
+  "pet_register_owner_detail": "Owner's Contact Info",
+  "pet_register_owner_name": "Owner's name",
+  "pet_register_owner_cell_phone": "Owner's cell phone",
+  "pet_register_owner_email": "Owner's email",
+  "pet_register_save_button": "Save",
+  "pet_register_back_to_home": "Back to Home"
 }

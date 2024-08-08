@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useColorScheme, StyleSheet, TouchableOpacity, Alert } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useForm, Controller } from "react-hook-form"
-import { StyleSheet } from 'react-native'
+import * as ImagePicker from 'expo-image-picker';
 import { router } from 'expo-router'
 import { PetView } from '@/components/PetView'
 import { PetText } from '@/components/PetText'
 import { PetTitle } from '@/components/PetTitle'
 import { PetButton } from '@/components/PetButton'
 import { PetTextInput } from '@/components/PetTextInput'
+import { PetImageViewer } from '@/components/PetImageViewer'
+
 import { localization } from '@/localizations/localization';
+
+const placeholderImageLight = require('../../assets/images/pet-image-light.png');
+const placeholderImageDark = require('../../assets/images/pet-image-dark.png');
 
 type PetFormData = {
   petName: string,
@@ -40,11 +46,32 @@ const PetRegister = () => {
       ownerEmail: "",
     },
   })
+
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const theme = useColorScheme() ?? 'light';
+  const isDark = theme === 'light' ?
+    <PetImageViewer placeholderImageSource={placeholderImageLight} selectedImage={selectedImage} /> :
+    <PetImageViewer placeholderImageSource={placeholderImageDark} selectedImage={selectedImage} />;
+
   const onSubmit = (data: PetFormData) => console.log(data)
 
   const goToHome = () => {
     router.back()
   }
+
+  const pickImageAsync = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      allowsEditing: true,
+      quality: 1,
+    });
+    console.log("result=>", result)
+
+    if (!result.canceled) {
+      setSelectedImage(result.assets[0].uri);
+    } else {
+      Alert.alert("Error", "You did not select any image.");
+    }
+  };
 
   return (
     <KeyboardAwareScrollView
@@ -55,7 +82,15 @@ const PetRegister = () => {
     >
       <PetView style={{ alignItems: 'center', justifyContent: 'center', gap: 5 }}>
         <PetTitle type='subtitle'>{localization.t("pet_register_title")}</PetTitle>
-        <PetTitle type='subtitle' >Pet Details</PetTitle>
+        {
+          !selectedImage ?
+            <TouchableOpacity onPress={pickImageAsync} style={{ flexDirection: 'column', alignItems: 'center' }}>
+              {isDark}
+            </TouchableOpacity> :
+            <TouchableOpacity onPress={pickImageAsync} style={{ flexDirection: 'column', alignItems: 'center' }}>
+              {isDark}
+            </TouchableOpacity>
+        }
         <Controller
           control={control}
           rules={{ required: true }}

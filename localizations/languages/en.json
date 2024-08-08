@@ -7,6 +7,9 @@
   "welcome_advice_line1": "Your Pet is part of your family",
   "welcome_advice_line2": "Take care of it!",
   "welcome_register_pet": "Register Pet",
+  "welcome_alert_title": "Error",
+  "welcome_alert_message": "Camera Permission is required!",
+  "welcome_alert_dismiss": "Dismiss",
 
   "info_pet_details": "Pet Details",
   "info_pet_name": "Name",
@@ -20,5 +23,9 @@
   "info_owner_phone": "Cell Phone",
   "info_button_owner_whatsapp": "Chat Owner",
   "info_button_new_qr": "Scan New QR Code",
-  "info_back_to_home": "Back to Home"
+  "info_back_to_home": "Back to Home",
+
+  "pet_qr_alert_title": "Invalid QR Code",
+  "pet_qr_alert_message": "Please try again!",
+  "pet_qr_alert_dismiss": "Dismiss"
 }

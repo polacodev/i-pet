@@ -7,6 +7,9 @@
   "welcome_advice_line1": "Tu Mascota es parte de tu familia",
   "welcome_advice_line2": "Cuidalo!",
   "welcome_register_pet": "Registrar Mascota",
+  "welcome_alert_title": "Error",
+  "welcome_alert_message": "¡Permisos de camara necesario!",
+  "welcome_alert_cancel": "Cerrar",
 
   "info_pet_details": "Detalles Mascota",
   "info_pet_name": "Nombre",
@@ -20,5 +23,9 @@
   "info_owner_phone": "Telefono Celular",
   "info_button_owner_whatsapp": "Chatear al Propietario",
   "info_button_new_qr": "Scanear Nuevo Codigo QR",
-  "info_back_to_home": "Volver a Inicio"
+  "info_back_to_home": "Volver a Inicio",
+
+  "pet_qr_alert_title": "Codigo QR Invalido",
+  "pet_qr_alert_message": "Por favor intente de nuevo!",
+  "pet_qr_alert_dismiss": "Cerrar"
 }

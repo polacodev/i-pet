@@ -25,9 +25,9 @@ export default function Page() {
     if (cameraPermissionStatus?.granted) {
       router.push("/pet/petQr")
     } else {
-      Alert.alert('Error', 'Camera Permission is required!', [
+      Alert.alert(localization.t("welcome_alert_title"), localization.t("welcome_alert_message"), [
         {
-          text: 'Dismiss',
+          text: localization.t("welcome_alert_cancel"),
           style: 'cancel',
         }]);
     }

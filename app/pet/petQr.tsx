@@ -6,6 +6,8 @@ import { PetIcon } from '@/components/PetIcon';
 import { PetTitle } from '@/components/PetTitle'
 import { extractPathFromUrl, isValidPath } from '@/utilities/utilities';
 
+import { localization } from '@/localizations/localization';
+
 const petQr = () => {
   const [scanned, setScanned] = useState(false);
 
@@ -17,9 +19,9 @@ const petQr = () => {
     if (path && isValidPath(path)) {
       router.navigate(path);
     } else {
-      Alert.alert('Invalid QR Code', 'please try again', [
+      Alert.alert(localization.t("pet_qr_alert_title"), localization.t("pet_qr_alert_message"), [
         {
-          text: 'Dismiss',
+          text: localization.t("pet_qr_alert_dismiss"),
           onPress: () => { setScanned(false) },
           style: 'cancel',
         }]);

@@ -1,4 +1,5 @@
 import { Text, type TextProps, StyleSheet } from 'react-native';
+
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 export type PetTextProps = TextProps & {
@@ -27,7 +28,7 @@ export const PetText = ({
       {...rest}
     />
   );
-}
+};
 
 const styles = StyleSheet.create({
   default: {

@@ -8,6 +8,7 @@ export const extractPathFromUrl = (data: string) => {
     const url = new URL(data);
     return url.pathname;
   } catch (error) {
+    console.log('Error: ', error);
     return null;
   }
 };

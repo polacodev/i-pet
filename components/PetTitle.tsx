@@ -1,4 +1,5 @@
 import { Text, type TextProps, StyleSheet } from 'react-native';
+
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 export type PetTitleProps = TextProps & {
@@ -29,7 +30,7 @@ export const PetTitle = ({
       {...rest}
     />
   );
-}
+};
 
 const styles = StyleSheet.create({
   default: {
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 18, //text-lg
     fontWeight: 'bold',
-    lineHeight: 28
+    lineHeight: 28,
   },
   link: {
     lineHeight: 30,

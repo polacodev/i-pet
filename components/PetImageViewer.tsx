@@ -4,12 +4,15 @@ import { StyleSheet, Image, ImageSourcePropType } from 'react-native';
 type PetImageViewerProps = {
   placeholderImageSource: ImageSourcePropType;
   selectedImage: string | null;
-}
+};
 
-export const PetImageViewer: React.FC<PetImageViewerProps> = ({ placeholderImageSource, selectedImage }) => {
+export const PetImageViewer: React.FC<PetImageViewerProps> = ({
+  placeholderImageSource,
+  selectedImage,
+}) => {
   const imageSource = selectedImage ? { uri: selectedImage } : placeholderImageSource;
   return <Image source={imageSource} style={styles.image} />;
-}
+};
 
 const styles = StyleSheet.create({
   image: {

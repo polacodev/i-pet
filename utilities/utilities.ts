@@ -19,6 +19,6 @@ export const extractPathFromUrl = (data: string) => {
  * @returns a boolean, true if it is a validPath, false if it is not
  */
 export const isValidPath = (path: string) => {
-  const regex = /^\/pet\/[0-9a-fA-F-]{36}$/;
+  const regex = /^\/details\/[0-9a-fA-F-]{36}$/;
   return regex.test(path);
 };

@@ -6,7 +6,7 @@ import { PetText } from './PetText';
 
 type PetButtonProps = {
   onPress: () => void;
-  iconName: 'heart' | 'star' | 'camera' | 'whatsapp' | 'save';
+  iconName?: 'heart' | 'star' | 'camera' | 'whatsapp' | 'save';
   buttonName: string;
   color?: '#0e7490' | '#075E54';
 };
@@ -31,7 +31,7 @@ export const PetButton: React.FC<PetButtonProps> = ({
         width: '80%',
         margin: 6,
       }}>
-      <PetIcon name={iconName} size={30} color="#ffffff" />
+      {iconName && <PetIcon name={iconName} size={30} color="#ffffff" />}
       <PetText type="default" style={{ color: '#ffffff' }}>
         {buttonName}
       </PetText>

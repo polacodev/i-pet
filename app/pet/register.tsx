@@ -17,15 +17,15 @@ const placeholderImageDark = require('../../assets/images/pet-image-dark.png');
 const placeholderImageLight = require('../../assets/images/pet-image-light.png');
 
 type PetFormData = {
-  petName: string;
-  petType: string;
-  petGender: string;
-  petBreed: string;
-  petAge: string;
-  petMedicalCondition: string;
-  ownerName: string;
-  ownerCellPhone: string;
-  ownerEmail: string;
+  pet_name: string;
+  pet_type: string;
+  pet_gender: string;
+  pet_breed: string;
+  pet_age: string;
+  pet_medical_condition: string;
+  owner_name: string;
+  owner_cell_phone: string;
+  owner_email: string;
 };
 
 const PetRegister = () => {
@@ -35,15 +35,15 @@ const PetRegister = () => {
     formState: { errors },
   } = useForm<PetFormData>({
     defaultValues: {
-      petName: '',
-      petType: '',
-      petGender: '',
-      petBreed: '',
-      petAge: '',
-      petMedicalCondition: '',
-      ownerName: '',
-      ownerCellPhone: '',
-      ownerEmail: '',
+      pet_name: '',
+      pet_type: '',
+      pet_gender: '',
+      pet_breed: '',
+      pet_age: '',
+      pet_medical_condition: '',
+      owner_name: '',
+      owner_cell_phone: '',
+      owner_email: '',
     },
   });
 
@@ -59,7 +59,9 @@ const PetRegister = () => {
       <PetImageViewer placeholderImageSource={placeholderImageDark} selectedImage={selectedImage} />
     );
 
-  const onSubmit = (data: PetFormData) => console.log(data);
+  const onSubmit = async (values: PetFormData) => {
+    console.log("values=>", values);
+  };
 
   const goToHome = () => {
     router.back();
@@ -103,7 +105,7 @@ const PetRegister = () => {
         <Controller
           control={control}
           rules={{ required: true }}
-          name="petName"
+          name="pet_name"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
               placeholder={localization.t('pet_register_pet_name')}
@@ -113,7 +115,7 @@ const PetRegister = () => {
             />
           )}
         />
-        {errors.petName && (
+        {errors.pet_name && (
           <PetText type="smallText" style={{ color: 'red' }}>
             Pet name is required
           </PetText>
@@ -121,7 +123,7 @@ const PetRegister = () => {
         <Controller
           control={control}
           rules={{ required: true }}
-          name="petType"
+          name="pet_type"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
               placeholder={localization.t('pet_register_pet_type')}
@@ -131,7 +133,7 @@ const PetRegister = () => {
             />
           )}
         />
-        {errors.petType && (
+        {errors.pet_type && (
           <PetText type="smallText" style={{ color: 'red' }}>
             Pet type is required
           </PetText>
@@ -139,7 +141,7 @@ const PetRegister = () => {
         <Controller
           control={control}
           rules={{ required: true }}
-          name="petGender"
+          name="pet_gender"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
               placeholder={localization.t('pet_register_pet_gender')}
@@ -149,7 +151,7 @@ const PetRegister = () => {
             />
           )}
         />
-        {errors.petGender && (
+        {errors.pet_gender && (
           <PetText type="smallText" style={{ color: 'red' }}>
             Pet gender is required
           </PetText>
@@ -157,7 +159,7 @@ const PetRegister = () => {
         <Controller
           control={control}
           rules={{ required: true }}
-          name="petBreed"
+          name="pet_breed"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
               placeholder={localization.t('pet_register_pet_breed')}
@@ -167,7 +169,7 @@ const PetRegister = () => {
             />
           )}
         />
-        {errors.petBreed && (
+        {errors.pet_breed && (
           <PetText type="smallText" style={{ color: 'red' }}>
             Pet breed is required
           </PetText>
@@ -175,7 +177,7 @@ const PetRegister = () => {
         <Controller
           control={control}
           rules={{ required: true }}
-          name="petAge"
+          name="pet_age"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
               placeholder={localization.t('pet_register_pet_age')}
@@ -185,7 +187,7 @@ const PetRegister = () => {
             />
           )}
         />
-        {errors.petAge && (
+        {errors.pet_age && (
           <PetText type="smallText" style={{ color: 'red' }}>
             Pet age is required
           </PetText>
@@ -193,7 +195,7 @@ const PetRegister = () => {
         <Controller
           control={control}
           rules={{ required: false }}
-          name="petMedicalCondition"
+          name="pet_medical_condition"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
               placeholder={localization.t('pet_register_pet_medical_condition')}
@@ -207,7 +209,7 @@ const PetRegister = () => {
         <Controller
           control={control}
           rules={{ required: true }}
-          name="ownerName"
+          name="owner_name"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
               placeholder={localization.t('pet_register_owner_name')}
@@ -217,7 +219,7 @@ const PetRegister = () => {
             />
           )}
         />
-        {errors.ownerName && (
+        {errors.owner_name && (
           <PetText type="smallText" style={{ color: 'red' }}>
             Owner's name is required
           </PetText>
@@ -225,7 +227,7 @@ const PetRegister = () => {
         <Controller
           control={control}
           rules={{ required: true }}
-          name="ownerCellPhone"
+          name="owner_cell_phone"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
               placeholder={localization.t('pet_register_owner_cell_phone')}
@@ -235,7 +237,7 @@ const PetRegister = () => {
             />
           )}
         />
-        {errors.ownerCellPhone && (
+        {errors.owner_cell_phone && (
           <PetText type="smallText" style={{ color: 'red' }}>
             Owner's Cell Phone is required
           </PetText>
@@ -243,7 +245,7 @@ const PetRegister = () => {
         <Controller
           control={control}
           rules={{ required: true }}
-          name="ownerEmail"
+          name="owner_email"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
               placeholder={localization.t('pet_register_owner_email')}
@@ -253,7 +255,7 @@ const PetRegister = () => {
             />
           )}
         />
-        {errors.ownerEmail && (
+        {errors.owner_email && (
           <PetText type="smallText" style={{ color: 'red' }}>
             Owner's Email is required
           </PetText>

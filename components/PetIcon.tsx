@@ -3,7 +3,7 @@ import React from 'react';
 import { type ImageProps } from 'react-native';
 
 type PetIconProps = ImageProps & {
-  name?: 'question' | 'heart' | 'star' | 'camera' | 'whatsapp' | 'close' | 'save';
+  name?: 'question' | 'trash' | 'heart' | 'star' | 'camera' | 'whatsapp' | 'close' | 'save';
   color?: string;
   size?: number;
   onPress?: () => void;

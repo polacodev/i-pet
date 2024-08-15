@@ -14,8 +14,9 @@ const PetQr = () => {
   const handleBarCodeScanned = (scanningResult: BarcodeScanningResult) => {
     setScanned(true);
 
+    console.log("scanningResult.data=>", scanningResult.data)
     const path = extractPathFromUrl(scanningResult.data);
-
+    console.log("path=>", path)
     if (path && isValidPath(path)) {
       router.navigate(path);
     } else {

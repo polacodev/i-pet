@@ -20,14 +20,14 @@ type PetDetailsProps = {
 };
 
 const PetCard: React.FC<PetDetailsProps> = ({ pet }) => {
-  const iPetUrl = `${expoApiUrl}/pet/${pet?.id}`;
+  const iPetUrl = `${expoApiUrl}/details/${pet?.id}`;
 
   const callWhatsappOwner = () => {
     Linking.openURL(`${whatsappApiUrl}/591${pet?.ownerPhone}`);
   };
 
   const goToQRPet = () => {
-    router.push('/pet/petQr');
+    router.push('/details/petQr');
   };
 
   const goToHome = () => {

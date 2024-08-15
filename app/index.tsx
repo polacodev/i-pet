@@ -1,88 +1,56 @@
-import { useCameraPermissions } from 'expo-camera';
-import { Link, router } from 'expo-router';
-import { useColorScheme, Alert } from 'react-native';
+import 'react-native-url-polyfill/auto';
+import { Session } from '@supabase/supabase-js';
+import { router } from 'expo-router';
+import { useState, useEffect } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { PetButton } from '@/components/PetButton';
-import { PetIcon } from '@/components/PetIcon';
-import { PetText } from '@/components/PetText';
 import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
-import { Colors } from '@/constants/Colors';
-import { localization } from '@/localizations/localization';
-import { PetHome } from '@/svgIcons/home';
+import { supabase } from '@/lib/supabase';
+
+import * as async_storage from '@/utilities/async-storage';
 
 export default function Page() {
+  const [session, setSession] = useState<Session | null>(null);
   const insets = useSafeAreaInsets();
-  const theme = useColorScheme() ?? 'light';
-  const colorText = theme === 'light' ? Colors.light.smallText : Colors.dark.smallText;
 
-  const [status, requestPermission] = useCameraPermissions();
+  useEffect(() => {
+    // supabase.auth.getSession().then(({ data: { session } }) => {
+    //   setSession(session);
+    // });
 
-  const requestCameraPermission = async () => {
-    const cameraPermissionStatus = await requestPermission();
-    if (cameraPermissionStatus?.granted) {
-      router.push('/pet/petQr');
-    } else {
-      Alert.alert(localization.t('welcome_alert_title'), localization.t('welcome_alert_message'), [
-        {
-          text: localization.t('welcome_alert_cancel'),
-          style: 'cancel',
-        },
-      ]);
+    // supabase.auth.onAuthStateChange((_event, session) => {
+    //   setSession(session);
+    // });
+    getUserSession();
+  }, []);
+
+  const getUserSession = async () => {
+    const token = await async_storage.getData('access_token');
+    console.log("--->", token)
+    if (token) {
+      router.navigate('/pet/petlist');
     }
   };
 
-  const gotToPetRegister = () => {
-    router.navigate('/pet/register');
+  const goToSignIn = () => {
+    router.navigate('/auth/signin');
   };
 
   return (
     <PetView style={{ paddingTop: insets.top, paddingBottom: insets.bottom, flex: 1 }}>
-      <PetView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <PetView
-          style={{
-            backgroundColor: '#0891b2',
-            borderTopEndRadius: 50,
-            borderBottomStartRadius: 50,
-          }}>
-          <PetHome />
-        </PetView>
-        <PetTitle type="default" style={{ marginTop: 8 }}>
-          {localization.t('welcome_line1')}
-          <PetTitle style={{ color: theme === 'light' ? 'rgb(34 211 238)' : '#fff' }}>
-            {' '}
-            {localization.t('welcome_line2')}{' '}
-          </PetTitle>
-          {localization.t('welcome_line3')}
+      <PetView
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        {/* <SignIn />
+         */}
+        <PetTitle type="link" onPress={goToSignIn}>
+          got register
         </PetTitle>
-        <PetTitle type="default" style={{ marginBottom: 8 }}>
-          {localization.t('welcome_line4')}
-        </PetTitle>
-        <PetButton
-          onPress={requestCameraPermission}
-          iconName="camera"
-          buttonName={localization.t('welcome_button')}
-        />
-        <PetText type="smallText" style={{ color: colorText }}>
-          {localization.t('welcome_advice_line1')}
-        </PetText>
-        <PetText type="smallText" style={{ color: colorText }}>
-          <PetIcon name="star" size={15} color="#eab308" />
-          {localization.t('welcome_advice_line2')}
-          <PetIcon name="heart" size={15} color="#ef4444" />
-        </PetText>
-        <PetTitle
-          type="link"
-          onPress={gotToPetRegister}
-          style={{ textDecorationLine: 'underline' }}>
-          {localization.t('welcome_register_pet')}
-        </PetTitle>
-        {/* <Link href="/pet/550e8400-e29b-41d4-a716-446655440000">Go to pet 446655440000</Link>
-        <Link href="/pet/550e8400-e29b-41d4-a716-446655440001">Go to pet 446655440001</Link>
-        <Link href="/pet/550e8400-e29b-41d4-a716-446655440002">Go to pet 446655440002</Link>
-        <Link href="/pet/550e8400-e29b-41d4-a716-446655440003">Go to pet 446655440003</Link>
-        <Link href="/pet/550e8400-e29b-41d4-a716-446655440004">Go to pet 446655440004</Link> */}
+        {/* {session && session.user && <Text>{session.user.id}</Text>} */}
       </PetView>
     </PetView>
   );

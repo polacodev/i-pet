@@ -7,7 +7,7 @@ import { PetText } from './PetText';
 type PetButtonProps = {
   onPress: () => void;
   iconName?: 'heart' | 'star' | 'camera' | 'whatsapp' | 'save';
-  buttonName: string;
+  buttonName?: string;
   color?: '#0e7490' | '#075E54';
 };
 

@@ -1,9 +1,20 @@
-import { FontAwesome } from '@expo/vector-icons';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import React from 'react';
 import { type ImageProps } from 'react-native';
 
 type PetIconProps = ImageProps & {
-  name?: 'question' | 'trash' | 'heart' | 'star' | 'camera' | 'whatsapp' | 'close' | 'save';
+  name?:
+    | 'stop'
+    | 'trash'
+    | 'add-circle'
+    | 'heart'
+    | 'star'
+    | 'camera'
+    | 'logo-whatsapp'
+    | 'close-circle'
+    | 'save'
+    | 'list'
+    | 'home';
   color?: string;
   size?: number;
   onPress?: () => void;
@@ -11,20 +22,13 @@ type PetIconProps = ImageProps & {
 
 export const PetIcon: React.FC<PetIconProps> = ({
   style,
-  name = 'question',
+  name = 'stop',
   color = '#ffffff',
   size = 30,
   onPress,
   ...rest
 }) => {
   return (
-    <FontAwesome
-      name={name}
-      size={size}
-      color={color}
-      style={[style]}
-      onPress={onPress}
-      {...rest}
-    />
+    <Ionicons name={name} size={size} color={color} style={[style]} onPress={onPress} {...rest} />
   );
 };

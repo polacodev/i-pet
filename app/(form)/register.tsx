@@ -23,9 +23,9 @@ type PetFormData = {
   pet_breed: string;
   pet_age: string;
   pet_medical_condition: string;
-  owner_name: string;
-  owner_cell_phone: string;
-  owner_email: string;
+  // owner_name: string;
+  // owner_cell_phone: string;
+  // owner_email: string;
 };
 
 const PetRegister = () => {
@@ -41,9 +41,9 @@ const PetRegister = () => {
       pet_breed: '',
       pet_age: '',
       pet_medical_condition: '',
-      owner_name: '',
-      owner_cell_phone: '',
-      owner_email: '',
+      // owner_name: '',
+      // owner_cell_phone: '',
+      // owner_email: '',
     },
   });
 
@@ -205,7 +205,7 @@ const PetRegister = () => {
             />
           )}
         />
-        <PetTitle type="subtitle">{localization.t('pet_register_owner_detail')}</PetTitle>
+        {/* <PetTitle type="subtitle">{localization.t('pet_register_owner_detail')}</PetTitle>
         <Controller
           control={control}
           rules={{ required: true }}
@@ -259,16 +259,16 @@ const PetRegister = () => {
           <PetText type="smallText" style={{ color: 'red' }}>
             Owner's Email is required
           </PetText>
-        )}
+        )} */}
 
         <PetButton
           onPress={handleSubmit(onSubmit)}
           iconName="save"
           buttonName={localization.t('pet_register_save_button')}
         />
-        <PetTitle type="link" onPress={goToHome} style={{ textDecorationLine: 'underline' }}>
+        {/* <PetTitle type="link" onPress={goToHome} style={{ textDecorationLine: 'underline' }}>
           {localization.t('pet_register_back_to_home')}
-        </PetTitle>
+        </PetTitle> */}
       </PetView>
     </KeyboardAwareScrollView>
   );

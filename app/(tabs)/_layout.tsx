@@ -8,15 +8,16 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'iPet',
-          tabBarIcon: ({ color }) => <PetIcon size={28} name="home" color={color} />,
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color, size }) => <PetIcon name="paw-sharp" size={size} color={color} />,
         }}
       />
       <Tabs.Screen
         name="petlist"
         options={{
-          title: 'Pet List',
-          tabBarIcon: ({ color }) => <PetIcon size={28} name="list" color={color} />,
+          tabBarLabel: 'List',
+          headerTitle: 'Pet List',
+          tabBarIcon: ({ color, size }) => <PetIcon name="list" size={size} color={color} />,
         }}
       />
     </Tabs>

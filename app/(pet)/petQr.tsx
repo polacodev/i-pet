@@ -60,7 +60,7 @@ const PetQr = () => {
         }}
       />
       <View style={{ paddingTop: 80 }}>
-        <PetIcon name="close" onPress={closeIPetCamera} />
+        <PetIcon name="close-circle" size={50} onPress={closeIPetCamera} />
       </View>
     </View>
   );

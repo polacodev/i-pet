@@ -1,5 +1,5 @@
 import { useCameraPermissions } from 'expo-camera';
-import { Link, router } from 'expo-router';
+import { Link, router, Stack } from 'expo-router';
 import React from 'react';
 import { useColorScheme, Alert } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -23,7 +23,7 @@ export default function HomeScreen() {
   const requestCameraPermission = async () => {
     const cameraPermissionStatus = await requestPermission();
     if (cameraPermissionStatus?.granted) {
-      router.push('/details/petQr');
+      router.push('/petQr');
     } else {
       Alert.alert(localization.t('welcome_alert_title'), localization.t('welcome_alert_message'), [
         {
@@ -35,7 +35,7 @@ export default function HomeScreen() {
   };
 
   const gotToPetRegister = () => {
-    router.navigate('/pet/register');
+    router.navigate('/register');
   };
   return (
     <PetView style={{ paddingTop: insets.top, paddingBottom: insets.bottom, flex: 1 }}>
@@ -72,12 +72,12 @@ export default function HomeScreen() {
           {localization.t('welcome_advice_line2')}
           <PetIcon name="heart" size={15} color="#ef4444" />
         </PetText>
-        <PetTitle
+        {/* <PetTitle
           type="link"
           onPress={gotToPetRegister}
           style={{ textDecorationLine: 'underline' }}>
           {localization.t('welcome_register_pet')}
-        </PetTitle>
+        </PetTitle> */}
         {/* <Link href="/pet/550e8400-e29b-41d4-a716-446655440000">Go to pet 446655440000</Link>
         <Link href="/pet/550e8400-e29b-41d4-a716-446655440001">Go to pet 446655440001</Link>
         <Link href="/pet/550e8400-e29b-41d4-a716-446655440002">Go to pet 446655440002</Link>

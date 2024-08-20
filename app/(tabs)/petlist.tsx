@@ -52,6 +52,7 @@ const Item = ({ title, breed, age }: ItemProps) => {
   const theme = useColorScheme() ?? 'light';
   const colorText = theme === 'light' ? Colors.light.smallText : Colors.dark.smallText;
   const colorBorderCard = theme === 'light' ? '#d1d1d1' : '#3d3d3d';
+
   return (
     <PetView
       style={{
@@ -103,7 +104,7 @@ const Item = ({ title, breed, age }: ItemProps) => {
 
 export default function PetList() {
   const goToPetRegiter = () => {
-    router.navigate('/pet/register');
+    router.navigate('/register');
   };
 
   return (

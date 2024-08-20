@@ -10,34 +10,32 @@ import { PetView } from '@/components/PetView';
 import { supabase } from '@/lib/supabase';
 import * as async_storage from '@/utilities/async-storage';
 
-export default function Signup() {
+export default function Signin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const signUpWithEmail = async () => {
+  const signInWithEmail = async () => {
     setLoading(true);
     const {
       data: { session },
       error,
-    } = await supabase.auth.signUp({
+    } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
 
     if (error) Alert.alert(error.message);
-    if (!session) Alert.alert('Please check your inbox for email verification!');
 
     if (session) {
-      async_storage.storeData('access_token', session?.access_token);
-      router.navigate('/pet/petlist');
+      async_storage.storeData('access_token', session.access_token);
+      router.navigate('/petlist');
     }
-
     setLoading(false);
   };
 
-  const goToSignIn = () => {
-    router.navigate('/auth/signin');
+  const goToSignUp = () => {
+    router.navigate('/signup');
   };
 
   return (
@@ -56,11 +54,11 @@ export default function Signup() {
           placeholder="Password"
           autoCapitalize="none"
         />
-        <PetButton buttonName="Sign up" onPress={signUpWithEmail} />
+        <PetButton buttonName="Sign in" onPress={signInWithEmail} />
         <PetView style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
-          <PetText>Already have an account?</PetText>
-          <PetTitle type="link" onPress={goToSignIn} style={{ textDecorationLine: 'underline' }}>
-            Sign in
+          <PetText>Do not have an account yet?</PetText>
+          <PetTitle type="link" onPress={goToSignUp} style={{ textDecorationLine: 'underline' }}>
+            Sign up
           </PetTitle>
         </PetView>
       </PetView>

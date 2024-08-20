@@ -4,7 +4,7 @@ import { Image, Linking } from 'react-native';
 
 // import QRCode from 'react-native-qrcode-svg';
 
-import { Pet } from './[id]';
+import { Pet } from '../details/[id]';
 
 import { PetButton } from '@/components/PetButton';
 import { PetText } from '@/components/PetText';
@@ -27,7 +27,7 @@ const PetCard: React.FC<PetDetailsProps> = ({ pet }) => {
   };
 
   const goToQRPet = () => {
-    router.push('/details/petQr');
+    router.push('/petQr');
   };
 
   const goToHome = () => {

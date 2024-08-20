@@ -9,7 +9,7 @@ export type Pet = {
   id: string;
   petName: string;
   petType: string;
-  petAge: number;
+  petAge: string;
   petBreed: string;
   petGender: string;
   petMedicalCondition: string;
@@ -23,7 +23,7 @@ const PetPage: React.FC = () => {
     id: '',
     petName: '',
     petType: '',
-    petAge: 0,
+    petAge: '',
     petBreed: '',
     petGender: '',
     petMedicalCondition: '',

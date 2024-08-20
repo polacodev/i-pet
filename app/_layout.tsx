@@ -18,9 +18,9 @@ export default function Layout() {
         screenOptions={{
           headerTintColor: '#0891b2',
           headerTitle: 'iPet',
-          // headerTitleStyle: {
-          //   fontWeight: 'bold',
-          // },
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
           headerRight: () => (
             <PetTitle type="link" onPress={goToSignin}>
               Sign in

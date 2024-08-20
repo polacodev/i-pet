@@ -1,8 +1,6 @@
-import { router } from 'expo-router';
 import React from 'react';
 import { Image, Linking } from 'react-native';
-
-// import QRCode from 'react-native-qrcode-svg';
+import QRCode from 'react-native-qrcode-svg';
 
 import { Pet } from '../details/[id]';
 
@@ -26,17 +24,9 @@ const PetCard: React.FC<PetDetailsProps> = ({ pet }) => {
     Linking.openURL(`${whatsappApiUrl}/591${pet?.ownerPhone}`);
   };
 
-  const goToQRPet = () => {
-    router.push('/petQr');
-  };
-
-  const goToHome = () => {
-    router.push('/');
-  };
-
   return (
-    <PetView style={{ width: '100%' }}>
-      <PetView style={{ alignItems: 'center', justifyContent: 'center' }}>
+    <PetView style={{ width: '100%', flex: 1, justifyContent: 'flex-start' }}>
+      <PetView style={{ alignItems: 'center' }}>
         {/* PET IMAGE */}
         <PetView style={{ alignItems: 'center' }}>
           <Image
@@ -65,7 +55,7 @@ const PetCard: React.FC<PetDetailsProps> = ({ pet }) => {
           {localization.t('info_pet_breed')}: {pet?.petBreed}
         </PetText>
         <PetText type="default">
-          {localization.t('info_pet_age')}: {pet?.petAge} years
+          {localization.t('info_pet_age')}: {pet?.petAge}
         </PetText>
         <PetText type="default">
           {localization.t('info_pet_medical_condition')}: {pet?.petMedicalCondition}
@@ -85,21 +75,21 @@ const PetCard: React.FC<PetDetailsProps> = ({ pet }) => {
         {/** BUTTONS */}
         <PetButton
           onPress={callWhatsappOwner}
-          iconName="whatsapp"
+          iconName="logo-whatsapp"
           color="#075E54"
           buttonName={localization.t('info_button_owner_whatsapp')}
         />
-        <PetButton
+        {/* <PetButton
           onPress={goToQRPet}
           iconName="camera"
           buttonName={localization.t('info_button_new_qr')}
-        />
+        /> */}
 
         {/** FOOTER */}
-        <PetTitle type="link" onPress={goToHome} style={{ textDecorationLine: 'underline' }}>
+        {/* <PetTitle type="link" onPress={goToHome} style={{ textDecorationLine: 'underline' }}>
           {localization.t('info_back_to_home')}
-        </PetTitle>
-        {/* <QRCode value={petUrl} /> */}
+        </PetTitle> */}
+        <QRCode value={iPetUrl} />
       </PetView>
     </PetView>
   );

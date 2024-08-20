@@ -29,7 +29,7 @@ export default function Signin() {
 
     if (session) {
       async_storage.storeData('access_token', session.access_token);
-      router.navigate('/petlist');
+      router.back();
     }
     setLoading(false);
   };

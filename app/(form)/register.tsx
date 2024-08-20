@@ -2,8 +2,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { router } from 'expo-router';
 import React, { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { useColorScheme, StyleSheet, TouchableOpacity, Alert } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { useColorScheme, TouchableOpacity, Alert } from 'react-native';
 
 import { PetButton } from '@/components/PetButton';
 import { PetImageViewer } from '@/components/PetImageViewer';
@@ -60,11 +59,7 @@ const PetRegister = () => {
     );
 
   const onSubmit = async (values: PetFormData) => {
-    console.log("values=>", values);
-  };
-
-  const goToHome = () => {
-    router.back();
+    console.log('values=>', values);
   };
 
   const pickImageAsync = async () => {
@@ -82,12 +77,8 @@ const PetRegister = () => {
   };
 
   return (
-    <KeyboardAwareScrollView
-      style={styles.container}
-      resetScrollToCoords={{ x: 0, y: 0 }}
-      contentContainerStyle={styles.scrollView}
-      scrollEnabled>
-      <PetView style={{ alignItems: 'center', justifyContent: 'center', gap: 5 }}>
+    <PetView style={{ width: '100%' }}>
+      <PetView style={{ alignItems: 'center', gap: 5 }}>
         <PetTitle type="subtitle">{localization.t('pet_register_title')}</PetTitle>
         {!selectedImage ? (
           <TouchableOpacity
@@ -266,23 +257,9 @@ const PetRegister = () => {
           iconName="save"
           buttonName={localization.t('pet_register_save_button')}
         />
-        {/* <PetTitle type="link" onPress={goToHome} style={{ textDecorationLine: 'underline' }}>
-          {localization.t('pet_register_back_to_home')}
-        </PetTitle> */}
       </PetView>
-    </KeyboardAwareScrollView>
+    </PetView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: '100%',
-  },
-  scrollView: {
-    flexGrow: 1,
-    justifyContent: 'center',
-  },
-});
 
 export default PetRegister;

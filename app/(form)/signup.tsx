@@ -36,13 +36,16 @@ export default function Signup() {
     setLoading(false);
   };
 
-  const goToSignIn = () => {
-    router.navigate('/signin');
+  const goToLogIn = () => {
+    router.navigate('/login');
   };
 
   return (
     <PetView style={{ width: '100%' }}>
       <PetView style={{ alignItems: 'center', justifyContent: 'center', gap: 5 }}>
+        <PetText style={{ paddingHorizontal: 50, paddingVertical: 20 }}>
+          Sign up on iPet to add a new pet to your list.
+        </PetText>
         <PetTextInput
           onChangeText={(text) => setEmail(text)}
           value={email}
@@ -56,11 +59,11 @@ export default function Signup() {
           placeholder="Password"
           autoCapitalize="none"
         />
-        <PetButton buttonName="Sign up" onPress={signUpWithEmail} />
+        <PetButton buttonName="Sign Up" onPress={signUpWithEmail} />
         <PetView style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
           <PetText>Already have an account?</PetText>
-          <PetTitle type="link" onPress={goToSignIn} style={{ textDecorationLine: 'underline' }}>
-            Sign in
+          <PetTitle type="link" onPress={goToLogIn} style={{ textDecorationLine: 'underline' }}>
+            Log In
           </PetTitle>
         </PetView>
       </PetView>

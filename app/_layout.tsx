@@ -8,8 +8,8 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 export default function Layout() {
   const colorScheme = useColorScheme();
 
-  const goToSignin = () => {
-    router.navigate('/signin');
+  const goToLogin = () => {
+    router.navigate('/login');
   };
 
   return (
@@ -22,8 +22,8 @@ export default function Layout() {
             fontWeight: 'bold',
           },
           headerRight: () => (
-            <PetTitle type="link" onPress={goToSignin}>
-              Sign in
+            <PetTitle type="link" onPress={goToLogin}>
+              Log In
             </PetTitle>
           ),
         }}>

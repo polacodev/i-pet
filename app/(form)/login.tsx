@@ -10,12 +10,12 @@ import { PetView } from '@/components/PetView';
 import { supabase } from '@/lib/supabase';
 import * as async_storage from '@/utilities/async-storage';
 
-export default function Signin() {
+export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const signInWithEmail = async () => {
+  const LogInWithEmail = async () => {
     setLoading(true);
     const {
       data: { session },
@@ -41,6 +41,9 @@ export default function Signin() {
   return (
     <PetView style={{ width: '100%' }}>
       <PetView style={{ alignItems: 'center', justifyContent: 'center', gap: 5 }}>
+        <PetText style={{ paddingHorizontal: 50, paddingVertical: 20 }}>
+          Log in to iPet to see your list and details of the pets you have created.
+        </PetText>
         <PetTextInput
           onChangeText={(text) => setEmail(text)}
           value={email}
@@ -54,11 +57,11 @@ export default function Signin() {
           placeholder="Password"
           autoCapitalize="none"
         />
-        <PetButton buttonName="Sign in" onPress={signInWithEmail} />
+        <PetButton buttonName="Log In" onPress={LogInWithEmail} />
         <PetView style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
           <PetText>Do not have an account yet?</PetText>
           <PetTitle type="link" onPress={goToSignUp} style={{ textDecorationLine: 'underline' }}>
-            Sign up
+            Sign Up
           </PetTitle>
         </PetView>
       </PetView>

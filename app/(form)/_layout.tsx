@@ -11,6 +11,7 @@ export default function Page() {
           <Stack.Screen
             options={{
               headerTitle: '',
+              headerRight: () => '',
             }}
           />
           <Slot />

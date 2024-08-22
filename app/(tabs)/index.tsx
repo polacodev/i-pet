@@ -1,5 +1,5 @@
 import { useCameraPermissions } from 'expo-camera';
-import { Link, router, Stack } from 'expo-router';
+import { Link, router } from 'expo-router';
 import React from 'react';
 import { useColorScheme, Alert } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -34,9 +34,6 @@ export default function HomeScreen() {
     }
   };
 
-  const gotToPetRegister = () => {
-    router.navigate('/register');
-  };
   return (
     <PetView style={{ paddingTop: insets.top, paddingBottom: insets.bottom, flex: 1 }}>
       <PetView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

@@ -29,7 +29,7 @@ export default function Login() {
 
     if (session) {
       async_storage.storeData('access_token', session.access_token);
-      router.back();
+      router.navigate('/');
     }
     setLoading(false);
   };

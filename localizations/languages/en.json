@@ -11,18 +11,25 @@
   "welcome_alert_message": "Camera Permission is required!",
   "welcome_alert_dismiss": "Dismiss",
 
+  "tab_home": "Home",
+  "tab_list": "List",
+
   "header_log_in": "Log In",
   "header_message": "Log in to iPet to see your list and details of the pets you have created.",
   "header_no_account_message": "Do not have an account yet?",
   "header_sign_up": "Sign Up",
   "header_login_form_email": "email@example.com",
   "header_login_form_password": "password",
+
   "header_sign_up_form_message": "Sign up on iPet to add a new pet to your list.",
   "header_sign_up_form_email": "email@example.com",
   "header_sign_up_form_country_code": "country code",
   "header_sign_up_form_phone": "phone",
   "header_sign_up_form_password": "password",
   "header_sign_up_account_message": "Already have an account?",
+
+  "header_log_out_message": "Thank you for being part of iPet, we hope you come back soon.",
+  "header_log_out": "Log Out",
 
   "info_pet_details": "Pet Details",
   "info_pet_name": "Name",

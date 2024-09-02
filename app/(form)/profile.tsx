@@ -8,6 +8,7 @@ import { PetText } from '@/components/PetText';
 import { PetView } from '@/components/PetView';
 import { Colors } from '@/constants/Colors';
 import { supabase } from '@/lib/supabase';
+import { localization } from '@/localizations/localization';
 
 export default function Profile() {
   const [session, setSession] = useState<Session | null>(null);
@@ -33,12 +34,12 @@ export default function Profile() {
     <PetView style={{ width: '100%' }}>
       <PetView style={{ alignItems: 'center', justifyContent: 'center', gap: 5 }}>
         <PetText style={{ paddingHorizontal: 50, paddingTop: 20 }}>
-          Thank you for being part of iPet, we hope you come back soon.
+          {localization.t('header_log_out_message')}
         </PetText>
         <PetText type="smallText" style={{ color: colorText }}>
           {session?.user.email}
         </PetText>
-        <PetButton buttonName="Log Out" onPress={signOut} />
+        <PetButton buttonName={localization.t('header_log_out')} onPress={signOut} />
       </PetView>
     </PetView>
   );

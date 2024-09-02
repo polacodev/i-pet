@@ -11,18 +11,25 @@
   "welcome_alert_message": "¡Permisos de camara necesario!",
   "welcome_alert_cancel": "Cerrar",
 
+  "tab_home": "Inicio",
+  "tab_list": "Lista",
+
   "header_log_in": "Iniciar Sesion",
   "header_message": "Inicie sesion en iPet para ver la lista y los detalles de sus mascotas creadas.",
   "header_no_account_message": "¿Aun no tienes una cuenta?",
   "header_sign_up": "Registrar",
   "header_login_form_email": "correo@ejemplo.com",
   "header_login_form_password": "contraseña",
+
   "header_sign_up_form_message": "Registrate en iPet para añadir una nueva mascota a tu lista.",
   "header_sign_up_form_email": "correo@ejemplo.com",
   "header_sign_up_form_country_code": "codigo pais",
   "header_sign_up_form_phone": "telefono celular",
   "header_sign_up_form_password": "contraseña",
   "header_sign_up_account_message": "¿Ya tienes una cuenta?",
+
+  "header_log_out_message": "Gracias por formar parte de iPet, esperamos que vuelvas pronto.",
+  "header_log_out": "Cerrar Sesion",
 
   "info_pet_details": "Detalles Mascota",
   "info_pet_name": "Nombre",

@@ -8,11 +8,11 @@ import { PetTextInput } from '@/components/PetTextInput';
 import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
 import { supabase } from '@/lib/supabase';
-import * as async_storage from '@/utilities/async-storage';
 
 export default function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [phone, setPhone] = useState('');
   const [loading, setLoading] = useState(false);
 
   const signUpWithEmail = async () => {
@@ -20,20 +20,35 @@ export default function Signup() {
     const {
       data: { session },
       error,
-    } = await supabase.auth.signUp({
-      email,
-      password,
-    });
+    } = await supabase.auth.signUp({ email, password });
 
     if (error) Alert.alert(error.message);
     if (!session) Alert.alert('Please check your inbox for email verification!');
 
     if (session) {
-      async_storage.storeData('access_token', session?.access_token);
+      await saveProfile(session.user.id, phone);
       router.navigate('/');
     }
 
     setLoading(false);
+  };
+
+  const saveProfile = async (userId: string, userPhone: string) => {
+    try {
+      const userProfile = {
+        id: userId,
+        phone: userPhone,
+        updated_at: new Date(),
+      };
+      const { error } = await supabase.from('profiles').upsert(userProfile);
+      if (error) {
+        throw error;
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        Alert.alert(error.message);
+      }
+    }
   };
 
   const goToLogIn = () => {
@@ -50,6 +65,12 @@ export default function Signup() {
           onChangeText={(text) => setEmail(text)}
           value={email}
           placeholder="email@address.com"
+          autoCapitalize="none"
+        />
+        <PetTextInput
+          onChangeText={(text) => setPhone(text)}
+          value={phone}
+          placeholder="Phone"
           autoCapitalize="none"
         />
         <PetTextInput

@@ -6,6 +6,8 @@ import { PetTitle } from './PetTitle';
 import { PetView } from './PetView';
 import { useUser } from './context/UserContext';
 
+import { localization } from '@/localizations/localization';
+
 export const PetHeader = () => {
   const theme = useColorScheme() ?? 'light';
   const headerInfoBackgroundColor = theme === 'light' ? '#ffffff' : '#121212';
@@ -26,7 +28,7 @@ export const PetHeader = () => {
         <PetIcon onPress={goToProfile} name="person" size={24} color="#0891b2" />
       ) : (
         <PetTitle type="link" onPress={goToLogin}>
-          Log In
+          {localization.t('header_log_in')}
         </PetTitle>
       )}
     </PetView>

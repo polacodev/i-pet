@@ -8,15 +8,15 @@ import { PetTextInput } from '@/components/PetTextInput';
 import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
 import { supabase } from '@/lib/supabase';
+import { localization } from '@/localizations/localization';
 
 export default function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [countryCode, setCountryCode] = useState('');
   const [phone, setPhone] = useState('');
-  const [loading, setLoading] = useState(false);
 
   const signUpWithEmail = async () => {
-    setLoading(true);
     const {
       data: { session },
       error,
@@ -26,17 +26,22 @@ export default function Signup() {
     if (!session) Alert.alert('Please check your inbox for email verification!');
 
     if (session) {
-      await saveProfile(session.user.id, phone);
+      await saveProfile(session.user.id, email, countryCode, phone);
       router.navigate('/');
     }
-
-    setLoading(false);
   };
 
-  const saveProfile = async (userId: string, userPhone: string) => {
+  const saveProfile = async (
+    userId: string,
+    userEmail: string,
+    countryCode: string,
+    userPhone: string,
+  ) => {
     try {
       const userProfile = {
         id: userId,
+        email: userEmail,
+        country_code: countryCode,
         phone: userPhone,
         updated_at: new Date(),
       };
@@ -59,32 +64,38 @@ export default function Signup() {
     <PetView style={{ width: '100%' }}>
       <PetView style={{ alignItems: 'center', justifyContent: 'center', gap: 5 }}>
         <PetText style={{ paddingHorizontal: 50, paddingVertical: 20 }}>
-          Sign up on iPet to add a new pet to your list.
+          {localization.t('header_sign_up_form_message')}
         </PetText>
         <PetTextInput
           onChangeText={(text) => setEmail(text)}
           value={email}
-          placeholder="email@address.com"
+          placeholder={localization.t('header_sign_up_form_email')}
+          autoCapitalize="none"
+        />
+        <PetTextInput
+          onChangeText={(text) => setCountryCode(text)}
+          value={countryCode}
+          placeholder={localization.t('header_sign_up_form_country_code')}
           autoCapitalize="none"
         />
         <PetTextInput
           onChangeText={(text) => setPhone(text)}
           value={phone}
-          placeholder="Phone"
+          placeholder={localization.t('header_sign_up_form_phone')}
           autoCapitalize="none"
         />
         <PetTextInput
           onChangeText={(text) => setPassword(text)}
           value={password}
           secureTextEntry
-          placeholder="Password"
+          placeholder={localization.t('header_sign_up_form_password')}
           autoCapitalize="none"
         />
-        <PetButton buttonName="Sign Up" onPress={signUpWithEmail} />
+        <PetButton buttonName={localization.t('header_sign_up')} onPress={signUpWithEmail} />
         <PetView style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
-          <PetText>Already have an account?</PetText>
+          <PetText>{localization.t('header_sign_up_account_message')}</PetText>
           <PetTitle type="link" onPress={goToLogIn} style={{ textDecorationLine: 'underline' }}>
-            Log In
+            {localization.t('header_log_in')}
           </PetTitle>
         </PetView>
       </PetView>

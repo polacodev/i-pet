@@ -8,6 +8,7 @@ import { PetTextInput } from '@/components/PetTextInput';
 import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
 import { supabase } from '@/lib/supabase';
+import { localization } from '@/localizations/localization';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -40,26 +41,26 @@ export default function Login() {
     <PetView style={{ width: '100%' }}>
       <PetView style={{ alignItems: 'center', justifyContent: 'center', gap: 5 }}>
         <PetText style={{ paddingHorizontal: 50, paddingVertical: 20 }}>
-          Log in to iPet to see your list and details of the pets you have created.
+          {localization.t('header_message')}
         </PetText>
         <PetTextInput
           onChangeText={(text) => setEmail(text)}
           value={email}
-          placeholder="email@address.com"
+          placeholder={localization.t('header_login_form_email')}
           autoCapitalize="none"
         />
         <PetTextInput
           onChangeText={(text) => setPassword(text)}
           value={password}
           secureTextEntry
-          placeholder="Password"
+          placeholder={localization.t('header_login_form_password')}
           autoCapitalize="none"
         />
-        <PetButton buttonName="Log In" onPress={LogInWithEmail} />
+        <PetButton buttonName={localization.t('header_log_in')} onPress={LogInWithEmail} />
         <PetView style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
-          <PetText>Do not have an account yet?</PetText>
+          <PetText>{localization.t('header_no_account_message')}</PetText>
           <PetTitle type="link" onPress={goToSignUp} style={{ textDecorationLine: 'underline' }}>
-            Sign Up
+            {localization.t('header_sign_up')}
           </PetTitle>
         </PetView>
       </PetView>

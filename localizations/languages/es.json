@@ -11,6 +11,19 @@
   "welcome_alert_message": "¡Permisos de camara necesario!",
   "welcome_alert_cancel": "Cerrar",
 
+  "header_log_in": "Iniciar Sesion",
+  "header_message": "Inicie sesion en iPet para ver la lista y los detalles de sus mascotas creadas.",
+  "header_no_account_message": "¿Aun no tienes una cuenta?",
+  "header_sign_up": "Registrar",
+  "header_login_form_email": "correo@ejemplo.com",
+  "header_login_form_password": "contraseña",
+  "header_sign_up_form_message": "Registrate en iPet para añadir una nueva mascota a tu lista.",
+  "header_sign_up_form_email": "correo@ejemplo.com",
+  "header_sign_up_form_country_code": "codigo pais",
+  "header_sign_up_form_phone": "telefono celular",
+  "header_sign_up_form_password": "contraseña",
+  "header_sign_up_account_message": "¿Ya tienes una cuenta?",
+
   "info_pet_details": "Detalles Mascota",
   "info_pet_name": "Nombre",
   "info_pet_type": "Tipo",
@@ -28,6 +41,10 @@
   "pet_qr_alert_title": "Codigo QR Invalido",
   "pet_qr_alert_message": "Por favor intente de nuevo!",
   "pet_qr_alert_dismiss": "Cerrar",
+
+  "pet_list_message_1": "lista vacia",
+  "pet_list_message_2": "Inicie sesion para poder",
+  "pet_list_message_3": "añadir mascotas a su lista",
 
   "pet_register_title": "Detalles Mascota",
   "pet_register_pet_name": "Nombre ej. coquito",

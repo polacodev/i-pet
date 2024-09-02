@@ -10,6 +10,7 @@ import { PetView } from '@/components/PetView';
 import { useUser } from '@/components/context/UserContext';
 import { Colors } from '@/constants/Colors';
 import { getPets } from '@/lib/api';
+import { localization } from '@/localizations/localization';
 
 const Item = ({ pet }: any) => {
   const theme = useColorScheme() ?? 'light';
@@ -73,7 +74,7 @@ const Item = ({ pet }: any) => {
 
 export default function PetList() {
   const [pets, setPets] = useState<Pet[] | null>(null);
-  const { session, user } = useUser();
+  const { session } = useUser();
 
   const goToPetRegister = () => {
     router.navigate('/register');
@@ -94,7 +95,7 @@ export default function PetList() {
         pets?.length === 0 ? (
           <PetView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <PetIcon onPress={goToPetRegister} name="albums" color="#0891b2" />
-            <PetTitle type="subtitle">empty list</PetTitle>
+            <PetTitle type="subtitle">{localization.t('pet_list_message_1')}</PetTitle>
             <PetIcon
               onPress={goToPetRegister}
               name="add-circle"
@@ -122,8 +123,8 @@ export default function PetList() {
       ) : (
         <PetView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <PetIcon onPress={goToPetRegister} name="information-circle" color="#0891b2" />
-          <PetTitle type="subtitle">Log in to have the ability</PetTitle>
-          <PetTitle type="subtitle">to add pets to your list.</PetTitle>
+          <PetTitle type="subtitle">{localization.t('pet_list_message_2')}</PetTitle>
+          <PetTitle type="subtitle">{localization.t('pet_list_message_3')}</PetTitle>
         </PetView>
       )}
     </PetView>

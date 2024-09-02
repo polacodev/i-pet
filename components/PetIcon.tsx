@@ -15,6 +15,9 @@ type PetIconProps = ImageProps & {
     | 'save'
     | 'list'
     | 'paw-sharp'
+    | 'person'
+    | 'information-circle'
+    | 'albums'
     | 'home';
   color?: string;
   size?: number;

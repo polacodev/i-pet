@@ -8,7 +8,6 @@ import { PetTextInput } from '@/components/PetTextInput';
 import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
 import { supabase } from '@/lib/supabase';
-import * as async_storage from '@/utilities/async-storage';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -28,7 +27,6 @@ export default function Login() {
     if (error) Alert.alert(error.message);
 
     if (session) {
-      async_storage.storeData('access_token', session.access_token);
       router.navigate('/');
     }
     setLoading(false);

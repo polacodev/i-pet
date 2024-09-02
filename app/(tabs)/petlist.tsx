@@ -5,7 +5,9 @@ import { FlatList, StyleSheet, Image, useColorScheme, TouchableOpacity } from 'r
 import { Pet } from '@/app/details/[id]';
 import { PetIcon } from '@/components/PetIcon';
 import { PetText } from '@/components/PetText';
+import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
+import { useUser } from '@/components/context/UserContext';
 import { Colors } from '@/constants/Colors';
 import { getPets } from '@/lib/api';
 
@@ -70,7 +72,8 @@ const Item = ({ pet }: any) => {
 };
 
 export default function PetList() {
-  const [pets, setPets] = useState<Pet[] | undefined>();
+  const [pets, setPets] = useState<Pet[] | null>(null);
+  const { session, user } = useUser();
 
   const goToPetRegister = () => {
     router.navigate('/register');
@@ -78,7 +81,7 @@ export default function PetList() {
 
   const getPetById = async () => {
     const data = await getPets();
-    setPets(data);
+    setPets(data ?? null);
   };
 
   useEffect(() => {
@@ -87,18 +90,42 @@ export default function PetList() {
 
   return (
     <PetView style={{ flex: 1 }}>
-      <FlatList
-        data={pets}
-        renderItem={({ item }) => <Item pet={item} />}
-        keyExtractor={(item) => item.id}
-      />
-      <PetIcon
-        onPress={goToPetRegister}
-        name="add-circle"
-        color="#0891b2"
-        size={60}
-        style={styles.plusButton}
-      />
+      {session ? (
+        pets?.length === 0 ? (
+          <PetView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <PetIcon onPress={goToPetRegister} name="albums" color="#0891b2" />
+            <PetTitle type="subtitle">empty list</PetTitle>
+            <PetIcon
+              onPress={goToPetRegister}
+              name="add-circle"
+              color="#0891b2"
+              size={60}
+              style={styles.plusButton}
+            />
+          </PetView>
+        ) : (
+          <PetView>
+            <FlatList
+              data={pets}
+              renderItem={({ item }) => <Item pet={item} />}
+              keyExtractor={(item) => item.id}
+            />
+            <PetIcon
+              onPress={goToPetRegister}
+              name="add-circle"
+              color="#0891b2"
+              size={60}
+              style={styles.plusButton}
+            />
+          </PetView>
+        )
+      ) : (
+        <PetView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <PetIcon onPress={goToPetRegister} name="information-circle" color="#0891b2" />
+          <PetTitle type="subtitle">Log in to have the ability</PetTitle>
+          <PetTitle type="subtitle">to add pets to your list.</PetTitle>
+        </PetView>
+      )}
     </PetView>
   );
 }

@@ -1,47 +1,18 @@
-import { useLocalSearchParams } from 'expo-router';
-import React, { useEffect, useState } from 'react';
+import { useGlobalSearchParams } from 'expo-router';
 
 import PetCard from './petCard';
 
-import { getPets } from '@/lib/api';
+import { PetProps, PetObj } from '@/types/pet.type';
 
-export type Pet = {
-  id: string;
-  petName: string;
-  petType: string;
-  petAge: string;
-  petBreed: string;
-  petGender: string;
-  petMedicalCondition: string;
-  ownerName: string;
-  ownerPhone: string;
-};
+const PetPage = () => {
+  const { petData } = useGlobalSearchParams();
 
-const PetPage: React.FC = () => {
-  const { id } = useLocalSearchParams();
-  const [pet, setPet] = useState<Pet | undefined>({
-    id: '',
-    petName: '',
-    petType: '',
-    petAge: '',
-    petBreed: '',
-    petGender: '',
-    petMedicalCondition: '',
-    ownerName: '',
-    ownerPhone: '',
-  });
+  let petInfo: PetProps = PetObj;
+  if (petData) {
+    petInfo = JSON.parse(petData as string);
+  }
 
-  const getPetById = async () => {
-    const data = await getPets();
-    const petFound = data?.find((item) => item.id === id);
-    setPet(petFound);
-  };
-
-  useEffect(() => {
-    getPetById();
-  }, []);
-
-  return <PetCard pet={pet} />;
+  return <PetCard {...petInfo} />;
 };
 
 export default PetPage;

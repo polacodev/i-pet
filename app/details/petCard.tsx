@@ -2,26 +2,23 @@ import React from 'react';
 import { Image, Linking } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
 
-import { Pet } from '../details/[id]';
-
 import { PetButton } from '@/components/PetButton';
 import { PetText } from '@/components/PetText';
 import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
 import { localization } from '@/localizations/localization';
+import { PetProps } from '@/types/pet.type';
 
 const expoApiUrl = process.env.EXPO_PUBLIC_API_URL;
 const whatsappApiUrl = process.env.EXPO_PUBLIC_WHATSAPP_API_URL;
 
-type PetDetailsProps = {
-  pet: Pet | undefined;
-};
-
-const PetCard: React.FC<PetDetailsProps> = ({ pet }) => {
-  const iPetUrl = `${expoApiUrl}/details/${pet?.id}`;
+const PetCard: React.FC<PetProps> = (petInfo) => {
+  const iPetUrl = `${expoApiUrl}/details/${petInfo?.id}`;
 
   const callWhatsappOwner = () => {
-    Linking.openURL(`${whatsappApiUrl}/591${pet?.ownerPhone}`);
+    Linking.openURL(
+      `${whatsappApiUrl}/${petInfo?.profiles.country_code + petInfo?.profiles.phone}`,
+    );
   };
 
   return (
@@ -43,22 +40,22 @@ const PetCard: React.FC<PetDetailsProps> = ({ pet }) => {
           {localization.t('info_pet_details')}
         </PetTitle>
         <PetText type="default">
-          {localization.t('info_pet_name')}: {pet?.petName}
+          {localization.t('info_pet_name')}: {petInfo?.pet_name}
         </PetText>
         <PetText type="default">
-          {localization.t('info_pet_type')} {pet?.petType}
+          {localization.t('info_pet_type')} {petInfo?.pet_type}
         </PetText>
         <PetText type="default">
-          {localization.t('info_pet_gender')}: {pet?.petGender}
+          {localization.t('info_pet_gender')}: {petInfo?.pet_gender}
         </PetText>
         <PetText type="default">
-          {localization.t('info_pet_breed')}: {pet?.petBreed}
+          {localization.t('info_pet_breed')}: {petInfo?.pet_breed}
         </PetText>
         <PetText type="default">
-          {localization.t('info_pet_age')}: {pet?.petAge}
+          {localization.t('info_pet_age')}: {petInfo?.pet_age}
         </PetText>
         <PetText type="default">
-          {localization.t('info_pet_medical_condition')}: {pet?.petMedicalCondition}
+          {localization.t('info_pet_medical_condition')}: {petInfo?.pet_medical_condition}
         </PetText>
 
         {/** OWNER INFO */}
@@ -66,10 +63,10 @@ const PetCard: React.FC<PetDetailsProps> = ({ pet }) => {
           {localization.t('info_owner_contact')}
         </PetTitle>
         <PetText type="default">
-          {localization.t('info_owner_name')}: {pet?.ownerName}
+          {localization.t('info_owner_name')}: {petInfo?.profiles.email}
         </PetText>
         <PetText type="default">
-          {localization.t('info_owner_phone')}: {pet?.ownerPhone}
+          {`${localization.t('info_owner_phone')}: +${petInfo?.profiles.country_code}-${petInfo?.profiles.phone}`}
         </PetText>
 
         {/** BUTTONS */}

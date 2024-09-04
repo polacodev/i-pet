@@ -10,6 +10,8 @@ import { PetText } from '@/components/PetText';
 import { PetTextInput } from '@/components/PetTextInput';
 import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
+import { useUser } from '@/components/context/UserContext';
+import { supabase } from '@/lib/supabase';
 import { localization } from '@/localizations/localization';
 
 const placeholderImageDark = require('../../assets/images/pet-image-dark.png');
@@ -28,6 +30,8 @@ type PetFormData = {
 };
 
 const PetRegister = () => {
+  const { session, user } = useUser();
+
   const {
     control,
     handleSubmit,
@@ -59,7 +63,25 @@ const PetRegister = () => {
     );
 
   const onSubmit = async (values: PetFormData) => {
-    console.log('values=>', values);
+    try {
+      const newPet = {
+        user_id: user?.id,
+        pet_name: values.pet_name,
+        pet_type: values.pet_type,
+        pet_gender: values.pet_gender,
+        pet_breed: values.pet_breed,
+        pet_age: values.pet_age,
+        pet_medical_condition: values.pet_medical_condition,
+        inserted_at: new Date(),
+      };
+      const { error } = await supabase.from('pets').upsert(newPet);
+      if (error) Alert.alert(error.message);
+      router.back();
+    } catch (error) {
+      if (error instanceof Error) {
+        Alert.alert(error.message);
+      }
+    }
   };
 
   const pickImageAsync = async () => {
@@ -67,7 +89,6 @@ const PetRegister = () => {
       allowsEditing: true,
       quality: 1,
     });
-    console.log('result=>', result);
 
     if (!result.canceled) {
       setSelectedImage(result.assets[0].uri);

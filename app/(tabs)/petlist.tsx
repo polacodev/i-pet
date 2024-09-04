@@ -1,92 +1,64 @@
 import { router } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { FlatList, StyleSheet, Image, useColorScheme, TouchableOpacity } from 'react-native';
+import { FlatList, StyleSheet, Image, useColorScheme, TouchableOpacity, Alert } from 'react-native';
 
-import { Pet } from '@/app/details/[id]';
 import { PetIcon } from '@/components/PetIcon';
 import { PetText } from '@/components/PetText';
 import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
 import { useUser } from '@/components/context/UserContext';
 import { Colors } from '@/constants/Colors';
-import { getPets } from '@/lib/api';
+import { supabase } from '@/lib/supabase';
 import { localization } from '@/localizations/localization';
+import { PetProps } from '@/types/pet.type';
 
-const Item = ({ pet }: any) => {
+export default function PetList() {
   const theme = useColorScheme() ?? 'light';
   const colorText = theme === 'light' ? Colors.light.smallText : Colors.dark.smallText;
   const colorBorderCard = theme === 'light' ? '#d1d1d1' : '#3d3d3d';
+  const [pets, setPets] = useState<PetProps[]>([]);
 
-  const goToPetDetails = () => {
-    router.navigate(`/details/${pet.id}`);
+  const { session, user } = useUser();
+
+  const goToPetDetails = (pet: PetProps) => {
+    router.push({ pathname: `/details/${pet.id}`, params: { petData: JSON.stringify(pet) } });
   };
-
-  return (
-    <TouchableOpacity onPress={goToPetDetails}>
-      <PetView
-        style={{
-          borderWidth: 1,
-          borderColor: colorBorderCard,
-          marginHorizontal: 10,
-          marginVertical: 5,
-          paddingTop: 4,
-          paddingBottom: 10,
-          borderRadius: 10,
-          gap: 5,
-        }}>
-        <PetView
-          style={{
-            alignItems: 'flex-end',
-            marginHorizontal: 10,
-          }}>
-          <PetIcon name="trash" size={20} color={colorText} />
-        </PetView>
-        <PetView style={{ alignItems: 'center', marginHorizontal: 10 }}>
-          <Image
-            source={{
-              uri: 'https://imgs.search.brave.com/Y2WtUyRRcQkDizOjI8FsJPtqqtVfzi0KqTMD5hoanls/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTg1/MzMwMzMzL3Bob3Rv/L2RhY2hzaHVuZC5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/V0FrMTE5RjhMWWNP/NXl6N0x3N3pHSE1U/aTJaQUlrQjI5anp4/TVJkRlpuQT0',
-            }}
-            resizeMode="cover"
-            style={{ width: 70, height: 70, borderRadius: 50 }}
-          />
-        </PetView>
-        <PetView
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-evenly',
-            marginHorizontal: 10,
-          }}>
-          <PetText type="smallText" style={{ fontWeight: '500' }}>
-            {pet.petName}
-          </PetText>
-          <PetText type="smallText" style={{ color: colorText }}>
-            {pet.petBreed}
-          </PetText>
-          <PetText type="smallText" style={{ color: colorText }}>
-            {pet.petAge}
-          </PetText>
-        </PetView>
-      </PetView>
-    </TouchableOpacity>
-  );
-};
-
-export default function PetList() {
-  const [pets, setPets] = useState<Pet[] | null>(null);
-  const { session } = useUser();
 
   const goToPetRegister = () => {
     router.navigate('/register');
   };
 
-  const getPetById = async () => {
-    const data = await getPets();
-    setPets(data ?? null);
+  const getPetsByIDFromDB = async () => {
+    const { data, error } = await supabase
+      .from('pets')
+      .select(
+        `
+          id,
+          inserted_at,
+          pet_age,
+          pet_breed,
+          pet_gender,
+          pet_medical_condition,
+          pet_name,
+          pet_type,
+          user_id,
+          profiles (
+            id,
+            email,
+            country_code,
+            phone
+          )
+        `,
+      )
+      .eq('user_id', user?.id);
+
+    if (error) Alert.alert(error.message);
+
+    setPets(data ?? []);
   };
 
   useEffect(() => {
-    getPetById();
+    if (session?.user) getPetsByIDFromDB();
   }, []);
 
   return (
@@ -105,11 +77,60 @@ export default function PetList() {
             />
           </PetView>
         ) : (
-          <PetView>
+          <PetView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <FlatList
+              style={{ width: '100%' }}
               data={pets}
-              renderItem={({ item }) => <Item pet={item} />}
-              keyExtractor={(item) => item.id}
+              keyExtractor={(item) => `${item.id}`}
+              renderItem={({ item: pet }) => (
+                <TouchableOpacity onPress={() => goToPetDetails(pet)}>
+                  <PetView
+                    style={{
+                      borderWidth: 1,
+                      borderColor: colorBorderCard,
+                      marginHorizontal: 10,
+                      marginVertical: 5,
+                      paddingTop: 4,
+                      paddingBottom: 10,
+                      borderRadius: 10,
+                      gap: 5,
+                    }}>
+                    <PetView
+                      style={{
+                        alignItems: 'flex-end',
+                        marginHorizontal: 10,
+                      }}>
+                      <PetIcon name="trash" size={20} color={colorText} />
+                    </PetView>
+                    <PetView style={{ alignItems: 'center', marginHorizontal: 10 }}>
+                      <Image
+                        source={{
+                          uri: 'https://imgs.search.brave.com/Y2WtUyRRcQkDizOjI8FsJPtqqtVfzi0KqTMD5hoanls/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTg1/MzMwMzMzL3Bob3Rv/L2RhY2hzaHVuZC5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/V0FrMTE5RjhMWWNP/NXl6N0x3N3pHSE1U/aTJaQUlrQjI5anp4/TVJkRlpuQT0',
+                        }}
+                        resizeMode="cover"
+                        style={{ width: 70, height: 70, borderRadius: 50 }}
+                      />
+                    </PetView>
+                    <PetView
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'space-evenly',
+                        marginHorizontal: 10,
+                      }}>
+                      <PetText type="smallText" style={{ fontWeight: '500' }}>
+                        {pet.pet_name}
+                      </PetText>
+                      <PetText type="smallText" style={{ color: colorText }}>
+                        {pet.pet_breed}
+                      </PetText>
+                      <PetText type="smallText" style={{ color: colorText }}>
+                        {pet.pet_age}
+                      </PetText>
+                    </PetView>
+                  </PetView>
+                </TouchableOpacity>
+              )}
             />
             <PetIcon
               onPress={goToPetRegister}

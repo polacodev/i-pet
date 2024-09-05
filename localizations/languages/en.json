@@ -44,14 +44,18 @@
   "info_button_owner_whatsapp": "Chat Owner",
   "info_button_new_qr": "Scan New QR Code",
   "info_back_to_home": "Back to Home",
+  "info_alert_contact_info_title": "Error",
+  "info_alert_contact_info_message": "Owner's contact details are missing!",
 
   "pet_qr_alert_title": "Invalid QR Code",
   "pet_qr_alert_message": "Please try again!",
   "pet_qr_alert_dismiss": "Dismiss",
+  "pet_qr_alert_request": "Failed request!",
 
   "pet_list_message_1": "empty list",
   "pet_list_message_2": "Log in to be able to",
   "pet_list_message_3": "add pets to your list",
+  "pet_list_loading": "Loading...",
 
   "pet_register_title": "Pet Details",
   "pet_register_pet_name": "Pet name e.g. coquito",
@@ -65,5 +69,7 @@
   "pet_register_owner_cell_phone": "Owner's cell phone",
   "pet_register_owner_email": "Owner's email",
   "pet_register_save_button": "Save",
-  "pet_register_back_to_home": "Back to Home"
+  "pet_register_back_to_home": "Back to Home",
+
+  "id_parse_data_error": "Error parsing pet data!"
 }

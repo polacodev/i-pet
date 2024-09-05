@@ -1,6 +1,14 @@
 import { router } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { FlatList, StyleSheet, Image, useColorScheme, TouchableOpacity, Alert } from 'react-native';
+import {
+  FlatList,
+  StyleSheet,
+  Image,
+  useColorScheme,
+  TouchableOpacity,
+  Alert,
+  ActivityIndicator,
+} from 'react-native';
 
 import { PetIcon } from '@/components/PetIcon';
 import { PetText } from '@/components/PetText';
@@ -17,6 +25,8 @@ export default function PetList() {
   const colorText = theme === 'light' ? Colors.light.smallText : Colors.dark.smallText;
   const colorBorderCard = theme === 'light' ? '#d1d1d1' : '#3d3d3d';
   const [pets, setPets] = useState<PetProps[]>([]);
+  const [refreshing, setRefreshing] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const { session, user } = useUser();
 
@@ -29,6 +39,7 @@ export default function PetList() {
   };
 
   const getPetsByIDFromDB = async () => {
+    setLoading(true);
     const { data, error } = await supabase
       .from('pets')
       .select(
@@ -55,11 +66,29 @@ export default function PetList() {
     if (error) Alert.alert(error.message);
 
     setPets(data ?? []);
+    setLoading(false);
+  };
+
+  const refreshingPetList = () => {
+    setRefreshing(true);
+    setTimeout(() => {
+      getPetsByIDFromDB();
+      setRefreshing(false);
+    }, 500);
   };
 
   useEffect(() => {
     if (session?.user) getPetsByIDFromDB();
   }, []);
+
+  if (loading) {
+    return (
+      <PetView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <ActivityIndicator />
+        <PetText>{localization.t('pet_list_loading')}</PetText>
+      </PetView>
+    );
+  }
 
   return (
     <PetView style={{ flex: 1 }}>
@@ -80,6 +109,8 @@ export default function PetList() {
           <PetView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <FlatList
               style={{ width: '100%' }}
+              refreshing={refreshing}
+              onRefresh={refreshingPetList}
               data={pets}
               keyExtractor={(item) => `${item.id}`}
               renderItem={({ item: pet }) => (

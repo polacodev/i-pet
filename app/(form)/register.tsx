@@ -24,9 +24,6 @@ type PetFormData = {
   pet_breed: string;
   pet_age: string;
   pet_medical_condition: string;
-  // owner_name: string;
-  // owner_cell_phone: string;
-  // owner_email: string;
 };
 
 const PetRegister = () => {
@@ -44,9 +41,6 @@ const PetRegister = () => {
       pet_breed: '',
       pet_age: '',
       pet_medical_condition: '',
-      // owner_name: '',
-      // owner_cell_phone: '',
-      // owner_email: '',
     },
   });
 
@@ -93,7 +87,7 @@ const PetRegister = () => {
     if (!result.canceled) {
       setSelectedImage(result.assets[0].uri);
     } else {
-      Alert.alert('Error', 'You did not select any image.');
+      Alert.alert('You did not select any image.');
     }
   };
 
@@ -217,62 +211,6 @@ const PetRegister = () => {
             />
           )}
         />
-        {/* <PetTitle type="subtitle">{localization.t('pet_register_owner_detail')}</PetTitle>
-        <Controller
-          control={control}
-          rules={{ required: true }}
-          name="owner_name"
-          render={({ field: { onChange, onBlur, value } }) => (
-            <PetTextInput
-              placeholder={localization.t('pet_register_owner_name')}
-              onChangeText={onChange}
-              onBlur={onBlur}
-              value={value}
-            />
-          )}
-        />
-        {errors.owner_name && (
-          <PetText type="smallText" style={{ color: 'red' }}>
-            Owner's name is required
-          </PetText>
-        )}
-        <Controller
-          control={control}
-          rules={{ required: true }}
-          name="owner_cell_phone"
-          render={({ field: { onChange, onBlur, value } }) => (
-            <PetTextInput
-              placeholder={localization.t('pet_register_owner_cell_phone')}
-              onChangeText={onChange}
-              onBlur={onBlur}
-              value={value}
-            />
-          )}
-        />
-        {errors.owner_cell_phone && (
-          <PetText type="smallText" style={{ color: 'red' }}>
-            Owner's Cell Phone is required
-          </PetText>
-        )}
-        <Controller
-          control={control}
-          rules={{ required: true }}
-          name="owner_email"
-          render={({ field: { onChange, onBlur, value } }) => (
-            <PetTextInput
-              placeholder={localization.t('pet_register_owner_email')}
-              onChangeText={onChange}
-              onBlur={onBlur}
-              value={value}
-            />
-          )}
-        />
-        {errors.owner_email && (
-          <PetText type="smallText" style={{ color: 'red' }}>
-            Owner's Email is required
-          </PetText>
-        )} */}
-
         <PetButton
           onPress={handleSubmit(onSubmit)}
           iconName="save"

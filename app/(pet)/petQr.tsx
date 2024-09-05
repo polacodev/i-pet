@@ -1,22 +1,57 @@
 import { CameraView, BarcodeScanningResult } from 'expo-camera';
 import { router } from 'expo-router';
 import React, { useState } from 'react';
-import { View, StyleSheet, Alert } from 'react-native';
+import { View, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 
 import { PetIcon } from '@/components/PetIcon';
 import { PetTitle } from '@/components/PetTitle';
+import { supabase } from '@/lib/supabase';
 import { localization } from '@/localizations/localization';
+import { PetProps } from '@/types/pet.type';
 import { extractPathFromUrl, isValidPath } from '@/utilities/utilities';
 
 const PetQr = () => {
   const [scanned, setScanned] = useState(false);
 
-  const handleBarCodeScanned = (scanningResult: BarcodeScanningResult) => {
+  const handleBarCodeScanned = async (scanningResult: BarcodeScanningResult) => {
     setScanned(true);
 
     const path = extractPathFromUrl(scanningResult.data);
     if (path && isValidPath(path)) {
-      router.navigate(path);
+      const id = path.split('/').pop();
+      const { data, error } = await supabase
+        .from<any, 'public'>('pets')
+        .select(
+          `
+            id,
+            inserted_at,
+            pet_age,
+            pet_breed,
+            pet_gender,
+            pet_medical_condition,
+            pet_name,
+            pet_type,
+            user_id,
+            profiles (
+              id,
+              email,
+              country_code,
+              phone
+            )
+          `,
+        )
+        .eq('id', id as string)
+        .single();
+
+      if (error) {
+        router.back();
+        Alert.alert(localization.t('pet_qr_alert_request'));
+      } else {
+        router.push({
+          pathname: `/details/${id}`,
+          params: { petData: JSON.stringify(data) },
+        });
+      }
     } else {
       Alert.alert(localization.t('pet_qr_alert_title'), localization.t('pet_qr_alert_message'), [
         {
@@ -57,9 +92,9 @@ const PetQr = () => {
           borderStyle: 'dotted',
         }}
       />
-      <View style={{ paddingTop: 80 }}>
-        <PetIcon name="close-circle" size={50} onPress={closeIPetCamera} />
-      </View>
+      <TouchableOpacity style={{ paddingTop: 80 }} onPress={closeIPetCamera}>
+        <PetIcon name="close-circle" size={50} />
+      </TouchableOpacity>
     </View>
   );
 };

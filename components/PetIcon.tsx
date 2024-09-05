@@ -14,11 +14,12 @@ type PetIconProps = ImageProps & {
     | 'close-circle'
     | 'save'
     | 'list'
-    | 'paw-sharp'
+    | 'paw'
     | 'person'
     | 'information-circle'
     | 'albums'
-    | 'home';
+    | 'home'
+    | 'qr-code';
   color?: string;
   size?: number;
   onPress?: () => void;

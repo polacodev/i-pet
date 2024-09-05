@@ -10,7 +10,7 @@ export default function TabLayout() {
         name="index"
         options={{
           tabBarLabel: localization.t('tab_home'),
-          tabBarIcon: ({ color, size }) => <PetIcon name="paw-sharp" size={size} color={color} />,
+          tabBarIcon: ({ color, size }) => <PetIcon name="paw" size={size} color={color} />,
         }}
       />
       <Tabs.Screen

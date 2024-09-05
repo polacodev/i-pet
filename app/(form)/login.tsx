@@ -13,10 +13,8 @@ import { localization } from '@/localizations/localization';
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
 
   const LogInWithEmail = async () => {
-    setLoading(true);
     const {
       data: { session },
       error,
@@ -25,12 +23,13 @@ export default function Login() {
       password,
     });
 
-    if (error) Alert.alert(error.message);
-
-    if (session) {
-      router.navigate('/');
+    if (error) {
+      Alert.alert(error.message)
+    } else {
+      if (session) {
+        router.navigate('/');
+      }
     }
-    setLoading(false);
   };
 
   const goToSignUp = () => {
@@ -56,7 +55,11 @@ export default function Login() {
           placeholder={localization.t('header_login_form_password')}
           autoCapitalize="none"
         />
-        <PetButton buttonName={localization.t('header_log_in')} onPress={LogInWithEmail} />
+        <PetButton
+          iconName="log-in"
+          buttonName={localization.t('header_log_in')}
+          onPress={LogInWithEmail}
+        />
         <PetView style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
           <PetText>{localization.t('header_no_account_message')}</PetText>
           <PetTitle type="link" onPress={goToSignUp} style={{ textDecorationLine: 'underline' }}>

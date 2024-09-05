@@ -91,7 +91,11 @@ export default function Signup() {
           placeholder={localization.t('header_sign_up_form_password')}
           autoCapitalize="none"
         />
-        <PetButton buttonName={localization.t('header_sign_up')} onPress={signUpWithEmail} />
+        <PetButton
+          iconName="log-in"
+          buttonName={localization.t('header_sign_up')}
+          onPress={signUpWithEmail}
+        />
         <PetView style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
           <PetText>{localization.t('header_sign_up_account_message')}</PetText>
           <PetTitle type="link" onPress={goToLogIn} style={{ textDecorationLine: 'underline' }}>

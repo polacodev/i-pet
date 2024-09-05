@@ -39,7 +39,11 @@ export default function Profile() {
         <PetText type="smallText" style={{ color: colorText }}>
           {session?.user.email}
         </PetText>
-        <PetButton buttonName={localization.t('header_log_out')} onPress={signOut} />
+        <PetButton
+          iconName="log-out"
+          buttonName={localization.t('header_log_out')}
+          onPress={signOut}
+        />
       </PetView>
     </PetView>
   );

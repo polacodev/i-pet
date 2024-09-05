@@ -6,7 +6,15 @@ import { PetText } from './PetText';
 
 type PetButtonProps = {
   onPress: () => void;
-  iconName?: 'heart' | 'star' | 'camera' | 'logo-whatsapp' | 'save';
+  iconName?:
+    | 'heart'
+    | 'star'
+    | 'camera'
+    | 'logo-whatsapp'
+    | 'save'
+    | 'qr-code'
+    | 'log-in'
+    | 'log-out';
   buttonName?: string;
   color?: '#0e7490' | '#075E54';
 };

@@ -25,6 +25,7 @@ const PetQr = () => {
           `
             id,
             inserted_at,
+            pet_image,
             pet_age,
             pet_breed,
             pet_gender,

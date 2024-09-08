@@ -46,6 +46,7 @@ export default function PetList() {
         `
           id,
           inserted_at,
+          pet_image,
           pet_age,
           pet_breed,
           pet_gender,
@@ -134,13 +135,17 @@ export default function PetList() {
                       <PetIcon name="trash" size={20} color={colorText} />
                     </PetView>
                     <PetView style={{ alignItems: 'center', marginHorizontal: 10 }}>
-                      <Image
-                        source={{
-                          uri: 'https://imgs.search.brave.com/Y2WtUyRRcQkDizOjI8FsJPtqqtVfzi0KqTMD5hoanls/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTg1/MzMwMzMzL3Bob3Rv/L2RhY2hzaHVuZC5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/V0FrMTE5RjhMWWNP/NXl6N0x3N3pHSE1U/aTJaQUlrQjI5anp4/TVJkRlpuQT0',
-                        }}
-                        resizeMode="cover"
-                        style={{ width: 70, height: 70, borderRadius: 50 }}
-                      />
+                      {pet.pet_image ? (
+                        <Image
+                          source={{
+                            uri: `${pet.pet_image}`,
+                          }}
+                          resizeMode="cover"
+                          style={{ width: 70, height: 70, borderRadius: 50 }}
+                        />
+                      ) : (
+                        <PetIcon name="image" size={70} />
+                      )}
                     </PetView>
                     <PetView
                       style={{

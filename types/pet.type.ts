@@ -8,6 +8,7 @@ export type OwnerProps = {
 export type PetProps = {
   id: string;
   inserted_at: string;
+  pet_image: string;
   pet_age: string;
   pet_breed: string;
   pet_gender: string;
@@ -21,6 +22,7 @@ export type PetProps = {
 export const PetObj = {
   id: '',
   inserted_at: '',
+  pet_image: '',
   pet_age: '',
   pet_breed: '',
   pet_gender: '',

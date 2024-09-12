@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, StyleSheet } from 'react-native';
 
 import { PetIcon } from './PetIcon';
 import { PetText } from './PetText';
@@ -27,18 +27,9 @@ export const PetButton: React.FC<PetButtonProps> = ({
 }) => {
   return (
     <TouchableOpacity
+      testID="pet-button"
       onPress={onPress}
-      style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: color,
-        borderRadius: 8,
-        padding: 8,
-        gap: 8,
-        width: '80%',
-        margin: 6,
-      }}>
+      style={[styles.buttonContainer, { backgroundColor: color }]}>
       {iconName && <PetIcon name={iconName} size={30} color="#ffffff" />}
       <PetText type="default" style={{ color: '#ffffff' }}>
         {buttonName}
@@ -46,3 +37,16 @@ export const PetButton: React.FC<PetButtonProps> = ({
     </TouchableOpacity>
   );
 };
+
+const styles = StyleSheet.create({
+  buttonContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 8,
+    padding: 8,
+    gap: 8,
+    width: '80%',
+    margin: 6,
+  },
+});

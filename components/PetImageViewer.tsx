@@ -11,7 +11,7 @@ export const PetImageViewer: React.FC<PetImageViewerProps> = ({
   selectedImage,
 }) => {
   const imageSource = selectedImage ? { uri: selectedImage } : placeholderImageSource;
-  return <Image source={imageSource} style={styles.image} />;
+  return <Image testID="pet-image" source={imageSource} style={styles.image} />;
 };
 
 const styles = StyleSheet.create({

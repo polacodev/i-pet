@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PetText /> PetText renders correctly Snapshot 1`] = `
+<Text
+  style={
+    [
+      {
+        "color": "#11181C",
+      },
+      {
+        "fontSize": 16,
+        "lineHeight": 24,
+      },
+      {
+        "padding": 5,
+      },
+    ]
+  }
+  testID="pet-text"
+>
+  iPet
+</Text>
+`;

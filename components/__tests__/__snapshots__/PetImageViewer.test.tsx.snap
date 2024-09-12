@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PetImageViewer /> PetImageViewer renders correctly Snapshot 1`] = `
+<Image
+  source={
+    {
+      "uri": "test.png",
+    }
+  }
+  style={
+    {
+      "borderRadius": 50,
+      "height": 80,
+      "width": 80,
+    }
+  }
+  testID="pet-image"
+/>
+`;

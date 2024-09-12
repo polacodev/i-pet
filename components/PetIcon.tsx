@@ -19,7 +19,9 @@ type PetIconProps = ImageProps & {
     | 'information-circle'
     | 'albums'
     | 'home'
-    | 'qr-code';
+    | 'qr-code'
+    | 'log-in'
+    | 'log-out';
   color?: string;
   size?: number;
   onPress?: () => void;
@@ -34,6 +36,14 @@ export const PetIcon: React.FC<PetIconProps> = ({
   ...rest
 }) => {
   return (
-    <Ionicons name={name} size={size} color={color} style={[style]} onPress={onPress} {...rest} />
+    <Ionicons
+      testID="pet-icon"
+      name={name}
+      size={size}
+      color={color}
+      style={[style]}
+      onPress={onPress}
+      {...rest}
+    />
   );
 };

@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PetButton /> PetButton renders correctly Snapshot 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "#0e7490",
+      "borderRadius": 8,
+      "flexDirection": "row",
+      "gap": 8,
+      "justifyContent": "center",
+      "margin": 6,
+      "opacity": 1,
+      "padding": 8,
+      "width": "80%",
+    }
+  }
+  testID="pet-button"
+>
+  <Text
+    allowFontScaling={false}
+    selectable={false}
+    style={
+      [
+        {
+          "color": "#ffffff",
+          "fontSize": 30,
+        },
+        [
+          undefined,
+        ],
+        {
+          "fontFamily": "ionicons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        {},
+      ]
+    }
+    testID="pet-icon"
+  >
+    
+  </Text>
+  <Text
+    style={
+      [
+        {
+          "color": "#11181C",
+        },
+        {
+          "fontSize": 16,
+          "lineHeight": 24,
+        },
+        {
+          "color": "#ffffff",
+        },
+      ]
+    }
+    testID="pet-text"
+  >
+    ButtonName
+  </Text>
+</View>
+`;

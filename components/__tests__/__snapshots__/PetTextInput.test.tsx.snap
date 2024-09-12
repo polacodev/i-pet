@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PetTextInput /> PetTextInput renders correctly Snapshot 1`] = `
+<TextInput
+  defaultValue=""
+  onBlur={
+    [MockFunction] {
+      "calls": [
+        [],
+      ],
+      "results": [
+        {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  onChangeText={
+    [MockFunction] {
+      "calls": [
+        [
+          "ab",
+        ],
+      ],
+      "results": [
+        {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  placeholder="placeholder test"
+  style={
+    [
+      {
+        "color": "#11181C",
+      },
+      {
+        "borderColor": "rgb(34 211 238)",
+        "borderRadius": 10,
+        "borderWidth": 1,
+        "height": 40,
+        "paddingLeft": 25,
+        "width": "85%",
+      },
+      {
+        "backgroundColor": "#ffffff",
+      },
+    ]
+  }
+  testID="pet-text-input"
+  value="coco"
+/>
+`;

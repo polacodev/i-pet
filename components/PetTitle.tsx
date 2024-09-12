@@ -17,19 +17,23 @@ export const PetTitle = ({
 }: PetTitleProps) => {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'title');
 
-  return (
-    <Text
-      style={[
-        { color },
-        type === 'default' ? styles.default : undefined,
-        type === 'title' ? styles.title : undefined,
-        type === 'subtitle' ? styles.subtitle : undefined,
-        type === 'link' ? styles.link : undefined,
-        style,
-      ]}
-      {...rest}
-    />
-  );
+  let textType = undefined;
+  switch (type) {
+    case 'default':
+      textType = styles.default;
+      break;
+    case 'title':
+      textType = styles.title;
+      break;
+    case 'subtitle':
+      textType = styles.subtitle;
+      break;
+    case 'link':
+      textType = styles.link;
+      break;
+  }
+
+  return <Text testID="pet-title" style={[{ color }, textType, style]} {...rest} />;
 };
 
 const styles = StyleSheet.create({

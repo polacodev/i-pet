@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PetView /> PetView renders correctly Snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#f6f6f6",
+      },
+      {
+        "padding": 5,
+      },
+    ]
+  }
+  testID="pet-view"
+>
+  <Text
+    style={
+      [
+        {
+          "color": "#11181C",
+        },
+        {
+          "fontSize": 16,
+          "lineHeight": 24,
+        },
+        {
+          "padding": 5,
+        },
+      ]
+    }
+    testID="pet-text"
+  >
+    iPet
+  </Text>
+</View>
+`;

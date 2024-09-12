@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PetIcon /> PetIcon renders correctly Snapshot 1`] = `
+<Text
+  allowFontScaling={false}
+  onPress={
+    [MockFunction] {
+      "calls": [
+        [
+          {
+            "nativeEvent": {
+              "pageX": 20,
+              "pageY": 30,
+            },
+          },
+        ],
+      ],
+      "results": [
+        {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  selectable={false}
+  style={
+    [
+      {
+        "color": "red",
+        "fontSize": 20,
+      },
+      [
+        undefined,
+      ],
+      {
+        "fontFamily": "ionicons",
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+      },
+      {},
+    ]
+  }
+  testID="pet-icon"
+>
+  
+</Text>
+`;

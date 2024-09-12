@@ -16,7 +16,7 @@ export const PetTextInput = ({
   lightColor,
   darkColor,
   onChangeText,
-  placeholder = '',
+  placeholder,
   defaultValue = '',
   ...rest
 }: PetTextInputProps) => {
@@ -24,6 +24,7 @@ export const PetTextInput = ({
 
   return (
     <TextInput
+      testID="pet-text-input"
       style={[{ color }, styles.input, style]}
       placeholder={placeholder}
       onChangeText={onChangeText}

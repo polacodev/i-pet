@@ -17,17 +17,17 @@ export const PetText = ({
 }: PetTextProps) => {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
 
-  return (
-    <Text
-      style={[
-        { color },
-        type === 'default' ? styles.default : undefined,
-        type === 'smallText' ? styles.smallText : undefined,
-        style,
-      ]}
-      {...rest}
-    />
-  );
+  let textType = undefined;
+  switch (type) {
+    case 'default':
+      textType = styles.default;
+      break;
+    case 'smallText':
+      textType = styles.smallText;
+      break;
+  }
+
+  return <Text testID="pet-text" style={[{ color }, textType, style]} {...rest} />;
 };
 
 const styles = StyleSheet.create({

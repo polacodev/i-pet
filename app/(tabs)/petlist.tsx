@@ -16,17 +16,19 @@ import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
 import { useUser } from '@/components/context/UserContext';
 import { Colors } from '@/constants/Colors';
+import { getPetList } from '@/lib/api';
 import { supabase } from '@/lib/supabase';
 import { localization } from '@/localizations/localization';
+import { usePetStore } from '@/store/store';
 import { PetProps } from '@/types/pet.type';
 
 export default function PetList() {
   const theme = useColorScheme() ?? 'light';
   const colorText = theme === 'light' ? Colors.light.smallText : Colors.dark.smallText;
   const colorBorderCard = theme === 'light' ? '#d1d1d1' : '#3d3d3d';
-  const [pets, setPets] = useState<PetProps[]>([]);
   const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(false);
+  const { setPetList, pets, removePetFromPetList } = usePetStore();
 
   const { session, user } = useUser();
 
@@ -40,33 +42,10 @@ export default function PetList() {
 
   const getPetsByIDFromDB = async () => {
     setLoading(true);
-    const { data, error } = await supabase
-      .from('pets')
-      .select(
-        `
-          id,
-          inserted_at,
-          pet_image,
-          pet_age,
-          pet_breed,
-          pet_gender,
-          pet_medical_condition,
-          pet_name,
-          pet_type,
-          user_id,
-          profiles (
-            id,
-            email,
-            country_code,
-            phone
-          )
-        `,
-      )
-      .eq('user_id', user?.id);
-
+    const { data, error } = await getPetList(user?.id ?? null);
     if (error) Alert.alert(error.message);
 
-    setPets(data ?? []);
+    setPetList(data);
     setLoading(false);
   };
 
@@ -90,6 +69,15 @@ export default function PetList() {
       </PetView>
     );
   }
+
+  const deletePetById = async (petId: string) => {
+    try {
+      await supabase.from('pets').delete().eq('id', petId);
+      removePetFromPetList(petId);
+    } catch (error) {
+      console.error('ERROR:', error);
+    }
+  };
 
   return (
     <PetView style={{ flex: 1 }}>
@@ -132,7 +120,15 @@ export default function PetList() {
                         alignItems: 'flex-end',
                         marginHorizontal: 10,
                       }}>
-                      <PetIcon name="trash" size={20} color={colorText} />
+                      <TouchableOpacity
+                        style={{
+                          alignItems: 'flex-end',
+                          justifyContent: 'flex-end',
+                          width: '15%',
+                        }}
+                        onPress={() => deletePetById(pet?.id)}>
+                        <PetIcon name="trash" size={20} color={colorText} />
+                      </TouchableOpacity>
                     </PetView>
                     <PetView style={{ alignItems: 'center', marginHorizontal: 10 }}>
                       {pet.pet_image ? (

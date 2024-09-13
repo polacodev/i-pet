@@ -13,8 +13,10 @@ import { PetTextInput } from '@/components/PetTextInput';
 import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
 import { useUser } from '@/components/context/UserContext';
+import { getPetList } from '@/lib/api';
 import { supabase } from '@/lib/supabase';
 import { localization } from '@/localizations/localization';
+import { usePetStore } from '@/store/store';
 
 const placeholderImageDark = require('../../assets/images/pet-image-dark.png');
 const placeholderImageLight = require('../../assets/images/pet-image-light.png');
@@ -51,6 +53,7 @@ const PetRegister = () => {
     },
   });
 
+  const { setPetList } = usePetStore();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [imageObj, setImageObj] = useState<any>({});
   const [submitLoading, setSubmitLoading] = useState(false);
@@ -103,6 +106,10 @@ const PetRegister = () => {
       if (error instanceof Error) {
         Alert.alert(error.message);
       }
+    } finally {
+      const { data, error } = await getPetList(user?.id ?? null);
+      if (error) Alert.alert(error.message);
+      setPetList(data);
     }
 
     setSubmitLoading(false);
@@ -126,12 +133,14 @@ const PetRegister = () => {
 
       if (error) {
         console.error('Error uploading image:', error);
+        Alert.alert('Error uploading image:', error);
         return null;
       }
       const imageUrl = `${process.env.EXPO_PUBLIC_SUPABASE_URL}/storage/v1/object/public/pets/${filePath}`;
       return imageUrl;
     } catch (error) {
-      console.error('catch error image:', error);
+      Alert.alert('catch error image:', error);
+      // console.error('catch error image:', error);
       return null;
     } finally {
       // setUploadingImage(false);

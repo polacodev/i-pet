@@ -5,9 +5,8 @@ import { View, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 
 import { PetIcon } from '@/components/PetIcon';
 import { PetTitle } from '@/components/PetTitle';
-import { supabase } from '@/lib/supabase';
+import { getPetById } from '@/lib/api';
 import { localization } from '@/localizations/localization';
-import { PetProps } from '@/types/pet.type';
 import { extractPathFromUrl, isValidPath } from '@/utilities/utilities';
 
 const PetQr = () => {
@@ -19,30 +18,7 @@ const PetQr = () => {
     const path = extractPathFromUrl(scanningResult.data);
     if (path && isValidPath(path)) {
       const id = path.split('/').pop();
-      const { data, error } = await supabase
-        .from<any, 'public'>('pets')
-        .select(
-          `
-            id,
-            inserted_at,
-            pet_image,
-            pet_age,
-            pet_breed,
-            pet_gender,
-            pet_medical_condition,
-            pet_name,
-            pet_type,
-            user_id,
-            profiles (
-              id,
-              email,
-              country_code,
-              phone
-            )
-          `,
-        )
-        .eq('id', id as string)
-        .single();
+      const { data, error } = await getPetById(id as string);
 
       if (error) {
         router.back();

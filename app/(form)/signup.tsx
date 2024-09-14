@@ -7,7 +7,7 @@ import { PetText } from '@/components/PetText';
 import { PetTextInput } from '@/components/PetTextInput';
 import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
-import { supabase } from '@/lib/supabase';
+import { signUpWithEmailPassword, saveUserProfile } from '@/lib/api';
 import { localization } from '@/localizations/localization';
 
 export default function Signup() {
@@ -16,11 +16,11 @@ export default function Signup() {
   const [countryCode, setCountryCode] = useState('');
   const [phone, setPhone] = useState('');
 
-  const signUpWithEmail = async () => {
+  const onSignUp = async () => {
     const {
       data: { session },
       error,
-    } = await supabase.auth.signUp({ email, password });
+    } = await signUpWithEmailPassword(email, password);
 
     if (error) Alert.alert(error.message);
     if (!session) Alert.alert('Please check your inbox for email verification!');
@@ -45,9 +45,9 @@ export default function Signup() {
         phone: userPhone,
         updated_at: new Date(),
       };
-      const { error } = await supabase.from('profiles').upsert(userProfile);
+      const { error } = await saveUserProfile(userProfile);
       if (error) {
-        throw error;
+        Alert.alert(error.message);
       }
     } catch (error) {
       if (error instanceof Error) {
@@ -94,7 +94,7 @@ export default function Signup() {
         <PetButton
           iconName="log-in"
           buttonName={localization.t('header_sign_up')}
-          onPress={signUpWithEmail}
+          onPress={onSignUp}
         />
         <PetView style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
           <PetText>{localization.t('header_sign_up_account_message')}</PetText>

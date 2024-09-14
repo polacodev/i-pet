@@ -7,7 +7,7 @@ import { PetText } from '@/components/PetText';
 import { PetTextInput } from '@/components/PetTextInput';
 import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
-import { supabase } from '@/lib/supabase';
+import { signInWithPassword } from '@/lib/api';
 import { localization } from '@/localizations/localization';
 
 export default function Login() {
@@ -18,13 +18,10 @@ export default function Login() {
     const {
       data: { session },
       error,
-    } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    } = await signInWithPassword(email, password);
 
     if (error) {
-      Alert.alert(error.message)
+      Alert.alert(error.message);
     } else {
       if (session) {
         router.navigate('/');

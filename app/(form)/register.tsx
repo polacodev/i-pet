@@ -1,4 +1,3 @@
-import { decode } from 'base64-arraybuffer';
 import * as FileSystem from 'expo-file-system';
 import * as ImagePicker from 'expo-image-picker';
 import { router } from 'expo-router';
@@ -13,8 +12,7 @@ import { PetTextInput } from '@/components/PetTextInput';
 import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
 import { useUser } from '@/components/context/UserContext';
-import { getPetList } from '@/lib/api';
-import { supabase } from '@/lib/supabase';
+import { getPetList, insertPet, storePetImage } from '@/lib/api';
 import { localization } from '@/localizations/localization';
 import { usePetStore } from '@/store/store';
 
@@ -99,7 +97,7 @@ const PetRegister = () => {
         inserted_at: new Date(),
       };
 
-      const { error } = await supabase.from('pets').upsert(newPet);
+      const { error } = await insertPet(newPet);
       if (error) Alert.alert(error.message);
       router.back();
     } catch (error) {
@@ -127,20 +125,17 @@ const PetRegister = () => {
       const filePath = `${Date.now()}.${fileExt}`;
       const contentType = img.type === 'image' ? 'image/jpeg' : 'video/mp4';
 
-      const { data, error } = await supabase.storage
-        .from('pets')
-        .upload(filePath, decode(base64), { contentType });
-
+      const { error } = await storePetImage(filePath, base64, contentType);
       if (error) {
-        console.error('Error uploading image:', error);
-        Alert.alert('Error uploading image:', error);
+        Alert.alert('Error uploading image:', error.message);
         return null;
       }
       const imageUrl = `${process.env.EXPO_PUBLIC_SUPABASE_URL}/storage/v1/object/public/pets/${filePath}`;
       return imageUrl;
     } catch (error) {
-      Alert.alert('catch error image:', error);
-      // console.error('catch error image:', error);
+      if (error instanceof Error) {
+        Alert.alert(error.message);
+      }
       return null;
     } finally {
       // setUploadingImage(false);

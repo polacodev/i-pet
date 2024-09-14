@@ -16,8 +16,7 @@ import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
 import { useUser } from '@/components/context/UserContext';
 import { Colors } from '@/constants/Colors';
-import { getPetList } from '@/lib/api';
-import { supabase } from '@/lib/supabase';
+import { getPetList, deletePetById } from '@/lib/api';
 import { localization } from '@/localizations/localization';
 import { usePetStore } from '@/store/store';
 import { PetProps } from '@/types/pet.type';
@@ -28,7 +27,7 @@ export default function PetList() {
   const colorBorderCard = theme === 'light' ? '#d1d1d1' : '#3d3d3d';
   const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { setPetList, pets, removePetFromPetList } = usePetStore();
+  const { setPetList, pets, removePetFromStore } = usePetStore();
 
   const { session, user } = useUser();
 
@@ -70,12 +69,29 @@ export default function PetList() {
     );
   }
 
-  const deletePetById = async (petId: string) => {
+  const onDeletePetById = async (petId: string) => {
+    Alert.alert('', 'Are you sure to delete?', [
+      {
+        text: 'Cancel',
+        onPress: () => ({}),
+        style: 'cancel',
+      },
+      { text: 'OK', onPress: () => deletePetByIdAction(petId) },
+    ]);
+  };
+
+  const deletePetByIdAction = async (petId: string) => {
     try {
-      await supabase.from('pets').delete().eq('id', petId);
-      removePetFromPetList(petId);
+      const { error } = await deletePetById(petId);
+      if (error) {
+        Alert.alert('Error deleting Pet:', error.message);
+      } else {
+        removePetFromStore(petId);
+      }
     } catch (error) {
-      console.error('ERROR:', error);
+      if (error instanceof Error) {
+        Alert.alert(error.message);
+      }
     }
   };
 
@@ -126,7 +142,7 @@ export default function PetList() {
                           justifyContent: 'flex-end',
                           width: '15%',
                         }}
-                        onPress={() => deletePetById(pet?.id)}>
+                        onPress={() => onDeletePetById(pet?.id)}>
                         <PetIcon name="trash" size={20} color={colorText} />
                       </TouchableOpacity>
                     </PetView>

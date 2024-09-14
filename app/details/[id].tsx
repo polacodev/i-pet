@@ -3,7 +3,6 @@ import { Alert } from 'react-native';
 
 import PetCard from './petCard';
 
-import { localization } from '@/localizations/localization';
 import { PetProps, PetObj } from '@/types/pet.type';
 
 const PetPage = () => {
@@ -13,8 +12,10 @@ const PetPage = () => {
   if (petData) {
     try {
       petInfo = JSON.parse(petData as string);
-    } catch (e) {
-      Alert.alert(localization.t('id_parse_data_error'));
+    } catch (error) {
+      if (error instanceof Error) {
+        Alert.alert(error.name, error.message);
+      }
     }
   }
 

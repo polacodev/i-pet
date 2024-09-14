@@ -69,7 +69,5 @@
   "pet_register_owner_cell_phone": "Owner's cell phone",
   "pet_register_owner_email": "Owner's email",
   "pet_register_save_button": "Save",
-  "pet_register_back_to_home": "Back to Home",
-
-  "id_parse_data_error": "Error parsing pet data!"
+  "pet_register_back_to_home": "Back to Home"
 }

@@ -3,7 +3,26 @@ import { Alert } from 'react-native';
 
 import PetCard from './petCard';
 
-import { PetProps, PetObj } from '@/types/pet.type';
+import { PetProps } from '@/types/pet';
+
+const PetObj = {
+  id: '',
+  inserted_at: '',
+  pet_image: '',
+  pet_age: '',
+  pet_breed: '',
+  pet_gender: '',
+  pet_medical_condition: '',
+  pet_name: '',
+  pet_type: '',
+  profiles: {
+    country_code: '',
+    email: '',
+    id: '',
+    phone: '',
+  },
+  user_id: '',
+};
 
 const PetPage = () => {
   const { petData } = useGlobalSearchParams();

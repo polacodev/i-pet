@@ -18,22 +18,3 @@ export type PetProps = {
   profiles: OwnerProps;
   user_id: string;
 };
-
-export const PetObj = {
-  id: '',
-  inserted_at: '',
-  pet_image: '',
-  pet_age: '',
-  pet_breed: '',
-  pet_gender: '',
-  pet_medical_condition: '',
-  pet_name: '',
-  pet_type: '',
-  profiles: {
-    country_code: '',
-    email: '',
-    id: '',
-    phone: '',
-  },
-  user_id: '',
-};

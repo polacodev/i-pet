@@ -8,7 +8,7 @@ import { PetView } from '@/components/PetView';
 import { Colors } from '@/constants/Colors';
 import { signOut, getSession, onAuthStateChange } from '@/lib/api';
 import { localization } from '@/localizations/localization';
-import { Session } from '@/types/session.type';
+import { Session } from '@/types/session';
 
 export default function Profile() {
   const [session, setSession] = useState<Session | null>(null);

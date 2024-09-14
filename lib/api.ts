@@ -2,9 +2,9 @@ import { decode } from 'base64-arraybuffer';
 
 import { supabase } from './supabase';
 
-import { PetProps } from '@/types/pet.type';
-import { Session } from '@/types/session.type';
-import { UserProfileProps } from '@/types/user.type';
+import { PetProps } from '@/types/pet';
+import { Session } from '@/types/session';
+import { UserProfileProps } from '@/types/user';
 
 export const getPetList = async (userId: string | null) => {
   let petList: PetProps[] = [];

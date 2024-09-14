@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import { PetProps } from '@/types/pet.type';
+import { PetProps } from '@/types/pet';
 
 type PetStore = {
   pets: PetProps[];

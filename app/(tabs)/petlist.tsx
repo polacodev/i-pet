@@ -19,7 +19,7 @@ import { Colors } from '@/constants/Colors';
 import { getPetList, deletePetById } from '@/lib/api';
 import { localization } from '@/localizations/localization';
 import { usePetStore } from '@/store/store';
-import { PetProps } from '@/types/pet.type';
+import { PetProps } from '@/types/pet';
 
 export default function PetList() {
   const theme = useColorScheme() ?? 'light';

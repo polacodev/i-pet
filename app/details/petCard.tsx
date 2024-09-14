@@ -8,7 +8,7 @@ import { PetText } from '@/components/PetText';
 import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
 import { localization } from '@/localizations/localization';
-import { PetProps } from '@/types/pet.type';
+import { PetProps } from '@/types/pet';
 
 const expoApiUrl = process.env.EXPO_PUBLIC_API_URL;
 const whatsappApiUrl = process.env.EXPO_PUBLIC_WHATSAPP_API_URL;

@@ -1,5 +1,5 @@
 import { useCameraPermissions } from 'expo-camera';
-import { Link, router } from 'expo-router';
+import { router } from 'expo-router';
 import React from 'react';
 import { useColorScheme, Alert } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -8,6 +8,7 @@ import { PetButton } from '@/components/PetButton';
 import { PetIcon } from '@/components/PetIcon';
 import { PetText } from '@/components/PetText';
 import { PetTitle } from '@/components/PetTitle';
+import { PetToast } from '@/components/PetToast';
 import { PetView } from '@/components/PetView';
 import { Colors } from '@/constants/Colors';
 import { localization } from '@/localizations/localization';
@@ -69,17 +70,7 @@ export default function HomeScreen() {
           {localization.t('welcome_advice_line2')}
           <PetIcon name="heart" size={15} color="#ef4444" />
         </PetText>
-        {/* <PetTitle
-          type="link"
-          onPress={gotToPetRegister}
-          style={{ textDecorationLine: 'underline' }}>
-          {localization.t('welcome_register_pet')}
-        </PetTitle> */}
-        {/* <Link href="/pet/550e8400-e29b-41d4-a716-446655440000">Go to pet 446655440000</Link>
-        <Link href="/pet/550e8400-e29b-41d4-a716-446655440001">Go to pet 446655440001</Link>
-        <Link href="/pet/550e8400-e29b-41d4-a716-446655440002">Go to pet 446655440002</Link>
-        <Link href="/pet/550e8400-e29b-41d4-a716-446655440003">Go to pet 446655440003</Link>
-        <Link href="/pet/550e8400-e29b-41d4-a716-446655440004">Go to pet 446655440004</Link> */}
+        <PetToast />
       </PetView>
     </PetView>
   );

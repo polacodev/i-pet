@@ -14,7 +14,7 @@ import { PetView } from '@/components/PetView';
 import { useUser } from '@/components/context/UserContext';
 import { getPetList, insertPet, storePetImage } from '@/lib/api';
 import { localization } from '@/localizations/localization';
-import { usePetStore } from '@/store/store';
+import { useToastStore, usePetStore } from '@/store/store';
 
 const placeholderImageDark = require('../../assets/images/pet-image-dark.png');
 const placeholderImageLight = require('../../assets/images/pet-image-light.png');
@@ -31,6 +31,7 @@ type PetFormData = {
 
 const PetRegister = () => {
   const { session, user } = useUser();
+  const { setToast } = useToastStore();
 
   const {
     control,
@@ -99,6 +100,7 @@ const PetRegister = () => {
 
       const { error } = await insertPet(newPet);
       if (error) Alert.alert(error.message);
+      setToast({ isVisible: true, message: 'Pet has been created successfully!' });
       router.back();
     } catch (error) {
       if (error instanceof Error) {

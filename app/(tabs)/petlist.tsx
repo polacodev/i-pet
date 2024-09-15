@@ -18,7 +18,7 @@ import { useUser } from '@/components/context/UserContext';
 import { Colors } from '@/constants/Colors';
 import { getPetList, deletePetById } from '@/lib/api';
 import { localization } from '@/localizations/localization';
-import { usePetStore } from '@/store/store';
+import { useToastStore, usePetStore } from '@/store/store';
 import { PetProps } from '@/types/pet';
 
 export default function PetList() {
@@ -28,6 +28,7 @@ export default function PetList() {
   const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(false);
   const { setPetList, pets, removePetFromStore } = usePetStore();
+  const { setToast } = useToastStore();
 
   const { session, user } = useUser();
 
@@ -87,6 +88,7 @@ export default function PetList() {
         Alert.alert('Error deleting Pet:', error.message);
       } else {
         removePetFromStore(petId);
+        setToast({ isVisible: true, message: 'Pet has been deleted successfully!' });
       }
     } catch (error) {
       if (error instanceof Error) {

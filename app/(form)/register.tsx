@@ -30,7 +30,7 @@ type PetFormData = {
 };
 
 const PetRegister = () => {
-  const { session, user } = useUser();
+  const { user } = useUser();
   const { setToast } = useToastStore();
 
   const {
@@ -78,17 +78,21 @@ const PetRegister = () => {
       return;
     }
 
-    const fileURL = await uploadImage();
-    if (!fileURL) {
-      Alert.alert('Failed to upload image');
-      setSubmitLoading(false);
-      return;
-    }
+    const img = imageObj;
+    const base64 = await FileSystem.readAsStringAsync(img.uri, { encoding: 'base64' });
+    const fileExt = img.uri?.split('.').pop();
+    const filePath = `${Date.now()}.${fileExt}`;
+    const contentType = img.type === 'image' ? 'image/jpeg' : 'video/mp4';
 
     try {
+      const { error: errorImage } = await storePetImage(filePath, base64, contentType);
+      if (errorImage) Alert.alert('Error uploading image', errorImage.message);
+
+      const imageUrl = `${process.env.EXPO_PUBLIC_SUPABASE_URL}/storage/v1/object/public/pets/${filePath}`;
+
       const newPet = {
         user_id: user?.id,
-        pet_image: fileURL,
+        pet_image: imageUrl,
         pet_name: values.pet_name,
         pet_type: values.pet_type,
         pet_gender: values.pet_gender,
@@ -99,7 +103,8 @@ const PetRegister = () => {
       };
 
       const { error } = await insertPet(newPet);
-      if (error) Alert.alert(error.message);
+      if (error) Alert.alert('Error creating pet', error.message);
+
       setToast({ isVisible: true, message: 'Pet has been created successfully!' });
       router.back();
     } catch (error) {
@@ -115,33 +120,6 @@ const PetRegister = () => {
     setSubmitLoading(false);
     reset();
     setSelectedImage(null);
-  };
-
-  const uploadImage = async () => {
-    try {
-      // setUploadingImage(true);
-
-      const img = imageObj;
-      const base64 = await FileSystem.readAsStringAsync(img.uri, { encoding: 'base64' });
-      const fileExt = img.uri?.split('.').pop();
-      const filePath = `${Date.now()}.${fileExt}`;
-      const contentType = img.type === 'image' ? 'image/jpeg' : 'video/mp4';
-
-      const { error } = await storePetImage(filePath, base64, contentType);
-      if (error) {
-        Alert.alert('Error uploading image:', error.message);
-        return null;
-      }
-      const imageUrl = `${process.env.EXPO_PUBLIC_SUPABASE_URL}/storage/v1/object/public/pets/${filePath}`;
-      return imageUrl;
-    } catch (error) {
-      if (error instanceof Error) {
-        Alert.alert(error.message);
-      }
-      return null;
-    } finally {
-      // setUploadingImage(false);
-    }
   };
 
   const pickImageAsync = async () => {

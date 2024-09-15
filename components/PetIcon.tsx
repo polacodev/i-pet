@@ -21,6 +21,7 @@ type PetIconProps = ImageProps & {
     | 'home'
     | 'qr-code'
     | 'log-in'
+    | 'image'
     | 'log-out';
   color?: string;
   size?: number;

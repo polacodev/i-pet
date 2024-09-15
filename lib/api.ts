@@ -85,6 +85,11 @@ export const storePetImage = async (filePath: string, code: any, contentType: st
   return { data, error };
 };
 
+export const deletePetImage = async (petImage: string) => {
+  const { data, error } = await supabase.storage.from('pets').remove([petImage]);
+  return { data, error };
+};
+
 export const signInWithPassword = async (email: string, password: string) => {
   const { data, error } = await supabase.auth.signInWithPassword({
     email,

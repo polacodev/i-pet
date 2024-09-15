@@ -16,10 +16,11 @@ import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
 import { useUser } from '@/components/context/UserContext';
 import { Colors } from '@/constants/Colors';
-import { getPetList, deletePetById } from '@/lib/api';
+import { getPetList, deletePetById, deletePetImage } from '@/lib/api';
 import { localization } from '@/localizations/localization';
 import { useToastStore, usePetStore } from '@/store/store';
 import { PetProps } from '@/types/pet';
+import { extractPathFromUrl } from '@/utilities/utilities';
 
 export default function PetList() {
   const theme = useColorScheme() ?? 'light';
@@ -70,29 +71,37 @@ export default function PetList() {
     );
   }
 
-  const onDeletePetById = async (petId: string) => {
+  const onDeletePetById = async (petId: string, petImageURL: string) => {
     Alert.alert('', 'Are you sure to delete?', [
       {
         text: 'Cancel',
         onPress: () => ({}),
         style: 'cancel',
       },
-      { text: 'OK', onPress: () => deletePetByIdAction(petId) },
+      { text: 'OK', onPress: () => deletePet(petId, petImageURL) },
     ]);
   };
 
-  const deletePetByIdAction = async (petId: string) => {
+  const deletePet = async (petId: string, petImageURL: string) => {
+    const path = extractPathFromUrl(petImageURL);
+    const petImageName = path?.split('/').pop();
+    const deletePetByIdPromise = deletePetById(petId);
+    const deletePetImagePromise = deletePetImage(petImageName ?? 'error.png');
+
     try {
-      const { error } = await deletePetById(petId);
-      if (error) {
-        Alert.alert('Error deleting Pet:', error.message);
-      } else {
-        removePetFromStore(petId);
-        setToast({ isVisible: true, message: 'Pet has been deleted successfully!' });
-      }
+      const [deletePetByIdResult, deletePetImageResult] = await Promise.all([
+        deletePetByIdPromise,
+        deletePetImagePromise,
+      ]);
+
+      if (deletePetByIdResult.error) Alert.alert('Error', deletePetByIdResult.error.message);
+      if (deletePetImageResult.error) Alert.alert('Error', deletePetImageResult.error.message);
+
+      removePetFromStore(petId);
+      setToast({ isVisible: true, message: 'Pet has been deleted successfully!' });
     } catch (error) {
       if (error instanceof Error) {
-        Alert.alert(error.message);
+        Alert.alert('Error', error.message);
       }
     }
   };
@@ -144,7 +153,7 @@ export default function PetList() {
                           justifyContent: 'flex-end',
                           width: '15%',
                         }}
-                        onPress={() => onDeletePetById(pet?.id)}>
+                        onPress={() => onDeletePetById(pet?.id, pet?.pet_image)}>
                         <PetIcon name="trash" size={20} color={colorText} />
                       </TouchableOpacity>
                     </PetView>

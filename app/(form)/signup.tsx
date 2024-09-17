@@ -1,5 +1,6 @@
 import { router } from 'expo-router';
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm, Controller } from 'react-hook-form';
 import { Alert } from 'react-native';
 
 import { PetButton } from '@/components/PetButton';
@@ -10,22 +11,37 @@ import { PetView } from '@/components/PetView';
 import { signUpWithEmailPassword, saveUserProfile } from '@/lib/api';
 import { localization } from '@/localizations/localization';
 
-export default function Signup() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [countryCode, setCountryCode] = useState('');
-  const [phone, setPhone] = useState('');
+type UserSignupFormData = {
+  email: string;
+  password: string;
+  country_code: string;
+  phone: string;
+};
 
-  const onSignUp = async () => {
+export default function Signup() {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<UserSignupFormData>({
+    defaultValues: {
+      email: '',
+      password: '',
+      country_code: '',
+      phone: '',
+    },
+  });
+
+  const onSignUp = async (values: UserSignupFormData) => {
     const {
       data: { session },
       error,
-    } = await signUpWithEmailPassword(email, password);
+    } = await signUpWithEmailPassword(values.email, values.password);
 
     if (error) Alert.alert(error.message);
 
     if (session) {
-      await saveProfile(session.user.id, email, countryCode, phone);
+      await saveProfile(session.user.id, values.email, values.country_code, values.phone);
       router.navigate('/');
     }
   };
@@ -65,35 +81,111 @@ export default function Signup() {
         <PetText style={{ paddingHorizontal: 50, paddingVertical: 20 }}>
           {localization.t('header_sign_up_form_message')}
         </PetText>
-        <PetTextInput
-          onChangeText={(text) => setEmail(text)}
-          value={email}
-          placeholder={localization.t('header_sign_up_form_email')}
-          autoCapitalize="none"
+        <Controller
+          control={control}
+          rules={{
+            required: { value: true, message: 'email is required' },
+            pattern: {
+              value: /\S+@\S+\.\S+/,
+              message: 'Entered value does not match email format',
+            },
+          }}
+          name="email"
+          render={({ field: { onChange, onBlur, value } }) => (
+            <PetTextInput
+              onChangeText={onChange}
+              onBlur={onBlur}
+              value={value}
+              placeholder={localization.t('header_sign_up_form_email')}
+              autoCapitalize="none"
+            />
+          )}
         />
-        <PetTextInput
-          onChangeText={(text) => setCountryCode(text)}
-          value={countryCode}
-          placeholder={localization.t('header_sign_up_form_country_code')}
-          autoCapitalize="none"
+        {errors.email && (
+          <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
+            {errors.email.message}
+          </PetText>
+        )}
+        <Controller
+          control={control}
+          rules={{
+            required: { value: true, message: 'password is required' },
+            minLength: {
+              value: 6,
+              message: 'min length is 6',
+            },
+          }}
+          name="password"
+          render={({ field: { onChange, onBlur, value } }) => (
+            <PetTextInput
+              onChangeText={onChange}
+              onBlur={onBlur}
+              value={value}
+              secureTextEntry
+              placeholder={localization.t('header_sign_up_form_password')}
+              autoCapitalize="none"
+            />
+          )}
         />
-        <PetTextInput
-          onChangeText={(text) => setPhone(text)}
-          value={phone}
-          placeholder={localization.t('header_sign_up_form_phone')}
-          autoCapitalize="none"
+        {errors.password && (
+          <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
+            {errors.password.message}
+          </PetText>
+        )}
+        <Controller
+          control={control}
+          rules={{
+            required: { value: true, message: 'country code is required' },
+            pattern: {
+              value: /^[0-9]+/,
+              message: 'country code must be numeric only',
+            },
+          }}
+          name="country_code"
+          render={({ field: { onChange, onBlur, value } }) => (
+            <PetTextInput
+              onChangeText={onChange}
+              onBlur={onBlur}
+              value={value}
+              placeholder={localization.t('header_sign_up_form_country_code')}
+              autoCapitalize="none"
+            />
+          )}
         />
-        <PetTextInput
-          onChangeText={(text) => setPassword(text)}
-          value={password}
-          secureTextEntry
-          placeholder={localization.t('header_sign_up_form_password')}
-          autoCapitalize="none"
+        {errors.country_code && (
+          <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
+            {errors.country_code.message}
+          </PetText>
+        )}
+        <Controller
+          control={control}
+          rules={{
+            required: { value: true, message: 'phone is required' },
+            pattern: {
+              value: /^[0-9]+/,
+              message: 'phone must be numeric only',
+            },
+          }}
+          name="phone"
+          render={({ field: { onChange, onBlur, value } }) => (
+            <PetTextInput
+              onChangeText={onChange}
+              onBlur={onBlur}
+              value={value}
+              placeholder={localization.t('header_sign_up_form_phone')}
+              autoCapitalize="none"
+            />
+          )}
         />
+        {errors.phone && (
+          <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
+            {errors.phone.message}
+          </PetText>
+        )}
         <PetButton
           iconName="log-in"
           buttonName={localization.t('header_sign_up')}
-          onPress={onSignUp}
+          onPress={handleSubmit(onSignUp)}
         />
         <PetView style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
           <PetText>{localization.t('header_sign_up_account_message')}</PetText>

@@ -1,5 +1,6 @@
 import { router } from 'expo-router';
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm, Controller } from 'react-hook-form';
 import { Alert } from 'react-native';
 
 import { PetButton } from '@/components/PetButton';
@@ -10,15 +11,28 @@ import { PetView } from '@/components/PetView';
 import { signInWithPassword } from '@/lib/api';
 import { localization } from '@/localizations/localization';
 
-export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+type UserLoginFormData = {
+  email: string;
+  password: string;
+};
 
-  const LogInWithEmail = async () => {
+export default function Login() {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<UserLoginFormData>({
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+  });
+
+  const LogInWithEmail = async (values: UserLoginFormData) => {
     const {
       data: { session },
       error,
-    } = await signInWithPassword(email, password);
+    } = await signInWithPassword(values.email, values.password);
 
     if (error) {
       Alert.alert(error.message);
@@ -39,23 +53,61 @@ export default function Login() {
         <PetText style={{ paddingHorizontal: 50, paddingVertical: 20 }}>
           {localization.t('header_message')}
         </PetText>
-        <PetTextInput
-          onChangeText={(text) => setEmail(text)}
-          value={email}
-          placeholder={localization.t('header_login_form_email')}
-          autoCapitalize="none"
+        <Controller
+          control={control}
+          rules={{
+            required: { value: true, message: 'email is required' },
+            pattern: {
+              value: /\S+@\S+\.\S+/,
+              message: 'value does not match email format',
+            },
+          }}
+          name="email"
+          render={({ field: { onChange, onBlur, value } }) => (
+            <PetTextInput
+              onChangeText={onChange}
+              onBlur={onBlur}
+              value={value}
+              placeholder={localization.t('header_login_form_email')}
+              autoCapitalize="none"
+            />
+          )}
         />
-        <PetTextInput
-          onChangeText={(text) => setPassword(text)}
-          value={password}
-          secureTextEntry
-          placeholder={localization.t('header_login_form_password')}
-          autoCapitalize="none"
+        {errors.email && (
+          <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
+            {errors.email.message}
+          </PetText>
+        )}
+        <Controller
+          control={control}
+          rules={{
+            required: { value: true, message: 'password is required' },
+            minLength: {
+              value: 6,
+              message: 'min length is 6',
+            },
+          }}
+          name="password"
+          render={({ field: { onChange, onBlur, value } }) => (
+            <PetTextInput
+              onChangeText={onChange}
+              onBlur={onBlur}
+              value={value}
+              secureTextEntry
+              placeholder={localization.t('header_login_form_password')}
+              autoCapitalize="none"
+            />
+          )}
         />
+        {errors.password && (
+          <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
+            {errors.password.message}
+          </PetText>
+        )}
         <PetButton
           iconName="log-in"
           buttonName={localization.t('header_log_in')}
-          onPress={LogInWithEmail}
+          onPress={handleSubmit(LogInWithEmail)}
         />
         <PetView style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
           <PetText>{localization.t('header_no_account_message')}</PetText>

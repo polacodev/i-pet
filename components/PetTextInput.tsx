@@ -21,11 +21,13 @@ export const PetTextInput = ({
   ...rest
 }: PetTextInputProps) => {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
+  const placeholderColor = useThemeColor({ light: '#8e8e8e', dark: '#5d5d5d' }, 'text');
 
   return (
     <TextInput
       testID="pet-text-input"
       style={[{ color }, styles.input, style]}
+      placeholderTextColor={placeholderColor}
       placeholder={placeholder}
       onChangeText={onChangeText}
       defaultValue={defaultValue}

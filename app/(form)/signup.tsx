@@ -23,7 +23,6 @@ export default function Signup() {
     } = await signUpWithEmailPassword(email, password);
 
     if (error) Alert.alert(error.message);
-    if (!session) Alert.alert('Please check your inbox for email verification!');
 
     if (session) {
       await saveProfile(session.user.id, email, countryCode, phone);

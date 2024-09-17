@@ -6,12 +6,14 @@ import { useForm, Controller } from 'react-hook-form';
 import { useColorScheme, TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
 
 import { PetButton } from '@/components/PetButton';
+import PetDropdown from '@/components/PetDropdown';
 import { PetImageViewer } from '@/components/PetImageViewer';
 import { PetText } from '@/components/PetText';
 import { PetTextInput } from '@/components/PetTextInput';
 import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
 import { useUser } from '@/components/context/UserContext';
+import { petTypeData, petGenderData } from '@/constants/constants';
 import { getPetList, insertPet, storePetImage } from '@/lib/api';
 import { localization } from '@/localizations/localization';
 import { useToastStore, usePetStore } from '@/store/store';
@@ -57,6 +59,7 @@ const PetRegister = () => {
   const [imageObj, setImageObj] = useState<any>({});
   const [submitLoading, setSubmitLoading] = useState(false);
   const theme = useColorScheme() ?? 'light';
+
   const isDark =
     theme === 'light' ? (
       <PetImageViewer
@@ -98,7 +101,8 @@ const PetRegister = () => {
         pet_gender: values.pet_gender,
         pet_breed: values.pet_breed,
         pet_age: values.pet_age,
-        pet_medical_condition: values.pet_medical_condition,
+        pet_medical_condition:
+          values.pet_medical_condition.length > 0 ? values.pet_medical_condition : 'NA',
         inserted_at: new Date(),
       };
 
@@ -173,7 +177,11 @@ const PetRegister = () => {
         )}
         <Controller
           control={control}
-          rules={{ required: true }}
+          rules={{
+            required: { value: true, message: 'pet name is required' },
+            minLength: { value: 3, message: 'min length is 3' },
+            maxLength: { value: 20, message: 'max length is 20' },
+          }}
           name="pet_name"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
@@ -186,19 +194,19 @@ const PetRegister = () => {
         />
         {errors.pet_name && (
           <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
-            Pet name is required
+            {errors.pet_name.message}
           </PetText>
         )}
         <Controller
           control={control}
           rules={{ required: true }}
           name="pet_type"
-          render={({ field: { onChange, onBlur, value } }) => (
-            <PetTextInput
-              placeholder={localization.t('pet_register_pet_type')}
-              onChangeText={onChange}
-              onBlur={onBlur}
+          render={({ field: { onChange, value } }) => (
+            <PetDropdown
+              onChange={onChange}
               value={value}
+              data={Object.values(petTypeData)}
+              placeholder="Select pet type"
             />
           )}
         />
@@ -211,12 +219,12 @@ const PetRegister = () => {
           control={control}
           rules={{ required: true }}
           name="pet_gender"
-          render={({ field: { onChange, onBlur, value } }) => (
-            <PetTextInput
-              placeholder={localization.t('pet_register_pet_gender')}
-              onChangeText={onChange}
-              onBlur={onBlur}
+          render={({ field: { onChange, value } }) => (
+            <PetDropdown
+              onChange={onChange}
               value={value}
+              data={Object.values(petGenderData)}
+              placeholder="Select pet gender"
             />
           )}
         />
@@ -227,7 +235,11 @@ const PetRegister = () => {
         )}
         <Controller
           control={control}
-          rules={{ required: true }}
+          rules={{
+            required: { value: true, message: 'pet breed is required' },
+            minLength: { value: 3, message: 'min length is 3' },
+            maxLength: { value: 30, message: 'max length is 30' },
+          }}
           name="pet_breed"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
@@ -240,12 +252,16 @@ const PetRegister = () => {
         />
         {errors.pet_breed && (
           <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
-            Pet breed is required
+            {errors.pet_breed.message}
           </PetText>
         )}
         <Controller
           control={control}
-          rules={{ required: true }}
+          rules={{
+            required: { value: true, message: 'pet age is required' },
+            minLength: { value: 3, message: 'min length is 3' },
+            maxLength: { value: 30, message: 'max length is 20' },
+          }}
           name="pet_age"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
@@ -258,7 +274,7 @@ const PetRegister = () => {
         />
         {errors.pet_age && (
           <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
-            Pet age is required
+            {errors.pet_age.message}
           </PetText>
         )}
         <Controller

@@ -7,6 +7,7 @@ import { PetIcon } from '@/components/PetIcon';
 import { PetText } from '@/components/PetText';
 import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
+import { petTypeData, petGenderData } from '@/constants/constants';
 import { localization } from '@/localizations/localization';
 import { PetProps } from '@/types/pet';
 
@@ -60,10 +61,10 @@ const PetCard: React.FC<PetCardProps> = ({ petInfo }) => {
           {localization.t('info_pet_name')}: {petInfo?.pet_name}
         </PetText>
         <PetText type="default">
-          {localization.t('info_pet_type')}: {petInfo?.pet_type}
+          {localization.t('info_pet_type')}: {petTypeData[petInfo?.pet_type]?.label}
         </PetText>
         <PetText type="default">
-          {localization.t('info_pet_gender')}: {petInfo?.pet_gender}
+          {localization.t('info_pet_gender')}: {petGenderData[petInfo?.pet_gender]?.label}
         </PetText>
         <PetText type="default">
           {localization.t('info_pet_breed')}: {petInfo?.pet_breed}

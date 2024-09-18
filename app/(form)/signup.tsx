@@ -4,6 +4,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { Alert } from 'react-native';
 
 import { PetButton } from '@/components/PetButton';
+import { PetPickCountryCode } from '@/components/PetPickCountryCode';
 import { PetText } from '@/components/PetText';
 import { PetTextInput } from '@/components/PetTextInput';
 import { PetTitle } from '@/components/PetTitle';
@@ -87,7 +88,7 @@ export default function Signup() {
             required: { value: true, message: 'email is required' },
             pattern: {
               value: /\S+@\S+\.\S+/,
-              message: 'Entered value does not match email format',
+              message: 'value does not match email format',
             },
           }}
           name="email"
@@ -132,51 +133,38 @@ export default function Signup() {
             {errors.password.message}
           </PetText>
         )}
-        <Controller
-          control={control}
-          rules={{
-            required: { value: true, message: 'country code is required' },
-            pattern: {
-              value: /^[0-9]+/,
-              message: 'country code must be numeric only',
-            },
-          }}
-          name="country_code"
-          render={({ field: { onChange, onBlur, value } }) => (
-            <PetTextInput
-              onChangeText={onChange}
-              onBlur={onBlur}
-              value={value}
-              placeholder={localization.t('header_sign_up_form_country_code')}
-              autoCapitalize="none"
-            />
-          )}
-        />
-        {errors.country_code && (
-          <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
-            {errors.country_code.message}
-          </PetText>
-        )}
-        <Controller
-          control={control}
-          rules={{
-            required: { value: true, message: 'phone is required' },
-            pattern: {
-              value: /^[0-9]+/,
-              message: 'phone must be numeric only',
-            },
-          }}
-          name="phone"
-          render={({ field: { onChange, onBlur, value } }) => (
-            <PetTextInput
-              onChangeText={onChange}
-              onBlur={onBlur}
-              value={value}
-              placeholder={localization.t('header_sign_up_form_phone')}
-              autoCapitalize="none"
-            />
-          )}
-        />
+        <PetView style={{ flexDirection: 'row' }}>
+          <Controller
+            control={control}
+            name="country_code"
+            render={({ field: { onChange, value } }) => (
+              <PetPickCountryCode onChange={onChange} value={value} />
+            )}
+          />
+          <Controller
+            control={control}
+            rules={{
+              required: { value: true, message: 'cell phone is required' },
+              pattern: {
+                value: /^[0-9]+/,
+                message: 'cell phone must be numeric only',
+              },
+              maxLength: { value: 15, message: 'max length is 15' },
+            }}
+            name="phone"
+            render={({ field: { onChange, onBlur, value } }) => (
+              <PetTextInput
+                style={{ width: '55%', borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
+                onChangeText={onChange}
+                onBlur={onBlur}
+                value={value}
+                keyboardType="numeric"
+                placeholder={localization.t('header_sign_up_form_phone')}
+                autoCapitalize="none"
+              />
+            )}
+          />
+        </PetView>
         {errors.phone && (
           <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
             {errors.phone.message}

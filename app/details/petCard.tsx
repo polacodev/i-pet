@@ -84,7 +84,7 @@ const PetCard: React.FC<PetCardProps> = ({ petInfo }) => {
           {localization.t('info_owner_name')}: {petInfo?.profiles.email}
         </PetText>
         <PetText type="default">
-          {`${localization.t('info_owner_phone')}: +${petInfo?.profiles.country_code}-${petInfo?.profiles.phone}`}
+          {`${localization.t('info_owner_phone')}: ${petInfo?.profiles.country_code} ${petInfo?.profiles.phone}`}
         </PetText>
 
         {/** BUTTONS */}

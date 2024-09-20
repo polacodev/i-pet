@@ -1,10 +1,11 @@
 import { CameraView, BarcodeScanningResult } from 'expo-camera';
 import { router } from 'expo-router';
 import React, { useState } from 'react';
-import { View, StyleSheet, Alert, TouchableOpacity } from 'react-native';
+import { StyleSheet, Alert, TouchableOpacity } from 'react-native';
 
 import { PetIcon } from '@/components/PetIcon';
 import { PetTitle } from '@/components/PetTitle';
+import { PetView } from '@/components/PetView';
 import { getPetById } from '@/lib/api';
 import { localization } from '@/localizations/localization';
 import { extractPathFromUrl, isValidPath } from '@/utilities/utilities';
@@ -48,31 +49,40 @@ const PetQr = () => {
   };
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+    <PetView style={{ flex: 1, width: '100%' }}>
       <CameraView
         onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}
         barcodeScannerSettings={{
           barcodeTypes: ['qr'],
         }}
-        style={StyleSheet.absoluteFillObject}
-      />
-      <PetTitle style={{ paddingBottom: 50, color: '#ffffff' }}>iPet</PetTitle>
-      <View
-        style={{
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: 320,
-          height: 320,
-          borderRadius: 24,
-          borderColor: '#ffffff',
-          borderWidth: 4,
-          borderStyle: 'dotted',
-        }}
-      />
-      <TouchableOpacity style={{ paddingTop: 80 }} onPress={closeIPetCamera}>
-        <PetIcon name="close-circle" size={50} />
-      </TouchableOpacity>
-    </View>
+        style={[{ alignItems: 'center', justifyContent: 'center' }, StyleSheet.absoluteFillObject]}>
+        <PetView
+          style={{
+            flexDirection: 'column',
+            alignItems: 'center',
+            backgroundColor: 'transparent',
+            gap: 30,
+          }}>
+          <PetTitle style={{ color: '#ffffff' }}>iPet</PetTitle>
+          <PetView
+            style={{
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: 320,
+              backgroundColor: 'transparent',
+              height: 320,
+              borderRadius: 24,
+              borderColor: '#ffffff',
+              borderWidth: 2,
+              borderStyle: 'dotted',
+            }}
+          />
+          <TouchableOpacity onPress={closeIPetCamera}>
+            <PetIcon name="close-circle" size={50} />
+          </TouchableOpacity>
+        </PetView>
+      </CameraView>
+    </PetView>
   );
 };
 

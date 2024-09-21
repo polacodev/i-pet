@@ -33,14 +33,14 @@ exports[`<PetButton /> PetButton renders correctly Snapshot 1`] = `
     {
       "alignItems": "center",
       "backgroundColor": "#0e7490",
-      "borderRadius": 8,
+      "borderRadius": 10,
       "flexDirection": "row",
       "gap": 8,
       "justifyContent": "center",
       "margin": 6,
       "opacity": 1,
       "padding": 8,
-      "width": "80%",
+      "width": "85%",
     }
   }
   testID="pet-button"

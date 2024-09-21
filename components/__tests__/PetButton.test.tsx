@@ -21,10 +21,10 @@ describe('<PetButton />', () => {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
-      borderRadius: 8,
+      borderRadius: 10,
       padding: 8,
       gap: 8,
-      width: '80%',
+      width: '85%',
       margin: 6,
     });
   });

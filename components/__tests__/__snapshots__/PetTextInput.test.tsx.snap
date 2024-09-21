@@ -32,6 +32,7 @@ exports[`<PetTextInput /> PetTextInput renders correctly Snapshot 1`] = `
     }
   }
   placeholder="placeholder test"
+  placeholderTextColor="#8e8e8e"
   style={
     [
       {
@@ -41,8 +42,9 @@ exports[`<PetTextInput /> PetTextInput renders correctly Snapshot 1`] = `
         "borderColor": "rgb(34 211 238)",
         "borderRadius": 10,
         "borderWidth": 1,
-        "height": 40,
+        "height": 45,
         "paddingLeft": 25,
+        "paddingRight": 25,
         "width": "85%",
       },
       {

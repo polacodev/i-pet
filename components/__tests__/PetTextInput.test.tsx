@@ -31,7 +31,7 @@ describe('<PetTextInput />', () => {
       />,
     );
     expect(getByTestId('pet-text-input')).toHaveStyle({
-      height: 40,
+      height: 45,
       borderWidth: 1,
       borderColor: 'rgb(34 211 238)',
       borderRadius: 10,

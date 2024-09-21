@@ -21,14 +21,11 @@ type ToastProps = {
 };
 
 type ToastStore = {
-  isToastVisible: boolean;
-  toastMessage: string;
+  toast: ToastProps;
   setToast: (toast: ToastProps) => void;
 };
 
 export const useToastStore = create<ToastStore>((set) => ({
-  isToastVisible: false,
-  toastMessage: '',
-  setToast: (state: ToastProps) =>
-    set({ isToastVisible: state.isVisible, toastMessage: state.message }),
+  toast: { isVisible: false, message: '' },
+  setToast: (state: ToastProps) => set({ toast: state }),
 }));

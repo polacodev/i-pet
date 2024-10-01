@@ -4,6 +4,7 @@ import { Dropdown } from 'react-native-element-dropdown';
 
 import { PetView } from './PetView';
 
+import { BORDER_COLOR_FORM } from '@/constants/Colors';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { DropdownProps } from '@/types/dropdown';
 
@@ -16,7 +17,7 @@ type PetDropdownProps = TextInputProps & {
   placeholder: string;
 };
 
-const DropdownComponent = ({
+export const PetDropdown = ({
   lightColor,
   darkColor,
   onChange,
@@ -25,14 +26,16 @@ const DropdownComponent = ({
   placeholder,
 }: PetDropdownProps) => {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-  const placeholderColor = useThemeColor({ light: '#8e8e8e', dark: '#5d5d5d' }, 'text');
+  const placeholderColor = useThemeColor({ light: lightColor, dark: lightColor }, 'placeholder');
+  const borderColorForm = BORDER_COLOR_FORM;
 
   return (
     <PetView style={styles.container}>
       <Dropdown
+        testID="pet-dropdown"
         style={[
           styles.dropdown,
-          { borderColor: 'rgb(34 211 238)', borderWidth: 1, borderRadius: 10 },
+          { borderColor: borderColorForm, borderWidth: 1, borderRadius: 10 },
         ]}
         placeholderStyle={[{ color: placeholderColor }, styles.placeholderStyle]}
         selectedTextStyle={[{ color }, styles.selectedTextStyle]}
@@ -49,8 +52,6 @@ const DropdownComponent = ({
     </PetView>
   );
 };
-
-export default DropdownComponent;
 
 const styles = StyleSheet.create({
   container: {

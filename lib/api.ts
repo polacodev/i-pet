@@ -1,7 +1,6 @@
 import { decode } from 'base64-arraybuffer';
 
-import { supabase } from './supabase';
-
+import { supabase } from '@/lib/supabase';
 import { PetProps } from '@/types/pet';
 import { Session } from '@/types/session';
 import { UserProfileProps } from '@/types/user';

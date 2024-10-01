@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PetDropdown /> PetDropdown renders correctly Snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#f6f6f6",
+      },
+      {
+        "width": "85%",
+      },
+    ]
+  }
+  testID="pet-view"
+>
+  <View
+    onLayout={[Function]}
+    style={
+      {
+        "borderColor": "#22D3EE",
+        "borderRadius": 10,
+        "borderWidth": 1,
+        "height": 40,
+        "justifyContent": "center",
+        "paddingHorizontal": 8,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessible={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
+      testID="pet-dropdown"
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "fontSize": 16,
+              "writingDirection": "ltr",
+            },
+            [
+              {
+                "color": "#8e8e8e",
+              },
+              {
+                "fontSize": 14,
+                "fontWeight": "normal",
+                "paddingLeft": 17,
+              },
+            ],
+            {},
+          ]
+        }
+      >
+        placeholder test
+      </Text>
+      <Image
+        source={1}
+        style={
+          {
+            "height": 20,
+            "tintColor": "gray",
+            "width": 20,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;

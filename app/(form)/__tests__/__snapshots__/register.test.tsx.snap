@@ -1,0 +1,1340 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PetRegister /> Pet Form(correct on onSubmit): Change event are called correctly with Valid Data, onSubmit is called and Pet is created successfully 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#f6f6f6",
+      },
+      {
+        "width": "100%",
+      },
+    ]
+  }
+  testID="pet-view"
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "#f6f6f6",
+        },
+        {
+          "alignItems": "center",
+          "gap": 5,
+        },
+      ]
+    }
+    testID="pet-view"
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "#155e75",
+          },
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "lineHeight": 28,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-title"
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "column",
+          "opacity": 1,
+        }
+      }
+      testID="register-pet-image"
+    >
+      <Image
+        source={1}
+        style={
+          {
+            "borderRadius": 50,
+            "height": 80,
+            "width": 80,
+          }
+        }
+        testID="pet-image"
+      />
+    </View>
+    <TextInput
+      defaultValue=""
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      placeholderTextColor="#8e8e8e"
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "borderColor": "#22D3EE",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "height": 45,
+            "paddingLeft": 25,
+            "paddingRight": 25,
+            "width": "85%",
+          },
+          undefined,
+        ]
+      }
+      testID="register-pet-name"
+      value="pet name test"
+    />
+    <View
+      data={
+        [
+          "1",
+          "2",
+        ]
+      }
+      onChange={[Function]}
+      placeholder="test type placeholder"
+      testID="pet-dropdown"
+      value="1"
+    />
+    <View
+      data={
+        [
+          "1",
+          "2",
+        ]
+      }
+      onChange={[Function]}
+      placeholder="test type placeholder"
+      testID="pet-dropdown"
+      value="2"
+    />
+    <TextInput
+      defaultValue=""
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      placeholderTextColor="#8e8e8e"
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "borderColor": "#22D3EE",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "height": 45,
+            "paddingLeft": 25,
+            "paddingRight": 25,
+            "width": "85%",
+          },
+          undefined,
+        ]
+      }
+      testID="register-pet-breed"
+      value="pet breed test"
+    />
+    <TextInput
+      defaultValue=""
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      placeholderTextColor="#8e8e8e"
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "borderColor": "#22D3EE",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "height": 45,
+            "paddingLeft": 25,
+            "paddingRight": 25,
+            "width": "85%",
+          },
+          undefined,
+        ]
+      }
+      testID="register-pet-age"
+      value="pet age test"
+    />
+    <TextInput
+      defaultValue=""
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      placeholderTextColor="#8e8e8e"
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "borderColor": "#22D3EE",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "height": 45,
+            "paddingLeft": 25,
+            "paddingRight": 25,
+            "width": "85%",
+          },
+          undefined,
+        ]
+      }
+      testID="register-pet-medical-condition"
+      value="none"
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#0e7490",
+          "borderRadius": 10,
+          "flexDirection": "row",
+          "gap": 8,
+          "justifyContent": "center",
+          "margin": 6,
+          "opacity": 1,
+          "padding": 8,
+          "width": "85%",
+        }
+      }
+      testID="pet-button"
+    >
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          [
+            {
+              "color": "#ffffff",
+              "fontSize": 30,
+            },
+            [
+              undefined,
+            ],
+            {
+              "fontFamily": "ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            {},
+          ]
+        }
+        testID="pet-icon"
+      >
+        
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#11181C",
+            },
+            {
+              "fontSize": 16,
+              "lineHeight": 24,
+            },
+            {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        testID="pet-text"
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`<PetRegister /> Pet image(fail on Submit): Change event are called correctly with Valid Data, onSubmit is called but it the request fails because the Image validation error, and Snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#f6f6f6",
+      },
+      {
+        "width": "100%",
+      },
+    ]
+  }
+  testID="pet-view"
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "#f6f6f6",
+        },
+        {
+          "alignItems": "center",
+          "gap": 5,
+        },
+      ]
+    }
+    testID="pet-view"
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "#155e75",
+          },
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "lineHeight": 28,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-title"
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "column",
+          "opacity": 1,
+        }
+      }
+      testID="register-pet-image"
+    >
+      <Image
+        source={1}
+        style={
+          {
+            "borderRadius": 50,
+            "height": 80,
+            "width": 80,
+          }
+        }
+        testID="pet-image"
+      />
+    </View>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 14,
+            "lineHeight": 20,
+          },
+          {
+            "color": "red",
+            "fontSize": 11,
+            "margin": -5,
+          },
+        ]
+      }
+      testID="register-pet-image-error"
+    >
+      Image is required
+    </Text>
+    <TextInput
+      defaultValue=""
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      placeholderTextColor="#8e8e8e"
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "borderColor": "#22D3EE",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "height": 45,
+            "paddingLeft": 25,
+            "paddingRight": 25,
+            "width": "85%",
+          },
+          undefined,
+        ]
+      }
+      testID="register-pet-name"
+      value="pet name test"
+    />
+    <View
+      data={
+        [
+          "1",
+          "2",
+        ]
+      }
+      onChange={[Function]}
+      placeholder="test type placeholder"
+      testID="pet-dropdown"
+      value="1"
+    />
+    <View
+      data={
+        [
+          "1",
+          "2",
+        ]
+      }
+      onChange={[Function]}
+      placeholder="test type placeholder"
+      testID="pet-dropdown"
+      value="2"
+    />
+    <TextInput
+      defaultValue=""
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      placeholderTextColor="#8e8e8e"
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "borderColor": "#22D3EE",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "height": 45,
+            "paddingLeft": 25,
+            "paddingRight": 25,
+            "width": "85%",
+          },
+          undefined,
+        ]
+      }
+      testID="register-pet-breed"
+      value="pet breed test"
+    />
+    <TextInput
+      defaultValue=""
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      placeholderTextColor="#8e8e8e"
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "borderColor": "#22D3EE",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "height": 45,
+            "paddingLeft": 25,
+            "paddingRight": 25,
+            "width": "85%",
+          },
+          undefined,
+        ]
+      }
+      testID="register-pet-age"
+      value="pet age test"
+    />
+    <TextInput
+      defaultValue=""
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      placeholderTextColor="#8e8e8e"
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "borderColor": "#22D3EE",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "height": 45,
+            "paddingLeft": 25,
+            "paddingRight": 25,
+            "width": "85%",
+          },
+          undefined,
+        ]
+      }
+      testID="register-pet-medical-condition"
+      value="none"
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#0e7490",
+          "borderRadius": 10,
+          "flexDirection": "row",
+          "gap": 8,
+          "justifyContent": "center",
+          "margin": 6,
+          "opacity": 1,
+          "padding": 8,
+          "width": "85%",
+        }
+      }
+      testID="pet-button"
+    >
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          [
+            {
+              "color": "#ffffff",
+              "fontSize": 30,
+            },
+            [
+              undefined,
+            ],
+            {
+              "fontFamily": "ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            {},
+          ]
+        }
+        testID="pet-icon"
+      >
+        
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#11181C",
+            },
+            {
+              "fontSize": 16,
+              "lineHeight": 24,
+            },
+            {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        testID="pet-text"
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`<PetRegister /> Pet name, type, gender, breed, age: Change event are called correctly with Invalid Data, onSubmit is called but it the request fails because the validation errors, and Snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#f6f6f6",
+      },
+      {
+        "width": "100%",
+      },
+    ]
+  }
+  testID="pet-view"
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "#f6f6f6",
+        },
+        {
+          "alignItems": "center",
+          "gap": 5,
+        },
+      ]
+    }
+    testID="pet-view"
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "#155e75",
+          },
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "lineHeight": 28,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-title"
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "column",
+          "opacity": 1,
+        }
+      }
+      testID="register-pet-image"
+    >
+      <Image
+        source={1}
+        style={
+          {
+            "borderRadius": 50,
+            "height": 80,
+            "width": 80,
+          }
+        }
+        testID="pet-image"
+      />
+    </View>
+    <TextInput
+      defaultValue=""
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      placeholderTextColor="#8e8e8e"
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "borderColor": "#22D3EE",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "height": 45,
+            "paddingLeft": 25,
+            "paddingRight": 25,
+            "width": "85%",
+          },
+          undefined,
+        ]
+      }
+      testID="register-pet-name"
+      value=""
+    />
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 14,
+            "lineHeight": 20,
+          },
+          {
+            "color": "red",
+            "fontSize": 11,
+            "margin": -5,
+          },
+        ]
+      }
+      testID="register-pet-name-error"
+    >
+      pet name is required
+    </Text>
+    <View
+      data={
+        [
+          "1",
+          "2",
+        ]
+      }
+      onChange={[Function]}
+      placeholder="test type placeholder"
+      testID="pet-dropdown"
+      value=""
+    />
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 14,
+            "lineHeight": 20,
+          },
+          {
+            "color": "red",
+            "fontSize": 11,
+            "margin": -5,
+          },
+        ]
+      }
+      testID="register-pet-type-error"
+    >
+      Pet type is required
+    </Text>
+    <View
+      data={
+        [
+          "1",
+          "2",
+        ]
+      }
+      onChange={[Function]}
+      placeholder="test type placeholder"
+      testID="pet-dropdown"
+      value=""
+    />
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 14,
+            "lineHeight": 20,
+          },
+          {
+            "color": "red",
+            "fontSize": 11,
+            "margin": -5,
+          },
+        ]
+      }
+      testID="register-pet-gender-error"
+    >
+      Pet gender is required
+    </Text>
+    <TextInput
+      defaultValue=""
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      placeholderTextColor="#8e8e8e"
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "borderColor": "#22D3EE",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "height": 45,
+            "paddingLeft": 25,
+            "paddingRight": 25,
+            "width": "85%",
+          },
+          undefined,
+        ]
+      }
+      testID="register-pet-breed"
+      value=""
+    />
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 14,
+            "lineHeight": 20,
+          },
+          {
+            "color": "red",
+            "fontSize": 11,
+            "margin": -5,
+          },
+        ]
+      }
+      testID="register-pet-breed-error"
+    >
+      pet breed is required
+    </Text>
+    <TextInput
+      defaultValue=""
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      placeholderTextColor="#8e8e8e"
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "borderColor": "#22D3EE",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "height": 45,
+            "paddingLeft": 25,
+            "paddingRight": 25,
+            "width": "85%",
+          },
+          undefined,
+        ]
+      }
+      testID="register-pet-age"
+      value=""
+    />
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 14,
+            "lineHeight": 20,
+          },
+          {
+            "color": "red",
+            "fontSize": 11,
+            "margin": -5,
+          },
+        ]
+      }
+      testID="register-pet-age-error"
+    >
+      pet age is required
+    </Text>
+    <TextInput
+      defaultValue=""
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      placeholderTextColor="#8e8e8e"
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "borderColor": "#22D3EE",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "height": 45,
+            "paddingLeft": 25,
+            "paddingRight": 25,
+            "width": "85%",
+          },
+          undefined,
+        ]
+      }
+      testID="register-pet-medical-condition"
+      value=""
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#0e7490",
+          "borderRadius": 10,
+          "flexDirection": "row",
+          "gap": 8,
+          "justifyContent": "center",
+          "margin": 6,
+          "opacity": 1,
+          "padding": 8,
+          "width": "85%",
+        }
+      }
+      testID="pet-button"
+    >
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          [
+            {
+              "color": "#ffffff",
+              "fontSize": 30,
+            },
+            [
+              undefined,
+            ],
+            {
+              "fontFamily": "ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            {},
+          ]
+        }
+        testID="pet-icon"
+      >
+        
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#11181C",
+            },
+            {
+              "fontSize": 16,
+              "lineHeight": 24,
+            },
+            {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        testID="pet-text"
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`<PetRegister /> PetRegister renders correctly (dark mode set) and Snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#121212",
+      },
+      {
+        "width": "100%",
+      },
+    ]
+  }
+  testID="pet-view"
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "#121212",
+        },
+        {
+          "alignItems": "center",
+          "gap": 5,
+        },
+      ]
+    }
+    testID="pet-view"
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "#67e8f9",
+          },
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "lineHeight": 28,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-title"
+    >
+      pet_register_title
+    </Text>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "column",
+          "opacity": 1,
+        }
+      }
+      testID="register-pet-image"
+    >
+      <Image
+        source={1}
+        style={
+          {
+            "borderRadius": 50,
+            "height": 80,
+            "width": 80,
+          }
+        }
+        testID="pet-image"
+      />
+    </View>
+    <TextInput
+      defaultValue=""
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      placeholder="pet_register_pet_name"
+      placeholderTextColor="#5d5d5d"
+      style={
+        [
+          {
+            "color": "#ecedee",
+          },
+          {
+            "borderColor": "#22D3EE",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "height": 45,
+            "paddingLeft": 25,
+            "paddingRight": 25,
+            "width": "85%",
+          },
+          undefined,
+        ]
+      }
+      testID="register-pet-name"
+      value=""
+    />
+    <View
+      data={
+        [
+          "1",
+          "2",
+        ]
+      }
+      onChange={[Function]}
+      placeholder="test type placeholder"
+      testID="pet-dropdown"
+      value=""
+    />
+    <View
+      data={
+        [
+          "1",
+          "2",
+        ]
+      }
+      onChange={[Function]}
+      placeholder="test type placeholder"
+      testID="pet-dropdown"
+      value=""
+    />
+    <TextInput
+      defaultValue=""
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      placeholder="pet_register_pet_breed"
+      placeholderTextColor="#5d5d5d"
+      style={
+        [
+          {
+            "color": "#ecedee",
+          },
+          {
+            "borderColor": "#22D3EE",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "height": 45,
+            "paddingLeft": 25,
+            "paddingRight": 25,
+            "width": "85%",
+          },
+          undefined,
+        ]
+      }
+      testID="register-pet-breed"
+      value=""
+    />
+    <TextInput
+      defaultValue=""
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      placeholder="pet_register_pet_age"
+      placeholderTextColor="#5d5d5d"
+      style={
+        [
+          {
+            "color": "#ecedee",
+          },
+          {
+            "borderColor": "#22D3EE",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "height": 45,
+            "paddingLeft": 25,
+            "paddingRight": 25,
+            "width": "85%",
+          },
+          undefined,
+        ]
+      }
+      testID="register-pet-age"
+      value=""
+    />
+    <TextInput
+      defaultValue=""
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      placeholder="pet_register_pet_medical_condition"
+      placeholderTextColor="#5d5d5d"
+      style={
+        [
+          {
+            "color": "#ecedee",
+          },
+          {
+            "borderColor": "#22D3EE",
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "height": 45,
+            "paddingLeft": 25,
+            "paddingRight": 25,
+            "width": "85%",
+          },
+          undefined,
+        ]
+      }
+      testID="register-pet-medical-condition"
+      value="NA"
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#0e7490",
+          "borderRadius": 10,
+          "flexDirection": "row",
+          "gap": 8,
+          "justifyContent": "center",
+          "margin": 6,
+          "opacity": 1,
+          "padding": 8,
+          "width": "85%",
+        }
+      }
+      testID="pet-button"
+    >
+      <Text />
+      <Text
+        style={
+          [
+            {
+              "color": "#ecedee",
+            },
+            {
+              "fontSize": 16,
+              "lineHeight": 24,
+            },
+            {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        testID="pet-text"
+      >
+        pet_register_save_button
+      </Text>
+    </View>
+  </View>
+</View>
+`;

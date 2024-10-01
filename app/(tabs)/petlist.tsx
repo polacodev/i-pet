@@ -4,10 +4,10 @@ import {
   FlatList,
   StyleSheet,
   Image,
-  useColorScheme,
   TouchableOpacity,
   Alert,
   ActivityIndicator,
+  RefreshControl,
 } from 'react-native';
 
 import { PetIcon } from '@/components/PetIcon';
@@ -15,17 +15,21 @@ import { PetText } from '@/components/PetText';
 import { PetTitle } from '@/components/PetTitle';
 import { PetView } from '@/components/PetView';
 import { useUser } from '@/components/context/UserContext';
-import { Colors } from '@/constants/Colors';
+import { useThemeColor } from '@/hooks/useThemeColor';
 import { getPetList, deletePetById, deletePetImage } from '@/lib/api';
 import { localization } from '@/localizations/localization';
 import { useToastStore, usePetStore } from '@/store/store';
 import { PetProps } from '@/types/pet';
 import { extractPathFromUrl } from '@/utilities/utilities';
 
-export default function PetList() {
-  const theme = useColorScheme() ?? 'light';
-  const colorText = theme === 'light' ? Colors.light.smallText : Colors.dark.smallText;
-  const colorBorderCard = theme === 'light' ? '#d1d1d1' : '#3d3d3d';
+type PetListProps = {
+  lightColor?: string;
+  darkColor?: string;
+};
+
+export default function PetList({ lightColor, darkColor }: PetListProps) {
+  const colorText = useThemeColor({ light: lightColor, dark: darkColor }, 'smallText');
+  const colorBorderCard = useThemeColor({ light: lightColor, dark: darkColor }, 'borderCard');
   const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(false);
   const { setPetList, pets, removePetFromStore } = usePetStore();
@@ -83,10 +87,10 @@ export default function PetList() {
   };
 
   const deletePet = async (petId: string, petImageURL: string) => {
-    const path = extractPathFromUrl(petImageURL);
-    const petImageName = path?.split('/').pop();
+    const { pathname } = extractPathFromUrl(petImageURL);
+    const petImageName = pathname?.split('/').pop();
     const deletePetByIdPromise = deletePetById(petId);
-    const deletePetImagePromise = deletePetImage(petImageName ?? 'error.png');
+    const deletePetImagePromise = deletePetImage(petImageName);
 
     try {
       const [deletePetByIdResult, deletePetImageResult] = await Promise.all([
@@ -100,9 +104,7 @@ export default function PetList() {
       removePetFromStore(petId);
       setToast({ isVisible: true, message: 'Pet has been deleted successfully!' });
     } catch (error) {
-      if (error instanceof Error) {
-        Alert.alert('Error', error.message);
-      }
+      if (error instanceof Error) Alert.alert('Error', error.message);
     }
   };
 
@@ -111,26 +113,27 @@ export default function PetList() {
       {session ? (
         pets?.length === 0 ? (
           <PetView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <PetIcon onPress={goToPetRegister} name="albums" color="#0891b2" />
+            <PetIcon name="albums" color="#0891b2" />
             <PetTitle type="subtitle">{localization.t('pet_list_message_1')}</PetTitle>
-            <PetIcon
+            <TouchableOpacity
+              testID="pet-button-register"
               onPress={goToPetRegister}
-              name="add-circle"
-              color="#0891b2"
-              size={60}
-              style={styles.plusButton}
-            />
+              style={styles.plusButton}>
+              <PetIcon name="add-circle" color="#0891b2" size={60} />
+            </TouchableOpacity>
           </PetView>
         ) : (
           <PetView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <FlatList
+              testID="pet-list"
               style={{ width: '100%' }}
-              refreshing={refreshing}
-              onRefresh={refreshingPetList}
+              refreshControl={
+                <RefreshControl refreshing={refreshing} onRefresh={refreshingPetList} />
+              }
               data={pets}
               keyExtractor={(item) => `${item.id}`}
               renderItem={({ item: pet }) => (
-                <TouchableOpacity onPress={() => goToPetDetails(pet)}>
+                <TouchableOpacity testID="pet-details-card" onPress={() => goToPetDetails(pet)}>
                   <PetView
                     style={{
                       borderWidth: 1,
@@ -148,6 +151,7 @@ export default function PetList() {
                         marginHorizontal: 10,
                       }}>
                       <TouchableOpacity
+                        testID="pet-delete-card-icon"
                         style={{
                           alignItems: 'flex-end',
                           justifyContent: 'flex-end',
@@ -167,7 +171,7 @@ export default function PetList() {
                           style={{ width: 70, height: 70, borderRadius: 50 }}
                         />
                       ) : (
-                        <PetIcon name="image" size={70} />
+                        <PetIcon testID="pet-icon-aux" name="image" size={70} />
                       )}
                     </PetView>
                     <PetView
@@ -191,18 +195,17 @@ export default function PetList() {
                 </TouchableOpacity>
               )}
             />
-            <PetIcon
+            <TouchableOpacity
+              testID="pet-button-register-with-empty-data"
               onPress={goToPetRegister}
-              name="add-circle"
-              color="#0891b2"
-              size={60}
-              style={styles.plusButton}
-            />
+              style={styles.plusButton}>
+              <PetIcon name="add-circle" color="#0891b2" size={60} />
+            </TouchableOpacity>
           </PetView>
         )
       ) : (
         <PetView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <PetIcon onPress={goToPetRegister} name="information-circle" color="#0891b2" />
+          <PetIcon name="information-circle" color="#0891b2" />
           <PetTitle type="subtitle">{localization.t('pet_list_message_2')}</PetTitle>
           <PetTitle type="subtitle">{localization.t('pet_list_message_3')}</PetTitle>
         </PetView>

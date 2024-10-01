@@ -1,7 +1,7 @@
 import { useCameraPermissions } from 'expo-camera';
 import { router } from 'expo-router';
 import React from 'react';
-import { useColorScheme, Alert } from 'react-native';
+import { Alert } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { PetButton } from '@/components/PetButton';
@@ -10,14 +10,20 @@ import { PetText } from '@/components/PetText';
 import { PetTitle } from '@/components/PetTitle';
 import { PetToast } from '@/components/PetToast';
 import { PetView } from '@/components/PetView';
-import { Colors } from '@/constants/Colors';
+import { useThemeColor } from '@/hooks/useThemeColor';
 import { localization } from '@/localizations/localization';
 import { PetHome } from '@/svgIcons/home';
 
-export default function HomeScreen() {
+type HomeScreenProps = {
+  lightColor?: string;
+  darkColor?: string;
+};
+
+export default function HomeScreen({ lightColor, darkColor }: HomeScreenProps) {
   const insets = useSafeAreaInsets();
-  const theme = useColorScheme() ?? 'light';
-  const colorText = theme === 'light' ? Colors.light.smallText : Colors.dark.smallText;
+
+  const colorText = useThemeColor({ light: lightColor, dark: darkColor }, 'smallText');
+  const colorHighLightText = useThemeColor({ light: lightColor, dark: darkColor }, 'highlightText');
 
   const [status, requestPermission] = useCameraPermissions();
 
@@ -48,9 +54,8 @@ export default function HomeScreen() {
         </PetView>
         <PetTitle type="default" style={{ marginTop: 8 }}>
           {localization.t('welcome_line1')}
-          <PetTitle style={{ color: theme === 'light' ? 'rgb(34 211 238)' : '#fff' }}>
-            {' '}
-            {localization.t('welcome_line2')}{' '}
+          <PetTitle style={{ color: colorHighLightText }}>
+            {` ${localization.t('welcome_line2')} `}
           </PetTitle>
           {localization.t('welcome_line3')}
         </PetTitle>

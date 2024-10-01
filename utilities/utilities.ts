@@ -6,10 +6,10 @@
 export const extractPathFromUrl = (data: string) => {
   try {
     const url = new URL(data);
-    return url.pathname;
+    return { pathname: url.pathname, pathnameError: null };
   } catch (error) {
-    console.log('Error: ', error);
-    return null;
+    if (error instanceof Error) return { pathname: null, pathnameError: error.message };
+    else return { pathname: null, pathnameError: 'Invalid URL' };
   }
 };
 

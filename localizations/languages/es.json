@@ -69,5 +69,8 @@
   "pet_register_owner_cell_phone": "Teléfono móvil del propietario",
   "pet_register_owner_email": "Correo electronico del propietario",
   "pet_register_save_button": "Guardar",
-  "pet_register_back_to_home": "Volver a Inicio"
+  "pet_register_back_to_home": "Volver a Inicio",
+
+  "id_error_alert_title": "Error",
+  "id_error_alert_message": "No se han podido analizar los datos de la mascota"
 }

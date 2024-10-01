@@ -1,6 +1,6 @@
 import { CameraView, BarcodeScanningResult } from 'expo-camera';
 import { router, useFocusEffect } from 'expo-router';
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import { StyleSheet, Alert, TouchableOpacity, ActivityIndicator } from 'react-native';
 
 import { PetIcon } from '@/components/PetIcon';
@@ -11,19 +11,19 @@ import { localization } from '@/localizations/localization';
 import { extractPathFromUrl, isValidPath } from '@/utilities/utilities';
 
 const PetQr = () => {
-  const [mountCamera, setMountCamera] = useState(true);
+  const [mountCamera, setMountCamera] = React.useState(true);
 
   const handleBarCodeScanned = async (scanningResult: BarcodeScanningResult) => {
-    const path = extractPathFromUrl(scanningResult.data);
-    if (path && isValidPath(path)) {
-      const id = path.split('/').pop();
+    const { pathname } = extractPathFromUrl(scanningResult.data);
+    if (pathname && isValidPath(pathname)) {
+      const id = pathname.split('/').pop();
       const { data, error } = await getPetById(id as string);
 
       if (error) {
         Alert.alert(localization.t('pet_qr_alert_request'));
-        closeIPetCamera(true);
+        await closeIPetCamera(true);
       } else {
-        closeIPetCamera(false);
+        await closeIPetCamera(false);
         router.push({
           pathname: `/details/${id}`,
           params: { petData: JSON.stringify(data) },
@@ -37,34 +37,20 @@ const PetQr = () => {
           style: 'cancel',
         },
       ]);
-      closeIPetCamera(true);
+      await closeIPetCamera(true);
     }
   };
 
   const closeIPetCamera = async (backToHome: boolean) => {
-    try {
-      const unmountCameraPromise = new Promise((resolve, reject) => {
-        resolve(setMountCamera(false));
-        reject(new Error('camera could not be unmounted'));
-      });
-      await unmountCameraPromise;
-    } catch (error) {
-      if (error instanceof Error) {
-        Alert.alert('Error', error.message, [
-          {
-            text: localization.t('pet_qr_alert_dismiss'),
-            onPress: () => ({}),
-            style: 'cancel',
-          },
-        ]);
-      }
-    } finally {
-      if (backToHome) router.back();
-    }
+    const unmountCameraPromise: boolean = await new Promise<boolean>((resolve) => {
+      resolve(false);
+    });
+    setMountCamera(unmountCameraPromise);
+    if (backToHome) router.back();
   };
 
   useFocusEffect(
-    useCallback(() => {
+    React.useCallback(() => {
       setMountCamera(true);
       return () => {
         setMountCamera(false);
@@ -76,6 +62,7 @@ const PetQr = () => {
     <PetView style={{ flex: 1, width: '100%' }}>
       {mountCamera ? (
         <CameraView
+          testID="pet-camera-view"
           onBarcodeScanned={handleBarCodeScanned}
           barcodeScannerSettings={{
             barcodeTypes: ['qr'],
@@ -105,14 +92,14 @@ const PetQr = () => {
                 borderStyle: 'dotted',
               }}
             />
-            <TouchableOpacity onPress={() => closeIPetCamera(true)}>
+            <TouchableOpacity testID="pet-close-camera" onPress={() => closeIPetCamera(true)}>
               <PetIcon name="close-circle" size={50} />
             </TouchableOpacity>
           </PetView>
         </CameraView>
       ) : (
         <PetView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <ActivityIndicator />
+          <ActivityIndicator testID="pet-activity-indicator" />
         </PetView>
       )}
     </PetView>

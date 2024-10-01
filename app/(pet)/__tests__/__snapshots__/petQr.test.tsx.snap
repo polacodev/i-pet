@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PetQr /> PetQr call useFocusEffect, useCallback, useState, and unmount renders correctly and Snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#f6f6f6",
+      },
+      {
+        "flex": 1,
+        "width": "100%",
+      },
+    ]
+  }
+  testID="pet-view"
+>
+  <View
+    barcodeScannerSettings={
+      {
+        "barcodeTypes": [
+          "qr",
+        ],
+      }
+    }
+    onBarcodeScanned={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "justifyContent": "center",
+        },
+        {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+      ]
+    }
+    testID="pet-camera-view"
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#f6f6f6",
+          },
+          {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "flexDirection": "column",
+            "gap": 30,
+          },
+        ]
+      }
+      testID="pet-view"
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#155e75",
+            },
+            {
+              "fontSize": 24,
+              "fontWeight": "700",
+              "lineHeight": 26,
+            },
+            {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        testID="pet-title"
+      >
+        iPet
+      </Text>
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "#f6f6f6",
+            },
+            {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderColor": "#ffffff",
+              "borderRadius": 24,
+              "borderStyle": "dotted",
+              "borderWidth": 2,
+              "height": 320,
+              "justifyContent": "center",
+              "width": 320,
+            },
+          ]
+        }
+        testID="pet-view"
+      />
+      <View
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "opacity": 1,
+          }
+        }
+        testID="pet-close-camera"
+      >
+        <Text />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`<PetQr /> PetQr, ActivityIndicator renders when mountCamera is false and Snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#f6f6f6",
+      },
+      {
+        "flex": 1,
+        "width": "100%",
+      },
+    ]
+  }
+  testID="pet-view"
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "#f6f6f6",
+        },
+        {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+    testID="pet-view"
+  >
+    <ActivityIndicator
+      testID="pet-activity-indicator"
+    />
+  </View>
+</View>
+`;

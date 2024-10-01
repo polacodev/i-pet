@@ -1,0 +1,1444 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PetCard /> PetCard renders the Card with image and Snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#f6f6f6",
+      },
+      {
+        "flex": 1,
+        "justifyContent": "flex-start",
+        "width": "100%",
+      },
+    ]
+  }
+  testID="pet-view"
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "#f6f6f6",
+        },
+        {
+          "alignItems": "center",
+        },
+      ]
+    }
+    testID="pet-view"
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#f6f6f6",
+          },
+          {
+            "alignItems": "center",
+          },
+        ]
+      }
+      testID="pet-view"
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          {
+            "uri": "https://fakeurl/fakeimage/test.png",
+          }
+        }
+        style={
+          {
+            "borderRadius": 9999,
+            "height": 80,
+            "width": 80,
+          }
+        }
+        testID="pet-image"
+      />
+    </View>
+    <Text
+      style={
+        [
+          {
+            "color": "#155e75",
+          },
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "lineHeight": 28,
+          },
+          {
+            "paddingTop": 8,
+          },
+        ]
+      }
+      testID="pet-title"
+    >
+      info_pet_details
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      info_pet_name
+      : 
+      testPetName
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      info_pet_type
+      : 
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      info_pet_gender
+      : 
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      info_pet_breed
+      : 
+      testPetBreed
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      info_pet_age
+      : 
+      testPetAge
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      info_pet_medical_condition
+      : 
+      testPetMC
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#155e75",
+          },
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "lineHeight": 28,
+          },
+          {
+            "paddingTop": 8,
+          },
+        ]
+      }
+      testID="pet-title"
+    >
+      info_owner_contact
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      info_owner_name
+      : 
+      testProfileEmail
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      info_owner_phone: testProfileCountryCode testProfilePhone
+    </Text>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#075E54",
+          "borderRadius": 10,
+          "flexDirection": "row",
+          "gap": 8,
+          "justifyContent": "center",
+          "margin": 6,
+          "opacity": 1,
+          "padding": 8,
+          "width": "85%",
+        }
+      }
+      testID="pet-button"
+    >
+      <Text />
+      <Text
+        style={
+          [
+            {
+              "color": "#11181C",
+            },
+            {
+              "fontSize": 16,
+              "lineHeight": 24,
+            },
+            {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        testID="pet-text"
+      >
+        info_button_owner_whatsapp
+      </Text>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#0e7490",
+          "borderRadius": 10,
+          "flexDirection": "row",
+          "gap": 8,
+          "justifyContent": "center",
+          "margin": 6,
+          "opacity": 1,
+          "padding": 8,
+          "width": "85%",
+        }
+      }
+      testID="pet-button"
+    >
+      <Text />
+      <Text
+        style={
+          [
+            {
+              "color": "#11181C",
+            },
+            {
+              "fontSize": 16,
+              "lineHeight": 24,
+            },
+            {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        testID="pet-text"
+      >
+        QR Code
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`<PetCard /> PetCard renders the Card with no image and Snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#f6f6f6",
+      },
+      {
+        "flex": 1,
+        "justifyContent": "flex-start",
+        "width": "100%",
+      },
+    ]
+  }
+  testID="pet-view"
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "#f6f6f6",
+        },
+        {
+          "alignItems": "center",
+        },
+      ]
+    }
+    testID="pet-view"
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#f6f6f6",
+          },
+          {
+            "alignItems": "center",
+          },
+        ]
+      }
+      testID="pet-view"
+    >
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          [
+            {
+              "color": "#ffffff",
+              "fontSize": 80,
+            },
+            [
+              undefined,
+            ],
+            {
+              "fontFamily": "ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            {},
+          ]
+        }
+        testID="pet-icon"
+      >
+        
+      </Text>
+    </View>
+    <Text
+      style={
+        [
+          {
+            "color": "#155e75",
+          },
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "lineHeight": 28,
+          },
+          {
+            "paddingTop": 8,
+          },
+        ]
+      }
+      testID="pet-title"
+    />
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+      testPetName
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+      testPetBreed
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+      testPetAge
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+      testPetMC
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#155e75",
+          },
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "lineHeight": 28,
+          },
+          {
+            "paddingTop": 8,
+          },
+        ]
+      }
+      testID="pet-title"
+    />
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+      testProfileEmail
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      undefined: testProfileCountryCode testProfilePhone
+    </Text>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#075E54",
+          "borderRadius": 10,
+          "flexDirection": "row",
+          "gap": 8,
+          "justifyContent": "center",
+          "margin": 6,
+          "opacity": 1,
+          "padding": 8,
+          "width": "85%",
+        }
+      }
+      testID="pet-button"
+    >
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          [
+            {
+              "color": "#ffffff",
+              "fontSize": 30,
+            },
+            [
+              undefined,
+            ],
+            {
+              "fontFamily": "ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            {},
+          ]
+        }
+        testID="pet-icon"
+      >
+        
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#11181C",
+            },
+            {
+              "fontSize": 16,
+              "lineHeight": 24,
+            },
+            {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        testID="pet-text"
+      />
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#0e7490",
+          "borderRadius": 10,
+          "flexDirection": "row",
+          "gap": 8,
+          "justifyContent": "center",
+          "margin": 6,
+          "opacity": 1,
+          "padding": 8,
+          "width": "85%",
+        }
+      }
+      testID="pet-button"
+    >
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          [
+            {
+              "color": "#ffffff",
+              "fontSize": 30,
+            },
+            [
+              undefined,
+            ],
+            {
+              "fontFamily": "ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            {},
+          ]
+        }
+        testID="pet-icon"
+      >
+        
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#11181C",
+            },
+            {
+              "fontSize": 16,
+              "lineHeight": 24,
+            },
+            {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        testID="pet-text"
+      >
+        QR Code
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`<PetCard /> modalVisible change to true when QR Code button is pressed and Modal Snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#f6f6f6",
+      },
+      {
+        "flex": 1,
+        "justifyContent": "flex-start",
+        "width": "100%",
+      },
+    ]
+  }
+  testID="pet-view"
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "#f6f6f6",
+        },
+        {
+          "alignItems": "center",
+        },
+      ]
+    }
+    testID="pet-view"
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#f6f6f6",
+          },
+          {
+            "alignItems": "center",
+          },
+        ]
+      }
+      testID="pet-view"
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          {
+            "uri": "https://fakeurl/fakeimage/test.png",
+          }
+        }
+        style={
+          {
+            "borderRadius": 9999,
+            "height": 80,
+            "width": 80,
+          }
+        }
+        testID="pet-image"
+      />
+    </View>
+    <Text
+      style={
+        [
+          {
+            "color": "#155e75",
+          },
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "lineHeight": 28,
+          },
+          {
+            "paddingTop": 8,
+          },
+        ]
+      }
+      testID="pet-title"
+    />
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+      testPetName
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+      testPetBreed
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+      testPetAge
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+      testPetMC
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#155e75",
+          },
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "lineHeight": 28,
+          },
+          {
+            "paddingTop": 8,
+          },
+        ]
+      }
+      testID="pet-title"
+    />
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+      testProfileEmail
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      undefined: testProfileCountryCode testProfilePhone
+    </Text>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#075E54",
+          "borderRadius": 10,
+          "flexDirection": "row",
+          "gap": 8,
+          "justifyContent": "center",
+          "margin": 6,
+          "opacity": 1,
+          "padding": 8,
+          "width": "85%",
+        }
+      }
+      testID="pet-button"
+    >
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          [
+            {
+              "color": "#ffffff",
+              "fontSize": 30,
+            },
+            [
+              undefined,
+            ],
+            {
+              "fontFamily": "ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            {},
+          ]
+        }
+        testID="pet-icon"
+      >
+        
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#11181C",
+            },
+            {
+              "fontSize": 16,
+              "lineHeight": 24,
+            },
+            {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        testID="pet-text"
+      />
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#0e7490",
+          "borderRadius": 10,
+          "flexDirection": "row",
+          "gap": 8,
+          "justifyContent": "center",
+          "margin": 6,
+          "opacity": 1,
+          "padding": 8,
+          "width": "85%",
+        }
+      }
+      testID="pet-button"
+    >
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          [
+            {
+              "color": "#ffffff",
+              "fontSize": 30,
+            },
+            [
+              undefined,
+            ],
+            {
+              "fontFamily": "ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            {},
+          ]
+        }
+        testID="pet-icon"
+      >
+        
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#11181C",
+            },
+            {
+              "fontSize": 16,
+              "lineHeight": 24,
+            },
+            {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        testID="pet-text"
+      >
+        QR Code
+      </Text>
+    </View>
+    <Modal
+      animationType="fade"
+      hardwareAccelerated={false}
+      onRequestClose={[Function]}
+      testID="pet-modal-card"
+      transparent={true}
+      visible={true}
+    >
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "#f6f6f6",
+            },
+            {
+              "alignItems": "center",
+              "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+        testID="pet-view"
+      >
+        <View
+          style={
+            [
+              {
+                "backgroundColor": "#f6f6f6",
+              },
+              {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderRadius": 10,
+                "elevation": 5,
+                "padding": 20,
+                "shadowColor": "#000",
+                "shadowOffset": {
+                  "height": 2,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.25,
+                "shadowRadius": 4,
+              },
+            ]
+          }
+          testID="pet-view"
+        >
+          <RNSVGSvgView
+            align="xMidYMid"
+            bbHeight={200}
+            bbWidth={200}
+            focusable={false}
+            height={200}
+            meetOrSlice={0}
+            minX={0}
+            minY={0}
+            style={
+              [
+                {
+                  "backgroundColor": "transparent",
+                  "borderWidth": 0,
+                },
+                {
+                  "flex": 0,
+                  "height": 200,
+                  "width": 200,
+                },
+              ]
+            }
+            vbHeight={200}
+            vbWidth={200}
+            width={200}
+          >
+            <RNSVGGroup
+              fill={
+                {
+                  "payload": 4278190080,
+                  "type": 0,
+                }
+              }
+            >
+              <RNSVGDefs>
+                <RNSVGLinearGradient
+                  gradient={
+                    [
+                      0,
+                      -65536,
+                      1,
+                      -16711681,
+                    ]
+                  }
+                  gradientTransform={null}
+                  gradientUnits={0}
+                  name="grad"
+                  x1="0%"
+                  x2="100%"
+                  y1="0%"
+                  y2="100%"
+                />
+              </RNSVGDefs>
+              <RNSVGGroup
+                fill={
+                  {
+                    "payload": 4278190080,
+                    "type": 0,
+                  }
+                }
+              >
+                <RNSVGRect
+                  fill={
+                    {
+                      "payload": 4294967295,
+                      "type": 0,
+                    }
+                  }
+                  height={200}
+                  propList={
+                    [
+                      "fill",
+                    ]
+                  }
+                  width={200}
+                  x={-0}
+                  y={-0}
+                />
+              </RNSVGGroup>
+              <RNSVGGroup
+                fill={
+                  {
+                    "payload": 4278190080,
+                    "type": 0,
+                  }
+                }
+              >
+                <RNSVGPath
+                  d="M0 3.4482758620689653 L48.275862068965516 3.4482758620689653 M55.172413793103445 3.4482758620689653 L62.068965517241374 3.4482758620689653 M75.86206896551724 3.4482758620689653 L89.6551724137931 3.4482758620689653 M103.44827586206895 3.4482758620689653 L117.24137931034483 3.4482758620689653 M124.13793103448275 3.4482758620689653 L131.03448275862067 3.4482758620689653 M151.72413793103448 3.4482758620689653 L200 3.4482758620689653 M0 10.344827586206897 L6.896551724137931 10.344827586206897 M41.37931034482759 10.344827586206897 L48.275862068965516 10.344827586206897 M55.172413793103445 10.344827586206897 L68.9655172413793 10.344827586206897 M82.75862068965517 10.344827586206897 L89.6551724137931 10.344827586206897 M96.55172413793103 10.344827586206897 L103.44827586206895 10.344827586206897 M117.24137931034483 10.344827586206897 L124.13793103448275 10.344827586206897 M137.9310344827586 10.344827586206897 L144.82758620689654 10.344827586206897 M151.72413793103448 10.344827586206897 L158.6206896551724 10.344827586206897 M193.10344827586206 10.344827586206897 L200 10.344827586206897 M0 17.241379310344826 L6.896551724137931 17.241379310344826 M13.793103448275861 17.241379310344826 L34.48275862068965 17.241379310344826 M41.37931034482759 17.241379310344826 L48.275862068965516 17.241379310344826 M68.9655172413793 17.241379310344826 L89.6551724137931 17.241379310344826 M131.03448275862067 17.241379310344826 L137.9310344827586 17.241379310344826 M151.72413793103448 17.241379310344826 L158.6206896551724 17.241379310344826 M165.51724137931035 17.241379310344826 L186.20689655172413 17.241379310344826 M193.10344827586206 17.241379310344826 L200 17.241379310344826 M0 24.137931034482758 L6.896551724137931 24.137931034482758 M13.793103448275861 24.137931034482758 L34.48275862068965 24.137931034482758 M41.37931034482759 24.137931034482758 L48.275862068965516 24.137931034482758 M55.172413793103445 24.137931034482758 L62.068965517241374 24.137931034482758 M68.9655172413793 24.137931034482758 L89.6551724137931 24.137931034482758 M96.55172413793103 24.137931034482758 L110.34482758620689 24.137931034482758 M124.13793103448275 24.137931034482758 L131.03448275862067 24.137931034482758 M151.72413793103448 24.137931034482758 L158.6206896551724 24.137931034482758 M165.51724137931035 24.137931034482758 L186.20689655172413 24.137931034482758 M193.10344827586206 24.137931034482758 L200 24.137931034482758 M0 31.034482758620687 L6.896551724137931 31.034482758620687 M13.793103448275861 31.034482758620687 L34.48275862068965 31.034482758620687 M41.37931034482759 31.034482758620687 L48.275862068965516 31.034482758620687 M68.9655172413793 31.034482758620687 L75.86206896551724 31.034482758620687 M82.75862068965517 31.034482758620687 L89.6551724137931 31.034482758620687 M96.55172413793103 31.034482758620687 L110.34482758620689 31.034482758620687 M117.24137931034483 31.034482758620687 L131.03448275862067 31.034482758620687 M137.9310344827586 31.034482758620687 L144.82758620689654 31.034482758620687 M151.72413793103448 31.034482758620687 L158.6206896551724 31.034482758620687 M165.51724137931035 31.034482758620687 L186.20689655172413 31.034482758620687 M193.10344827586206 31.034482758620687 L200 31.034482758620687 M0 37.93103448275862 L6.896551724137931 37.93103448275862 M41.37931034482759 37.93103448275862 L48.275862068965516 37.93103448275862 M62.068965517241374 37.93103448275862 L82.75862068965517 37.93103448275862 M89.6551724137931 37.93103448275862 L96.55172413793103 37.93103448275862 M103.44827586206895 37.93103448275862 L117.24137931034483 37.93103448275862 M131.03448275862067 37.93103448275862 L137.9310344827586 37.93103448275862 M151.72413793103448 37.93103448275862 L158.6206896551724 37.93103448275862 M193.10344827586206 37.93103448275862 L200 37.93103448275862 M0 44.827586206896555 L48.275862068965516 44.827586206896555 M55.172413793103445 44.827586206896555 L62.068965517241374 44.827586206896555 M68.9655172413793 44.827586206896555 L75.86206896551724 44.827586206896555 M82.75862068965517 44.827586206896555 L89.6551724137931 44.827586206896555 M96.55172413793103 44.827586206896555 L103.44827586206895 44.827586206896555 M110.34482758620689 44.827586206896555 L117.24137931034483 44.827586206896555 M124.13793103448275 44.827586206896555 L131.03448275862067 44.827586206896555 M137.9310344827586 44.827586206896555 L144.82758620689654 44.827586206896555 M151.72413793103448 44.827586206896555 L200 44.827586206896555 M55.172413793103445 51.724137931034484 L89.6551724137931 51.724137931034484 M96.55172413793103 51.724137931034484 L103.44827586206895 51.724137931034484 M117.24137931034483 51.724137931034484 L124.13793103448275 51.724137931034484 M137.9310344827586 51.724137931034484 L144.82758620689654 51.724137931034484 M0 58.62068965517241 L6.896551724137931 58.62068965517241 M13.793103448275861 58.62068965517241 L27.586206896551722 58.62068965517241 M34.48275862068965 58.62068965517241 L55.172413793103445 58.62068965517241 M68.9655172413793 58.62068965517241 L82.75862068965517 58.62068965517241 M89.6551724137931 58.62068965517241 L96.55172413793103 58.62068965517241 M110.34482758620689 58.62068965517241 L117.24137931034483 58.62068965517241 M124.13793103448275 58.62068965517241 L137.9310344827586 58.62068965517241 M151.72413793103448 58.62068965517241 L158.6206896551724 58.62068965517241 M172.41379310344826 58.62068965517241 L179.3103448275862 58.62068965517241 M186.20689655172413 58.62068965517241 L200 58.62068965517241 M13.793103448275861 65.51724137931033 L20.689655172413794 65.51724137931033 M48.275862068965516 65.51724137931033 L62.068965517241374 65.51724137931033 M75.86206896551724 65.51724137931033 L82.75862068965517 65.51724137931033 M103.44827586206895 65.51724137931033 L110.34482758620689 65.51724137931033 M124.13793103448275 65.51724137931033 L131.03448275862067 65.51724137931033 M151.72413793103448 65.51724137931033 L179.3103448275862 65.51724137931033 M186.20689655172413 65.51724137931033 L200 65.51724137931033 M6.896551724137931 72.41379310344827 L27.586206896551722 72.41379310344827 M41.37931034482759 72.41379310344827 L48.275862068965516 72.41379310344827 M55.172413793103445 72.41379310344827 L89.6551724137931 72.41379310344827 M96.55172413793103 72.41379310344827 L103.44827586206895 72.41379310344827 M137.9310344827586 72.41379310344827 L151.72413793103448 72.41379310344827 M172.41379310344826 72.41379310344827 L193.10344827586206 72.41379310344827 M20.689655172413794 79.3103448275862 L27.586206896551722 79.3103448275862 M48.275862068965516 79.3103448275862 L75.86206896551724 79.3103448275862 M82.75862068965517 79.3103448275862 L96.55172413793103 79.3103448275862 M110.34482758620689 79.3103448275862 L137.9310344827586 79.3103448275862 M151.72413793103448 79.3103448275862 L165.51724137931035 79.3103448275862 M193.10344827586206 79.3103448275862 L200 79.3103448275862 M0 86.20689655172414 L6.896551724137931 86.20689655172414 M13.793103448275861 86.20689655172414 L62.068965517241374 86.20689655172414 M82.75862068965517 86.20689655172414 L89.6551724137931 86.20689655172414 M103.44827586206895 86.20689655172414 L110.34482758620689 86.20689655172414 M124.13793103448275 86.20689655172414 L131.03448275862067 86.20689655172414 M179.3103448275862 86.20689655172414 L186.20689655172413 86.20689655172414 M0 93.10344827586206 L41.37931034482759 93.10344827586206 M48.275862068965516 93.10344827586206 L68.9655172413793 93.10344827586206 M75.86206896551724 93.10344827586206 L82.75862068965517 93.10344827586206 M96.55172413793103 93.10344827586206 L103.44827586206895 93.10344827586206 M124.13793103448275 93.10344827586206 L144.82758620689654 93.10344827586206 M151.72413793103448 93.10344827586206 L158.6206896551724 93.10344827586206 M172.41379310344826 93.10344827586206 L186.20689655172413 93.10344827586206 M193.10344827586206 93.10344827586206 L200 93.10344827586206 M20.689655172413794 100 L48.275862068965516 100 M75.86206896551724 100 L82.75862068965517 100 M89.6551724137931 100 L96.55172413793103 100 M117.24137931034483 100 L124.13793103448275 100 M131.03448275862067 100 L137.9310344827586 100 M151.72413793103448 100 L158.6206896551724 100 M172.41379310344826 100 L200 100 M6.896551724137931 106.89655172413792 L34.48275862068965 106.89655172413792 M48.275862068965516 106.89655172413792 L62.068965517241374 106.89655172413792 M75.86206896551724 106.89655172413792 L89.6551724137931 106.89655172413792 M103.44827586206895 106.89655172413792 L131.03448275862067 106.89655172413792 M158.6206896551724 106.89655172413792 L179.3103448275862 106.89655172413792 M186.20689655172413 106.89655172413792 L200 106.89655172413792 M13.793103448275861 113.79310344827586 L20.689655172413794 113.79310344827586 M27.586206896551722 113.79310344827586 L68.9655172413793 113.79310344827586 M96.55172413793103 113.79310344827586 L103.44827586206895 113.79310344827586 M110.34482758620689 113.79310344827586 L124.13793103448275 113.79310344827586 M144.82758620689654 113.79310344827586 L151.72413793103448 113.79310344827586 M158.6206896551724 113.79310344827586 L172.41379310344826 113.79310344827586 M186.20689655172413 113.79310344827586 L200 113.79310344827586 M6.896551724137931 120.6896551724138 L13.793103448275861 120.6896551724138 M34.48275862068965 120.6896551724138 L41.37931034482759 120.6896551724138 M62.068965517241374 120.6896551724138 L75.86206896551724 120.6896551724138 M82.75862068965517 120.6896551724138 L96.55172413793103 120.6896551724138 M103.44827586206895 120.6896551724138 L117.24137931034483 120.6896551724138 M131.03448275862067 120.6896551724138 L137.9310344827586 120.6896551724138 M158.6206896551724 120.6896551724138 L165.51724137931035 120.6896551724138 M172.41379310344826 120.6896551724138 L186.20689655172413 120.6896551724138 M0 127.58620689655172 L6.896551724137931 127.58620689655172 M20.689655172413794 127.58620689655172 L34.48275862068965 127.58620689655172 M41.37931034482759 127.58620689655172 L55.172413793103445 127.58620689655172 M103.44827586206895 127.58620689655172 L117.24137931034483 127.58620689655172 M124.13793103448275 127.58620689655172 L131.03448275862067 127.58620689655172 M137.9310344827586 127.58620689655172 L165.51724137931035 127.58620689655172 M172.41379310344826 127.58620689655172 L179.3103448275862 127.58620689655172 M20.689655172413794 134.48275862068962 L27.586206896551722 134.48275862068962 M68.9655172413793 134.48275862068962 L75.86206896551724 134.48275862068962 M96.55172413793103 134.48275862068962 L124.13793103448275 134.48275862068962 M131.03448275862067 134.48275862068962 L137.9310344827586 134.48275862068962 M144.82758620689654 134.48275862068962 L151.72413793103448 134.48275862068962 M165.51724137931035 134.48275862068962 L193.10344827586206 134.48275862068962 M6.896551724137931 141.37931034482756 L13.793103448275861 141.37931034482756 M20.689655172413794 141.37931034482756 L34.48275862068965 141.37931034482756 M41.37931034482759 141.37931034482756 L48.275862068965516 141.37931034482756 M55.172413793103445 141.37931034482756 L68.9655172413793 141.37931034482756 M75.86206896551724 141.37931034482756 L96.55172413793103 141.37931034482756 M110.34482758620689 141.37931034482756 L117.24137931034483 141.37931034482756 M137.9310344827586 141.37931034482756 L200 141.37931034482756 M55.172413793103445 148.2758620689655 L62.068965517241374 148.2758620689655 M68.9655172413793 148.2758620689655 L89.6551724137931 148.2758620689655 M103.44827586206895 148.2758620689655 L110.34482758620689 148.2758620689655 M124.13793103448275 148.2758620689655 L131.03448275862067 148.2758620689655 M137.9310344827586 148.2758620689655 L144.82758620689654 148.2758620689655 M165.51724137931035 148.2758620689655 L186.20689655172413 148.2758620689655 M193.10344827586206 148.2758620689655 L200 148.2758620689655 M0 155.17241379310343 L48.275862068965516 155.17241379310343 M55.172413793103445 155.17241379310343 L62.068965517241374 155.17241379310343 M75.86206896551724 155.17241379310343 L89.6551724137931 155.17241379310343 M96.55172413793103 155.17241379310343 L103.44827586206895 155.17241379310343 M117.24137931034483 155.17241379310343 L124.13793103448275 155.17241379310343 M131.03448275862067 155.17241379310343 L144.82758620689654 155.17241379310343 M151.72413793103448 155.17241379310343 L158.6206896551724 155.17241379310343 M165.51724137931035 155.17241379310343 L172.41379310344826 155.17241379310343 M186.20689655172413 155.17241379310343 L193.10344827586206 155.17241379310343 M0 162.06896551724137 L6.896551724137931 162.06896551724137 M41.37931034482759 162.06896551724137 L48.275862068965516 162.06896551724137 M55.172413793103445 162.06896551724137 L62.068965517241374 162.06896551724137 M75.86206896551724 162.06896551724137 L96.55172413793103 162.06896551724137 M110.34482758620689 162.06896551724137 L117.24137931034483 162.06896551724137 M131.03448275862067 162.06896551724137 L144.82758620689654 162.06896551724137 M165.51724137931035 162.06896551724137 L172.41379310344826 162.06896551724137 M0 168.9655172413793 L6.896551724137931 168.9655172413793 M13.793103448275861 168.9655172413793 L34.48275862068965 168.9655172413793 M41.37931034482759 168.9655172413793 L48.275862068965516 168.9655172413793 M62.068965517241374 168.9655172413793 L68.9655172413793 168.9655172413793 M103.44827586206895 168.9655172413793 L110.34482758620689 168.9655172413793 M137.9310344827586 168.9655172413793 L172.41379310344826 168.9655172413793 M179.3103448275862 168.9655172413793 L193.10344827586206 168.9655172413793 M0 175.8620689655172 L6.896551724137931 175.8620689655172 M13.793103448275861 175.8620689655172 L34.48275862068965 175.8620689655172 M41.37931034482759 175.8620689655172 L48.275862068965516 175.8620689655172 M55.172413793103445 175.8620689655172 L62.068965517241374 175.8620689655172 M82.75862068965517 175.8620689655172 L89.6551724137931 175.8620689655172 M96.55172413793103 175.8620689655172 L103.44827586206895 175.8620689655172 M117.24137931034483 175.8620689655172 L137.9310344827586 175.8620689655172 M144.82758620689654 175.8620689655172 L151.72413793103448 175.8620689655172 M158.6206896551724 175.8620689655172 L193.10344827586206 175.8620689655172 M0 182.75862068965515 L6.896551724137931 182.75862068965515 M13.793103448275861 182.75862068965515 L34.48275862068965 182.75862068965515 M41.37931034482759 182.75862068965515 L48.275862068965516 182.75862068965515 M55.172413793103445 182.75862068965515 L62.068965517241374 182.75862068965515 M68.9655172413793 182.75862068965515 L75.86206896551724 182.75862068965515 M82.75862068965517 182.75862068965515 L89.6551724137931 182.75862068965515 M96.55172413793103 182.75862068965515 L103.44827586206895 182.75862068965515 M110.34482758620689 182.75862068965515 L124.13793103448275 182.75862068965515 M131.03448275862067 182.75862068965515 L137.9310344827586 182.75862068965515 M193.10344827586206 182.75862068965515 L200 182.75862068965515 M0 189.65517241379308 L6.896551724137931 189.65517241379308 M41.37931034482759 189.65517241379308 L48.275862068965516 189.65517241379308 M62.068965517241374 189.65517241379308 L75.86206896551724 189.65517241379308 M82.75862068965517 189.65517241379308 L110.34482758620689 189.65517241379308 M124.13793103448275 189.65517241379308 L144.82758620689654 189.65517241379308 M151.72413793103448 189.65517241379308 L158.6206896551724 189.65517241379308 M165.51724137931035 189.65517241379308 L179.3103448275862 189.65517241379308 M186.20689655172413 189.65517241379308 L193.10344827586206 189.65517241379308 M0 196.55172413793102 L48.275862068965516 196.55172413793102 M55.172413793103445 196.55172413793102 L68.9655172413793 196.55172413793102 M89.6551724137931 196.55172413793102 L103.44827586206895 196.55172413793102 M117.24137931034483 196.55172413793102 L124.13793103448275 196.55172413793102 M131.03448275862067 196.55172413793102 L144.82758620689654 196.55172413793102 M186.20689655172413 196.55172413793102 L193.10344827586206 196.55172413793102 "
+                  fill={
+                    {
+                      "payload": 4278190080,
+                      "type": 0,
+                    }
+                  }
+                  propList={
+                    [
+                      "stroke",
+                      "strokeWidth",
+                      "strokeLinecap",
+                    ]
+                  }
+                  stroke={
+                    {
+                      "payload": 4278190080,
+                      "type": 0,
+                    }
+                  }
+                  strokeLinecap={0}
+                  strokeWidth={6.896551724137931}
+                />
+              </RNSVGGroup>
+            </RNSVGGroup>
+          </RNSVGSvgView>
+        </View>
+        <View
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "marginTop": 20,
+              "opacity": 1,
+            }
+          }
+          testID="pet-close-modal"
+        >
+          <Text
+            allowFontScaling={false}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#ffffff",
+                  "fontSize": 50,
+                },
+                [
+                  undefined,
+                ],
+                {
+                  "fontFamily": "ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                {},
+              ]
+            }
+            testID="pet-icon"
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </Modal>
+  </View>
+</View>
+`;

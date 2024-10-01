@@ -6,7 +6,7 @@ type KeyboardScrollViewProps = {
   children: ReactNode;
 };
 
-const KeyboardScrollView: React.FC<KeyboardScrollViewProps> = ({ children }) => {
+const KeyboardScrollView = ({ children }: KeyboardScrollViewProps) => {
   return (
     <KeyboardAwareScrollView
       style={styles.container}

@@ -5,12 +5,15 @@ import { CountryPicker } from 'react-native-country-codes-picker';
 import { PetText } from './PetText';
 import { PetView } from './PetView';
 
+import { BORDER_COLOR_FORM } from '@/constants/Colors';
+
 type PickProps = {
   onChange: (text: string) => void;
   value: string;
 };
 
 export const PetPickCountryCode = ({ onChange, value }: PickProps) => {
+  const borderColorForm = BORDER_COLOR_FORM;
   const defaultCountryCode: string = '+1';
   const defaultCountryFlag: string = '🇺🇸';
 
@@ -26,6 +29,7 @@ export const PetPickCountryCode = ({ onChange, value }: PickProps) => {
   return (
     <PetView style={{ width: '30%', height: 45, paddingRight: 2 }}>
       <TouchableOpacity
+        testID="pet-pick-country"
         onPress={() => setShow(true)}
         style={{
           flex: 1,
@@ -34,7 +38,7 @@ export const PetPickCountryCode = ({ onChange, value }: PickProps) => {
           borderWidth: 1,
           borderTopLeftRadius: 10,
           borderBottomLeftRadius: 10,
-          borderColor: 'rgb(34 211 238)',
+          borderColor: borderColorForm,
         }}>
         <PetText
           style={{

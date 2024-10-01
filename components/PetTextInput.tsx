@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextInput, type TextInputProps, StyleSheet } from 'react-native';
 
+import { BORDER_COLOR_FORM } from '@/constants/Colors';
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 type PetTextInputProps = TextInputProps & {
@@ -10,6 +11,7 @@ type PetTextInputProps = TextInputProps & {
   placeholder: string;
   defaultValue?: string;
 };
+const borderColorForm = BORDER_COLOR_FORM;
 
 export const PetTextInput = ({
   style,
@@ -21,7 +23,7 @@ export const PetTextInput = ({
   ...rest
 }: PetTextInputProps) => {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-  const placeholderColor = useThemeColor({ light: '#8e8e8e', dark: '#5d5d5d' }, 'text');
+  const placeholderColor = useThemeColor({ light: lightColor, dark: lightColor }, 'placeholder');
 
   return (
     <TextInput
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
   input: {
     height: 45,
     borderWidth: 1,
-    borderColor: 'rgb(34 211 238)',
+    borderColor: borderColorForm,
     borderRadius: 10,
     width: '85%',
     paddingLeft: 25,

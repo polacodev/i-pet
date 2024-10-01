@@ -1,7 +1,7 @@
 import { router } from 'expo-router';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { Alert } from 'react-native';
+import { Alert, TouchableOpacity } from 'react-native';
 
 import { PetButton } from '@/components/PetButton';
 import { PetPickCountryCode } from '@/components/PetPickCountryCode';
@@ -94,6 +94,7 @@ export default function Signup() {
           name="email"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
+              testID="signup-email-input"
               onChangeText={onChange}
               onBlur={onBlur}
               value={value}
@@ -103,7 +104,10 @@ export default function Signup() {
           )}
         />
         {errors.email && (
-          <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
+          <PetText
+            testID="signup-email-input-error"
+            type="smallText"
+            style={{ color: 'red', fontSize: 11, margin: -5 }}>
             {errors.email.message}
           </PetText>
         )}
@@ -119,6 +123,7 @@ export default function Signup() {
           name="password"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
+              testID="signup-password-input"
               onChangeText={onChange}
               onBlur={onBlur}
               value={value}
@@ -129,7 +134,10 @@ export default function Signup() {
           )}
         />
         {errors.password && (
-          <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
+          <PetText
+            testID="signup-password-input-error"
+            type="smallText"
+            style={{ color: 'red', fontSize: 11, margin: -5 }}>
             {errors.password.message}
           </PetText>
         )}
@@ -154,6 +162,7 @@ export default function Signup() {
             name="phone"
             render={({ field: { onChange, onBlur, value } }) => (
               <PetTextInput
+                testID="signup-phone-input"
                 style={{ width: '55%', borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
                 onChangeText={onChange}
                 onBlur={onBlur}
@@ -166,7 +175,10 @@ export default function Signup() {
           />
         </PetView>
         {errors.phone && (
-          <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
+          <PetText
+            testID="signup-phone-input-error"
+            type="smallText"
+            style={{ color: 'red', fontSize: 11, margin: -5 }}>
             {errors.phone.message}
           </PetText>
         )}
@@ -177,9 +189,11 @@ export default function Signup() {
         />
         <PetView style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
           <PetText>{localization.t('header_sign_up_account_message')}</PetText>
-          <PetTitle type="link" onPress={goToLogIn} style={{ textDecorationLine: 'underline' }}>
-            {localization.t('header_log_in')}
-          </PetTitle>
+          <TouchableOpacity testID="redirect-to-login-label" onPress={goToLogIn}>
+            <PetTitle type="link" style={{ textDecorationLine: 'underline' }}>
+              {localization.t('header_log_in')}
+            </PetTitle>
+          </TouchableOpacity>
         </PetView>
       </PetView>
     </PetView>

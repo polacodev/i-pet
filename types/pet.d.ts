@@ -8,7 +8,7 @@ export type OwnerProps = {
 export type PetProps = {
   id: string;
   inserted_at: string;
-  pet_image: string;
+  pet_image: string | null;
   pet_age: string;
   pet_breed: string;
   pet_gender: string;

@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PetHeader /> PetHeader with Null User Session values PetHeader renders Log In text in light mode, and Snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#ffffff",
+      },
+      {
+        "backgroundColor": "#ffffff",
+      },
+    ]
+  }
+  testID="pet-view"
+>
+  <Text
+    onPress={[Function]}
+    style={
+      [
+        {
+          "color": "#ffffff",
+        },
+        {
+          "color": "#0a7ea4",
+          "fontSize": 16,
+          "lineHeight": 30,
+        },
+        undefined,
+      ]
+    }
+    testID="pet-title"
+  >
+    Log In
+  </Text>
+</View>
+`;
+
+exports[`<PetHeader /> PetHeader with User Session Values PetHeader renders profile icon in dark mode, and Snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#121212",
+      },
+      {
+        "backgroundColor": "#121212",
+      },
+    ]
+  }
+  testID="pet-view"
+>
+  <View
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text />
+  </View>
+</View>
+`;

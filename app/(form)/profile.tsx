@@ -1,24 +1,31 @@
 import { router } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { useColorScheme } from 'react-native';
 
 import { PetButton } from '@/components/PetButton';
 import { PetText } from '@/components/PetText';
 import { PetView } from '@/components/PetView';
-import { Colors } from '@/constants/Colors';
+import { useThemeColor } from '@/hooks/useThemeColor';
 import { signOut, getSession, onAuthStateChange } from '@/lib/api';
 import { localization } from '@/localizations/localization';
 import { Session } from '@/types/session';
 
-export default function Profile() {
+type ProfileProps = {
+  lightColor?: string;
+  darkColor?: string;
+};
+
+export default function Profile({ lightColor, darkColor }: ProfileProps) {
   const [session, setSession] = useState<Session | null>(null);
-  const theme = useColorScheme() ?? 'light';
-  const colorText = theme === 'light' ? Colors.light.smallText : Colors.dark.smallText;
+  const colorText = useThemeColor({ light: lightColor, dark: darkColor }, 'smallText');
 
   useEffect(() => {
-    getSession().then(({ data: { session } }) => {
+    const getSessionData = async () => {
+      const {
+        data: { session },
+      } = await getSession();
       setSession(session);
-    });
+    };
+    getSessionData();
 
     onAuthStateChange(setSession);
   }, []);

@@ -6,11 +6,16 @@ import { PetText } from './PetText';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { useToastStore } from '@/store/store';
 
-export const PetToast = () => {
+type PetToastProps = {
+  lightColor?: string;
+  darkColor?: string;
+};
+
+export const PetToast = ({ lightColor, darkColor }: PetToastProps) => {
   const { toast, setToast } = useToastStore();
 
-  const backgroundColor = useThemeColor({ light: '#121212', dark: '#f6f6f6' }, 'background');
-  const color = useThemeColor({ light: '#ecedee', dark: '#11181C' }, 'text');
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'backgroundToast');
+  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'textToast');
 
   if (toast.isVisible) {
     setTimeout(() => setToast({ isVisible: false, message: '' }), 5000);
@@ -18,6 +23,7 @@ export const PetToast = () => {
 
   return (
     <Toast
+      testID="pet-toast-container"
       visible={toast.isVisible}
       position={-20}
       shadow={false}

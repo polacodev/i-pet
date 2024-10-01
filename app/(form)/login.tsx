@@ -1,7 +1,7 @@
 import { router } from 'expo-router';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { Alert } from 'react-native';
+import { Alert, TouchableOpacity } from 'react-native';
 
 import { PetButton } from '@/components/PetButton';
 import { PetText } from '@/components/PetText';
@@ -65,6 +65,7 @@ export default function Login() {
           name="email"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
+              testID="login-email-input"
               onChangeText={onChange}
               onBlur={onBlur}
               value={value}
@@ -74,7 +75,10 @@ export default function Login() {
           )}
         />
         {errors.email && (
-          <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
+          <PetText
+            testID="login-email-input-error"
+            type="smallText"
+            style={{ color: 'red', fontSize: 11, margin: -5 }}>
             {errors.email.message}
           </PetText>
         )}
@@ -90,6 +94,7 @@ export default function Login() {
           name="password"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
+              testID="login-password-input"
               onChangeText={onChange}
               onBlur={onBlur}
               value={value}
@@ -100,7 +105,10 @@ export default function Login() {
           )}
         />
         {errors.password && (
-          <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
+          <PetText
+            testID="login-password-input-error"
+            type="smallText"
+            style={{ color: 'red', fontSize: 11, margin: -5 }}>
             {errors.password.message}
           </PetText>
         )}
@@ -111,9 +119,11 @@ export default function Login() {
         />
         <PetView style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
           <PetText>{localization.t('header_no_account_message')}</PetText>
-          <PetTitle type="link" onPress={goToSignUp} style={{ textDecorationLine: 'underline' }}>
-            {localization.t('header_sign_up')}
-          </PetTitle>
+          <TouchableOpacity testID="redirect-to-signup-label" onPress={goToSignUp}>
+            <PetTitle type="link" style={{ textDecorationLine: 'underline' }}>
+              {localization.t('header_sign_up')}
+            </PetTitle>
+          </TouchableOpacity>
         </PetView>
       </PetView>
     </PetView>

@@ -1,0 +1,799 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PetPage /> PetPage fails the JSON parse and shows up the alert and Snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#f6f6f6",
+      },
+      {
+        "flex": 1,
+        "justifyContent": "flex-start",
+        "width": "100%",
+      },
+    ]
+  }
+  testID="pet-view"
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "#f6f6f6",
+        },
+        {
+          "alignItems": "center",
+        },
+      ]
+    }
+    testID="pet-view"
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#f6f6f6",
+          },
+          {
+            "alignItems": "center",
+          },
+        ]
+      }
+      testID="pet-view"
+    >
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          [
+            {
+              "color": "#ffffff",
+              "fontSize": 80,
+            },
+            [
+              undefined,
+            ],
+            {
+              "fontFamily": "ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            {},
+          ]
+        }
+        testID="pet-icon"
+      >
+        
+      </Text>
+    </View>
+    <Text
+      style={
+        [
+          {
+            "color": "#155e75",
+          },
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "lineHeight": 28,
+          },
+          {
+            "paddingTop": 8,
+          },
+        ]
+      }
+      testID="pet-title"
+    />
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#155e75",
+          },
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "lineHeight": 28,
+          },
+          {
+            "paddingTop": 8,
+          },
+        ]
+      }
+      testID="pet-title"
+    />
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      : 
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      undefined:  
+    </Text>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#075E54",
+          "borderRadius": 10,
+          "flexDirection": "row",
+          "gap": 8,
+          "justifyContent": "center",
+          "margin": 6,
+          "opacity": 1,
+          "padding": 8,
+          "width": "85%",
+        }
+      }
+      testID="pet-button"
+    >
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          [
+            {
+              "color": "#ffffff",
+              "fontSize": 30,
+            },
+            [
+              undefined,
+            ],
+            {
+              "fontFamily": "ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            {},
+          ]
+        }
+        testID="pet-icon"
+      >
+        
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#11181C",
+            },
+            {
+              "fontSize": 16,
+              "lineHeight": 24,
+            },
+            {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        testID="pet-text"
+      />
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#0e7490",
+          "borderRadius": 10,
+          "flexDirection": "row",
+          "gap": 8,
+          "justifyContent": "center",
+          "margin": 6,
+          "opacity": 1,
+          "padding": 8,
+          "width": "85%",
+        }
+      }
+      testID="pet-button"
+    >
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          [
+            {
+              "color": "#ffffff",
+              "fontSize": 30,
+            },
+            [
+              undefined,
+            ],
+            {
+              "fontFamily": "ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            {},
+          ]
+        }
+        testID="pet-icon"
+      >
+        
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#11181C",
+            },
+            {
+              "fontSize": 16,
+              "lineHeight": 24,
+            },
+            {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        testID="pet-text"
+      >
+        QR Code
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`<PetPage /> PetPage renders the PetCard with valid petData and Snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#f6f6f6",
+      },
+      {
+        "flex": 1,
+        "justifyContent": "flex-start",
+        "width": "100%",
+      },
+    ]
+  }
+  testID="pet-view"
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "#f6f6f6",
+        },
+        {
+          "alignItems": "center",
+        },
+      ]
+    }
+    testID="pet-view"
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#f6f6f6",
+          },
+          {
+            "alignItems": "center",
+          },
+        ]
+      }
+      testID="pet-view"
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          {
+            "uri": "https://fakeurl/fakeimage/test.png",
+          }
+        }
+        style={
+          {
+            "borderRadius": 9999,
+            "height": 80,
+            "width": 80,
+          }
+        }
+        testID="pet-image"
+      />
+    </View>
+    <Text
+      style={
+        [
+          {
+            "color": "#155e75",
+          },
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "lineHeight": 28,
+          },
+          {
+            "paddingTop": 8,
+          },
+        ]
+      }
+      testID="pet-title"
+    >
+      info_pet_details
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      info_pet_name
+      : 
+      testPetName
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      info_pet_type
+      : 
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      info_pet_gender
+      : 
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      info_pet_breed
+      : 
+      testPetBreed
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      info_pet_age
+      : 
+      testPetAge
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      info_pet_medical_condition
+      : 
+      testPetMC
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#155e75",
+          },
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "lineHeight": 28,
+          },
+          {
+            "paddingTop": 8,
+          },
+        ]
+      }
+      testID="pet-title"
+    >
+      info_owner_contact
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      info_owner_name
+      : 
+      testProfileEmail
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          {
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+      testID="pet-text"
+    >
+      info_owner_phone: testProfileCountryCode testProfilePhone
+    </Text>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#075E54",
+          "borderRadius": 10,
+          "flexDirection": "row",
+          "gap": 8,
+          "justifyContent": "center",
+          "margin": 6,
+          "opacity": 1,
+          "padding": 8,
+          "width": "85%",
+        }
+      }
+      testID="pet-button"
+    >
+      <Text />
+      <Text
+        style={
+          [
+            {
+              "color": "#11181C",
+            },
+            {
+              "fontSize": 16,
+              "lineHeight": 24,
+            },
+            {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        testID="pet-text"
+      >
+        info_button_owner_whatsapp
+      </Text>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#0e7490",
+          "borderRadius": 10,
+          "flexDirection": "row",
+          "gap": 8,
+          "justifyContent": "center",
+          "margin": 6,
+          "opacity": 1,
+          "padding": 8,
+          "width": "85%",
+        }
+      }
+      testID="pet-button"
+    >
+      <Text />
+      <Text
+        style={
+          [
+            {
+              "color": "#11181C",
+            },
+            {
+              "fontSize": 16,
+              "lineHeight": 24,
+            },
+            {
+              "color": "#ffffff",
+            },
+          ]
+        }
+        testID="pet-text"
+      >
+        QR Code
+      </Text>
+    </View>
+  </View>
+</View>
+`;

@@ -1,13 +1,15 @@
 import { render, screen, fireEvent } from '@testing-library/react-native';
-import '@testing-library/react-native/extend-expect';
 
+import '@testing-library/react-native/extend-expect';
 import { PetTextInput } from '@/components/PetTextInput';
+import { BORDER_COLOR_FORM } from '@/constants/Colors';
 
 describe('<PetTextInput />', () => {
   const placeholder = 'placeholder test';
   const onChangeText = jest.fn();
   const onBlur = jest.fn();
   const value = 'coco';
+  const borderColorForm = BORDER_COLOR_FORM;
 
   test('Input value renders correctly on PetTextInput', () => {
     const { getByTestId } = render(
@@ -33,7 +35,7 @@ describe('<PetTextInput />', () => {
     expect(getByTestId('pet-text-input')).toHaveStyle({
       height: 45,
       borderWidth: 1,
-      borderColor: 'rgb(34 211 238)',
+      borderColor: borderColorForm,
       borderRadius: 10,
       width: '85%',
       paddingLeft: 25,

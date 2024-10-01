@@ -1,16 +1,24 @@
 import { router } from 'expo-router';
-import { useColorScheme } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 import { PetIcon } from './PetIcon';
 import { PetTitle } from './PetTitle';
 import { PetView } from './PetView';
 import { useUser } from './context/UserContext';
 
+import { useThemeColor } from '@/hooks/useThemeColor';
 import { localization } from '@/localizations/localization';
 
-export const PetHeader = () => {
-  const theme = useColorScheme() ?? 'light';
-  const headerInfoBackgroundColor = theme === 'light' ? '#ffffff' : '#121212';
+type PetHeaderProps = {
+  lightColor?: string;
+  darkColor?: string;
+};
+
+export const PetHeader = ({ lightColor, darkColor }: PetHeaderProps) => {
+  const headerInfoBackgroundColor = useThemeColor(
+    { light: lightColor, dark: darkColor },
+    'backgroundHeaderIcon',
+  );
 
   const { session } = useUser();
 
@@ -25,7 +33,9 @@ export const PetHeader = () => {
   return (
     <PetView style={{ backgroundColor: headerInfoBackgroundColor }}>
       {session?.user ? (
-        <PetIcon onPress={goToProfile} name="person" size={24} color="#0891b2" />
+        <TouchableOpacity onPress={goToProfile}>
+          <PetIcon name="person" size={24} color="#0891b2" />
+        </TouchableOpacity>
       ) : (
         <PetTitle type="link" onPress={goToLogin}>
           {localization.t('header_log_in')}

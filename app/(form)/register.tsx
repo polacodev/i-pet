@@ -1,12 +1,12 @@
-import * as FileSystem from 'expo-file-system';
-import * as ImagePicker from 'expo-image-picker';
+import { readAsStringAsync } from 'expo-file-system';
+import { launchImageLibraryAsync, MediaTypeOptions } from 'expo-image-picker';
 import { router } from 'expo-router';
 import React, { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { useColorScheme, TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
 
 import { PetButton } from '@/components/PetButton';
-import PetDropdown from '@/components/PetDropdown';
+import { PetDropdown } from '@/components/PetDropdown';
 import { PetImageViewer } from '@/components/PetImageViewer';
 import { PetText } from '@/components/PetText';
 import { PetTextInput } from '@/components/PetTextInput';
@@ -50,7 +50,7 @@ const PetRegister = () => {
       pet_gender: '',
       pet_breed: '',
       pet_age: '',
-      pet_medical_condition: '',
+      pet_medical_condition: 'NA',
     },
   });
 
@@ -82,10 +82,10 @@ const PetRegister = () => {
     }
 
     const img = imageObj;
-    const base64 = await FileSystem.readAsStringAsync(img.uri, { encoding: 'base64' });
+    const base64 = await readAsStringAsync(img.uri, { encoding: 'base64' });
     const fileExt = img.uri?.split('.').pop();
     const filePath = `${Date.now()}.${fileExt}`;
-    const contentType = img.type === 'image' ? 'image/jpeg' : 'video/mp4';
+    const contentType = 'image/jpeg';
 
     try {
       const { error: errorImage } = await storePetImage(filePath, base64, contentType);
@@ -101,8 +101,7 @@ const PetRegister = () => {
         pet_gender: values.pet_gender,
         pet_breed: values.pet_breed,
         pet_age: values.pet_age,
-        pet_medical_condition:
-          values.pet_medical_condition.length > 0 ? values.pet_medical_condition : 'NA',
+        pet_medical_condition: values.pet_medical_condition,
         inserted_at: new Date(),
       };
 
@@ -116,7 +115,7 @@ const PetRegister = () => {
         Alert.alert(error.message);
       }
     } finally {
-      const { data, error } = await getPetList(user?.id ?? null);
+      const { data, error } = await getPetList(user?.id);
       if (error) Alert.alert(error.message);
       setPetList(data);
     }
@@ -127,16 +126,16 @@ const PetRegister = () => {
   };
 
   const pickImageAsync = async () => {
-    const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+    const { canceled, assets } = await launchImageLibraryAsync({
+      mediaTypes: MediaTypeOptions.Images,
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
     });
 
-    if (!result.canceled) {
-      setSelectedImage(result.assets[0].uri);
-      setImageObj(result.assets[0]);
+    if (!canceled) {
+      setSelectedImage(assets[0].uri);
+      setImageObj(assets[0]);
       clearErrors('pet_image');
     } else {
       Alert.alert('You did not select any image.');
@@ -155,23 +154,17 @@ const PetRegister = () => {
     <PetView style={{ width: '100%' }}>
       <PetView style={{ alignItems: 'center', gap: 5 }}>
         <PetTitle type="subtitle">{localization.t('pet_register_title')}</PetTitle>
-        <>
-          {!selectedImage ? (
-            <TouchableOpacity
-              onPress={pickImageAsync}
-              style={{ flexDirection: 'column', alignItems: 'center' }}>
-              {isDark}
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity
-              onPress={pickImageAsync}
-              style={{ flexDirection: 'column', alignItems: 'center' }}>
-              {isDark}
-            </TouchableOpacity>
-          )}
-        </>
+        <TouchableOpacity
+          testID="register-pet-image"
+          onPress={pickImageAsync}
+          style={{ flexDirection: 'column', alignItems: 'center' }}>
+          {isDark}
+        </TouchableOpacity>
         {errors.pet_image && (
-          <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
+          <PetText
+            testID="register-pet-image-error"
+            type="smallText"
+            style={{ color: 'red', fontSize: 11, margin: -5 }}>
             {errors.pet_image.message}
           </PetText>
         )}
@@ -185,6 +178,7 @@ const PetRegister = () => {
           name="pet_name"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
+              testID="register-pet-name"
               placeholder={localization.t('pet_register_pet_name')}
               onChangeText={onChange}
               onBlur={onBlur}
@@ -193,13 +187,16 @@ const PetRegister = () => {
           )}
         />
         {errors.pet_name && (
-          <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
+          <PetText
+            testID="register-pet-name-error"
+            type="smallText"
+            style={{ color: 'red', fontSize: 11, margin: -5 }}>
             {errors.pet_name.message}
           </PetText>
         )}
         <Controller
           control={control}
-          rules={{ required: true }}
+          rules={{ required: { value: true, message: 'Pet type is required' } }}
           name="pet_type"
           render={({ field: { onChange, value } }) => (
             <PetDropdown
@@ -211,13 +208,16 @@ const PetRegister = () => {
           )}
         />
         {errors.pet_type && (
-          <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
-            Pet type is required
+          <PetText
+            testID="register-pet-type-error"
+            type="smallText"
+            style={{ color: 'red', fontSize: 11, margin: -5 }}>
+            {errors.pet_type.message}
           </PetText>
         )}
         <Controller
           control={control}
-          rules={{ required: true }}
+          rules={{ required: { value: true, message: 'Pet gender is required' } }}
           name="pet_gender"
           render={({ field: { onChange, value } }) => (
             <PetDropdown
@@ -229,8 +229,11 @@ const PetRegister = () => {
           )}
         />
         {errors.pet_gender && (
-          <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
-            Pet gender is required
+          <PetText
+            testID="register-pet-gender-error"
+            type="smallText"
+            style={{ color: 'red', fontSize: 11, margin: -5 }}>
+            {errors.pet_gender.message}
           </PetText>
         )}
         <Controller
@@ -243,6 +246,7 @@ const PetRegister = () => {
           name="pet_breed"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
+              testID="register-pet-breed"
               placeholder={localization.t('pet_register_pet_breed')}
               onChangeText={onChange}
               onBlur={onBlur}
@@ -251,7 +255,10 @@ const PetRegister = () => {
           )}
         />
         {errors.pet_breed && (
-          <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
+          <PetText
+            testID="register-pet-breed-error"
+            type="smallText"
+            style={{ color: 'red', fontSize: 11, margin: -5 }}>
             {errors.pet_breed.message}
           </PetText>
         )}
@@ -265,6 +272,7 @@ const PetRegister = () => {
           name="pet_age"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
+              testID="register-pet-age"
               placeholder={localization.t('pet_register_pet_age')}
               onChangeText={onChange}
               onBlur={onBlur}
@@ -273,7 +281,10 @@ const PetRegister = () => {
           )}
         />
         {errors.pet_age && (
-          <PetText type="smallText" style={{ color: 'red', fontSize: 11, margin: -5 }}>
+          <PetText
+            testID="register-pet-age-error"
+            type="smallText"
+            style={{ color: 'red', fontSize: 11, margin: -5 }}>
             {errors.pet_age.message}
           </PetText>
         )}
@@ -283,6 +294,7 @@ const PetRegister = () => {
           name="pet_medical_condition"
           render={({ field: { onChange, onBlur, value } }) => (
             <PetTextInput
+              testID="register-pet-medical-condition"
               placeholder={localization.t('pet_register_pet_medical_condition')}
               onChangeText={onChange}
               onBlur={onBlur}

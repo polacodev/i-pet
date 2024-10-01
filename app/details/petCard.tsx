@@ -18,21 +18,14 @@ interface PetCardProps {
   petInfo: PetProps;
 }
 
-const PetCard: React.FC<PetCardProps> = ({ petInfo }) => {
+const PetCard = ({ petInfo }: PetCardProps) => {
   const [modalVisible, setModalVisible] = useState(false);
   const iPetUrl = `${expoApiUrl}/details/${petInfo?.id}`;
 
   const callWhatsappOwner = () => {
-    if (petInfo?.profiles?.country_code && petInfo?.profiles?.phone) {
-      Linking.openURL(
-        `${whatsappApiUrl}/${petInfo?.profiles.country_code + petInfo?.profiles.phone}`,
-      );
-    } else {
-      Alert.alert(
-        localization.t('info_alert_contact_info_title'),
-        localization.t('info_alert_contact_info_message'),
-      );
-    }
+    Linking.openURL(
+      `${whatsappApiUrl}/${petInfo?.profiles.country_code + petInfo?.profiles.phone}`,
+    );
   };
 
   return (
@@ -42,6 +35,7 @@ const PetCard: React.FC<PetCardProps> = ({ petInfo }) => {
         <PetView style={{ alignItems: 'center' }}>
           {petInfo?.pet_image ? (
             <Image
+              testID="pet-image"
               source={{
                 uri: `${petInfo.pet_image}`,
               }}
@@ -49,7 +43,7 @@ const PetCard: React.FC<PetCardProps> = ({ petInfo }) => {
               style={{ width: 80, height: 80, borderRadius: 9999 }}
             />
           ) : (
-            <PetIcon name="image" size={80} />
+            <PetIcon testID="pet-icon" name="image" size={80} />
           )}
         </PetView>
 
@@ -102,6 +96,7 @@ const PetCard: React.FC<PetCardProps> = ({ petInfo }) => {
 
         {/** QR CODE */}
         <Modal
+          testID="pet-modal-card"
           animationType="fade"
           transparent
           visible={modalVisible}
@@ -112,12 +107,11 @@ const PetCard: React.FC<PetCardProps> = ({ petInfo }) => {
             <PetView style={styles.modalView}>
               <QRCode value={iPetUrl} size={200} />
             </PetView>
-            <TouchableOpacity style={{ marginTop: 20 }}>
-              <PetIcon
-                name="close-circle"
-                size={50}
-                onPress={() => setModalVisible(!modalVisible)}
-              />
+            <TouchableOpacity
+              testID="pet-close-modal"
+              onPress={() => setModalVisible(!modalVisible)}
+              style={{ marginTop: 20 }}>
+              <PetIcon name="close-circle" size={50} />
             </TouchableOpacity>
           </PetView>
         </Modal>

@@ -39,7 +39,7 @@ exports[`<PetTextInput /> PetTextInput renders correctly Snapshot 1`] = `
         "color": "#11181C",
       },
       {
-        "borderColor": "rgb(34 211 238)",
+        "borderColor": "#22D3EE",
         "borderRadius": 10,
         "borderWidth": 1,
         "height": 45,

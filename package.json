@@ -60,6 +60,17 @@
   },
   "jest": {
     "preset": "jest-expo",
+    "coveragePathIgnorePatterns": [
+      "types",
+      "localizations",
+      ".eslintrc.js",
+      "hooks/useColorScheme.ts",
+      "app/\\(.+?\\)/_layout.tsx",
+      "app/details/_layout.tsx",
+      "app/_layout.tsx",
+      "app/\\+not-found\\.tsx",
+      "components/KeyboardScrollView.tsx"
+    ],
     "transformIgnorePatterns": [
       "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/react-native|native-base|react-native-svg)"
     ],

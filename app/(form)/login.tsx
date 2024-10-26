@@ -56,10 +56,10 @@ export default function Login() {
         <Controller
           control={control}
           rules={{
-            required: { value: true, message: 'email is required' },
+            required: { value: true, message: localization.t('header_login_email_required') },
             pattern: {
               value: /\S+@\S+\.\S+/,
-              message: 'value does not match email format',
+              message: localization.t('header_login_email_format'),
             },
           }}
           name="email"
@@ -85,10 +85,10 @@ export default function Login() {
         <Controller
           control={control}
           rules={{
-            required: { value: true, message: 'password is required' },
+            required: { value: true, message: localization.t('header_login_password_required') },
             minLength: {
               value: 6,
-              message: 'min length is 6',
+              message: localization.t('header_login_password_length'),
             },
           }}
           name="password"

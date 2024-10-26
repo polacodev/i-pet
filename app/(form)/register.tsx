@@ -75,7 +75,7 @@ const PetRegister = () => {
     if (!selectedImage) {
       setError('pet_image', {
         type: 'manual',
-        message: 'Image is required',
+        message: localization.t('pet_register_form_image_required'),
       });
       setSubmitLoading(false);
       return;
@@ -89,7 +89,8 @@ const PetRegister = () => {
 
     try {
       const { error: errorImage } = await storePetImage(filePath, base64, contentType);
-      if (errorImage) Alert.alert('Error uploading image', errorImage.message);
+      if (errorImage)
+        Alert.alert(localization.t('pet_register_form_image_alert'), errorImage.message);
 
       const imageUrl = `${process.env.EXPO_PUBLIC_SUPABASE_URL}/storage/v1/object/public/pets/${filePath}`;
 
@@ -106,9 +107,9 @@ const PetRegister = () => {
       };
 
       const { error } = await insertPet(newPet);
-      if (error) Alert.alert('Error creating pet', error.message);
+      if (error) Alert.alert(localization.t('pet_register_form_error'), error.message);
 
-      setToast({ isVisible: true, message: 'Pet has been created successfully!' });
+      setToast({ isVisible: true, message: localization.t('pet_register_form_toast') });
       router.back();
     } catch (error) {
       if (error instanceof Error) {
@@ -138,7 +139,7 @@ const PetRegister = () => {
       setImageObj(assets[0]);
       clearErrors('pet_image');
     } else {
-      Alert.alert('You did not select any image.');
+      Alert.alert(localization.t('pet_register_form_no_image'));
     }
   };
 
@@ -146,10 +147,11 @@ const PetRegister = () => {
     return (
       <PetView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <ActivityIndicator />
-        <PetText>processing...</PetText>
+        <PetText>{localization.t('pet_register_form_loading')}</PetText>
       </PetView>
     );
   }
+
   return (
     <PetView style={{ width: '100%' }}>
       <PetView style={{ alignItems: 'center', gap: 5 }}>
@@ -171,9 +173,18 @@ const PetRegister = () => {
         <Controller
           control={control}
           rules={{
-            required: { value: true, message: 'pet name is required' },
-            minLength: { value: 3, message: 'min length is 3' },
-            maxLength: { value: 20, message: 'max length is 20' },
+            required: {
+              value: true,
+              message: localization.t('pet_register_form_pet_name_required'),
+            },
+            minLength: {
+              value: 3,
+              message: localization.t('pet_register_form_pet_name_min_length'),
+            },
+            maxLength: {
+              value: 20,
+              message: localization.t('pet_register_form_pet_name_max_length'),
+            },
           }}
           name="pet_name"
           render={({ field: { onChange, onBlur, value } }) => (
@@ -196,14 +207,19 @@ const PetRegister = () => {
         )}
         <Controller
           control={control}
-          rules={{ required: { value: true, message: 'Pet type is required' } }}
+          rules={{
+            required: {
+              value: true,
+              message: localization.t('pet_register_form_pet_type_required'),
+            },
+          }}
           name="pet_type"
           render={({ field: { onChange, value } }) => (
             <PetDropdown
               onChange={onChange}
               value={value}
               data={Object.values(petTypeData)}
-              placeholder="Select pet type"
+              placeholder={localization.t('pet_register_form_pet_type_placeholder')}
             />
           )}
         />
@@ -217,14 +233,19 @@ const PetRegister = () => {
         )}
         <Controller
           control={control}
-          rules={{ required: { value: true, message: 'Pet gender is required' } }}
+          rules={{
+            required: {
+              value: true,
+              message: localization.t('pet_register_form_pet_gender_required'),
+            },
+          }}
           name="pet_gender"
           render={({ field: { onChange, value } }) => (
             <PetDropdown
               onChange={onChange}
               value={value}
               data={Object.values(petGenderData)}
-              placeholder="Select pet gender"
+              placeholder={localization.t('pet_register_form_pet_gender_placeholder')}
             />
           )}
         />
@@ -239,9 +260,18 @@ const PetRegister = () => {
         <Controller
           control={control}
           rules={{
-            required: { value: true, message: 'pet breed is required' },
-            minLength: { value: 3, message: 'min length is 3' },
-            maxLength: { value: 30, message: 'max length is 30' },
+            required: {
+              value: true,
+              message: localization.t('pet_register_form_pet_breed_required'),
+            },
+            minLength: {
+              value: 3,
+              message: localization.t('pet_register_form_pet_breed_min_length'),
+            },
+            maxLength: {
+              value: 30,
+              message: localization.t('pet_register_form_pet_breed_max_length'),
+            },
           }}
           name="pet_breed"
           render={({ field: { onChange, onBlur, value } }) => (
@@ -265,9 +295,18 @@ const PetRegister = () => {
         <Controller
           control={control}
           rules={{
-            required: { value: true, message: 'pet age is required' },
-            minLength: { value: 3, message: 'min length is 3' },
-            maxLength: { value: 30, message: 'max length is 20' },
+            required: {
+              value: true,
+              message: localization.t('pet_register_form_pet_age_required'),
+            },
+            minLength: {
+              value: 3,
+              message: localization.t('pet_register_form_pet_age_min_length'),
+            },
+            maxLength: {
+              value: 30,
+              message: localization.t('pet_register_form_pet_age_max_length'),
+            },
           }}
           name="pet_age"
           render={({ field: { onChange, onBlur, value } }) => (

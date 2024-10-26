@@ -91,9 +91,7 @@ exports[`<Login /> Email, Password change event are called correctly with invali
         ]
       }
       testID="login-email-input-error"
-    >
-      value does not match email format
-    </Text>
+    />
     <TextInput
       autoCapitalize="none"
       defaultValue=""
@@ -139,9 +137,7 @@ exports[`<Login /> Email, Password change event are called correctly with invali
         ]
       }
       testID="login-password-input-error"
-    >
-      min length is 6
-    </Text>
+    />
     <View
       accessibilityState={
         {

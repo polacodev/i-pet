@@ -418,9 +418,7 @@ exports[`<PetRegister /> Pet image(fail on Submit): Change event are called corr
         ]
       }
       testID="register-pet-image-error"
-    >
-      Image is required
-    </Text>
+    />
     <TextInput
       defaultValue=""
       onBlur={[Function]}
@@ -771,9 +769,7 @@ exports[`<PetRegister /> Pet name, type, gender, breed, age: Change event are ca
         ]
       }
       testID="register-pet-name-error"
-    >
-      pet name is required
-    </Text>
+    />
     <View
       data={
         [
@@ -804,9 +800,7 @@ exports[`<PetRegister /> Pet name, type, gender, breed, age: Change event are ca
         ]
       }
       testID="register-pet-type-error"
-    >
-      Pet type is required
-    </Text>
+    />
     <View
       data={
         [
@@ -837,9 +831,7 @@ exports[`<PetRegister /> Pet name, type, gender, breed, age: Change event are ca
         ]
       }
       testID="register-pet-gender-error"
-    >
-      Pet gender is required
-    </Text>
+    />
     <TextInput
       defaultValue=""
       onBlur={[Function]}
@@ -883,9 +875,7 @@ exports[`<PetRegister /> Pet name, type, gender, breed, age: Change event are ca
         ]
       }
       testID="register-pet-breed-error"
-    >
-      pet breed is required
-    </Text>
+    />
     <TextInput
       defaultValue=""
       onBlur={[Function]}
@@ -929,9 +919,7 @@ exports[`<PetRegister /> Pet name, type, gender, breed, age: Change event are ca
         ]
       }
       testID="register-pet-age-error"
-    >
-      pet age is required
-    </Text>
+    />
     <TextInput
       defaultValue=""
       onBlur={[Function]}

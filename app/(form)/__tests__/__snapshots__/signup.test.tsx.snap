@@ -91,9 +91,7 @@ exports[`<Signup /> Email, Password, Phone: Change event are called correctly wi
         ]
       }
       testID="signup-email-input-error"
-    >
-      value does not match email format
-    </Text>
+    />
     <TextInput
       autoCapitalize="none"
       defaultValue=""
@@ -139,9 +137,7 @@ exports[`<Signup /> Email, Password, Phone: Change event are called correctly wi
         ]
       }
       testID="signup-password-input-error"
-    >
-      min length is 6
-    </Text>
+    />
     <View
       style={
         [
@@ -285,9 +281,7 @@ exports[`<Signup /> Email, Password, Phone: Change event are called correctly wi
         ]
       }
       testID="signup-phone-input-error"
-    >
-      cell phone must be numeric only
-    </Text>
+    />
     <View
       accessibilityState={
         {

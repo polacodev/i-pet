@@ -85,10 +85,10 @@ export default function Signup() {
         <Controller
           control={control}
           rules={{
-            required: { value: true, message: 'email is required' },
+            required: { value: true, message: localization.t('header_sign_up_email_required') },
             pattern: {
               value: /\S+@\S+\.\S+/,
-              message: 'value does not match email format',
+              message: localization.t('header_sign_up_email_format'),
             },
           }}
           name="email"
@@ -114,10 +114,10 @@ export default function Signup() {
         <Controller
           control={control}
           rules={{
-            required: { value: true, message: 'password is required' },
+            required: { value: true, message: localization.t('header_sign_up_password_required') },
             minLength: {
               value: 6,
-              message: 'min length is 6',
+              message: localization.t('header_sign_up_password_length'),
             },
           }}
           name="password"
@@ -152,12 +152,18 @@ export default function Signup() {
           <Controller
             control={control}
             rules={{
-              required: { value: true, message: 'cell phone is required' },
+              required: {
+                value: true,
+                message: localization.t('header_sign_up_cell_phone_required'),
+              },
               pattern: {
                 value: /^[0-9]+/,
-                message: 'cell phone must be numeric only',
+                message: localization.t('header_sign_up_cell_phone_numeric'),
               },
-              maxLength: { value: 15, message: 'max length is 15' },
+              maxLength: {
+                value: 15,
+                message: localization.t('header_sign_up_cell_phone_max_length'),
+              },
             }}
             name="phone"
             render={({ field: { onChange, onBlur, value } }) => (

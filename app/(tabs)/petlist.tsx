@@ -76,13 +76,16 @@ export default function PetList({ lightColor, darkColor }: PetListProps) {
   }
 
   const onDeletePetById = async (petId: string, petImageURL: string) => {
-    Alert.alert('', 'Are you sure to delete?', [
+    Alert.alert('', localization.t('pet_list_delete_pet'), [
       {
-        text: 'Cancel',
+        text: localization.t('pet_list_delete_pet_cancel'),
         onPress: () => ({}),
         style: 'cancel',
       },
-      { text: 'OK', onPress: () => deletePet(petId, petImageURL) },
+      {
+        text: localization.t('pet_list_delete_pet_ok'),
+        onPress: () => deletePet(petId, petImageURL),
+      },
     ]);
   };
 
@@ -98,13 +101,19 @@ export default function PetList({ lightColor, darkColor }: PetListProps) {
         deletePetImagePromise,
       ]);
 
-      if (deletePetByIdResult.error) Alert.alert('Error', deletePetByIdResult.error.message);
-      if (deletePetImageResult.error) Alert.alert('Error', deletePetImageResult.error.message);
+      if (deletePetByIdResult.error)
+        Alert.alert(localization.t('pet_list_delete_pet_error'), deletePetByIdResult.error.message);
+      if (deletePetImageResult.error)
+        Alert.alert(
+          localization.t('pet_list_delete_pet_error'),
+          deletePetImageResult.error.message,
+        );
 
       removePetFromStore(petId);
-      setToast({ isVisible: true, message: 'Pet has been deleted successfully!' });
+      setToast({ isVisible: true, message: localization.t('pet_list_delete_pet_success') });
     } catch (error) {
-      if (error instanceof Error) Alert.alert('Error', error.message);
+      if (error instanceof Error)
+        Alert.alert(localization.t('pet_list_delete_pet_error'), error.message);
     }
   };
 

@@ -2,7 +2,17 @@ import { render, screen, fireEvent } from '@testing-library/react-native';
 import '@testing-library/react-native/extend-expect';
 
 import { PetDropdown } from '@/components/PetDropdown';
-import { petTypeData, petGenderData } from '@/constants/constants';
+import { DropdownProps } from '@/types/dropdown';
+
+const petTypeData: { [key: string]: DropdownProps } = {
+  1: { label: 'dog', value: '1' },
+  2: { label: 'cat', value: '2' },
+};
+
+const petGenderData: { [key: string]: DropdownProps } = {
+  1: { label: 'male', value: '1' },
+  2: { label: 'female', value: '2' },
+};
 
 describe('<PetDropdown />', () => {
   const onChange = jest.fn();
